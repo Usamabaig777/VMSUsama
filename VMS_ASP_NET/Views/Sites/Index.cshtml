@@ -1,0 +1,295 @@
+﻿@model VMS_ASP_NET.Models.Sites
+@using VMS_ASP_NET.Models
+@using System.Data
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var sitesList = Model.Sites_Tables;
+    UserRole loginUser = (UserRole)Session["userRole"];
+}
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <ul class="nav nav-tabs">
+            <a class="active" href="/sites">
+                <li class="nav-item"><a class="nav-link active"><i class="cui-home icons"></i> <span class=""> Sites</span></a></li>
+            </a>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body">
+                                <div class="animated fadeIn">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        @if (loginUser.Role.RoleName == "Administrator")
+                                                        {
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                            <button disabled type="button" class="mr-1 btn btn-success" data-toggle="modal" data-target="#create_Site" onclick="fnGetSiteModal()"><i class="fa fa-plus"></i> Create Site</button>
+                                                        </div>
+                                                        }
+                                                        else
+                                                        {
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                            <button type="button" class="mr-1 btn btn-success" data-toggle="modal" data-target="#create_Site" onclick="fnGetSiteModal()"><i class="fa fa-plus"></i> Create Site</button>
+                                                        </div>
+                                                        }
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                            <form class="float-right form-inline">
+                                                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                                    <label class="mr-sm-2">Filter All: </label>
+                                                                    <input placeholder="Search here ..." type="text" class="form-control" value="">
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="ReactTable -striped -highlight hideFilterRow">
+                                                        <div class="rt-table" role="grid">
+                                                            <div class="rt-thead -header" style="min-width: 500px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Name</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Description</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Email</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                        <div class="">Gates</div>
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                        <div class="">Actions</div>
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                                                        <div class=""></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-thead -filters" style="min-width: 500px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-tbody" style="min-width: 500px;">
+                                                                <div class="rt-tr-group" role="rowgroup">
+
+                                                                    @{
+                                                                        if (Model.Sites_Tables.Rows.Count != 0)
+                                                                        {
+                                                                            foreach (DataRow row in sitesList.Rows)
+                                                                            {
+                                                                                <div class="rt-tr -odd feeRow" role="row">
+                                                                                    <input type="hidden" value="@row["SiteID"].ToString()" name="SiteHidden" id="SiteHidden" />
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">@row["SiteName"].ToString()</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">@row["SiteDescription"].ToString()</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">@row["Email"].ToString()</div>
+
+                                                                                    @if (loginUser.Role.RoleName == "Administrator")
+                                                                                    {
+                                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                                            <button type="button" disabled class="mr-1 btn btn-link" data-toggle="modal" data-target="#viewgate" onclick="getGatesBySiteID(@row["SiteID"].ToString())">
+                                                                                                <i class="fa fa-eye"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                                            <button type="button" disabled class="mr-1 btn btn-primary btn-sm" data-toggle="modal" data-target="#create_Site" onclick="fnEditSiteModal(@row["SiteID"].ToString())"><i class="fa fa-edit"></i> Edit</button>
+                                                                                        </div>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                                            <button type="button" class="mr-1 btn btn-link" data-toggle="modal" data-target="#viewgate" onclick="getGatesBySiteID(@row["SiteID"].ToString())">
+                                                                                                <i class="fa fa-eye"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                                            <button type="button" class="mr-1 btn btn-primary btn-sm" data-toggle="modal" data-target="#create_Site" onclick="fnEditSiteModal(@row["SiteID"].ToString())"><i class="fa fa-edit"></i> Edit</button>
+                                                                                        </div>
+                                                                                    }
+                                                                                    <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                                </div>
+                                                                            }
+                                                                        }
+                                                                    }
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pagination-bottom">
+                                                            <div class="-pagination">
+                                                                <div class="-previous">
+                                                                    <button type="button" disabled="" class="-btn">Previous</button>
+                                                                </div>
+                                                                <div class="-center"><span class="-pageInfo">Page <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div> of <span class="-totalPages">1</span></span><span class="select-wrap -pageSizeOptions"><select aria-label="rows per page"><option value="5">5 rows</option><option value="10">10 rows</option><option value="20">20 rows</option><option value="25">25 rows</option><option value="50">50 rows</option><option value="100">100 rows</option></select></span></div>
+                                                                <div class="-next">
+                                                                    <button type="button" disabled="" class="-btn">Next</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="-loading">
+                                                            <div class="-loading-inner">Loading...</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade show" id="create_Site" role="dialog">
+    <div class="modal-dialog modal-success" role="document">
+        <div class="modal-content">
+            <div id="AddSiteForm">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade show" id="viewgate">
+    <div class="modal-dialog modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Site Gates</h5>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" data-dismiss="modal">×</span>
+                </button>
+            </div>
+
+            <div class="pt-0 modal-body">
+                <div class="position-relative form-group">
+                    <button type="button" class="mt-2 mb-2 float-right btn btn-success" onclick="CreateGate()" data-toggle="modal" data-target="#addnewgate">
+                        <i class="fa fa-plus"></i> Add New
+                    </button>
+                </div>
+                <div id="DatesPartialViewHere"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade show" id="addnewgate">
+    <div class="modal-dialog modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-plus"></i> Add Gate</h5>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" data-dismiss="modal">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("CreateGate", "Sites", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="hidden" id="add_gate_SiteID" name="SiteID" />
+                <div class="modal-body">
+                    <div class="position-relative form-group">
+                        <label for="GateDescription" class="">Name<b style="color: red;"> * </b></label>
+                        <input name="GateDescription" id="GateDescription" required type="text" class="form-control" placeholder="Gate Description">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="GateCreate">Create</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            }
+            @*<form asp-action="Create" asp-controller="Gates"></form>*@
+        </div>
+    </div>
+</div>
+<div class="modal fade show" id="editgate">
+    <div class="modal-dialog modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-plus"></i> Edit Gate</h5>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" data-dismiss="modal">×</span>
+                </button>
+            </div>
+            <div id="EditPartialViewHere"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function fnGetSiteModal() {
+
+        $.ajax({
+            url: "/Sites/CreateSite/",
+            success: function (result) {
+                $("#AddSiteForm").html(result);
+            }
+        });
+    };
+
+
+    function fnEditSiteModal(id) {
+        $.ajax({
+
+            url: "/Sites/UpdateSite/",
+            data: { 'id': id },
+            success: function (result) {
+                $("#AddSiteForm").html(result);
+            }
+        });
+
+    };
+
+    function getGatesBySiteID(SiteID) {
+        $.ajax({
+            type: "GET",
+            data: { 'SiteID': SiteID },
+            url: "/Sites/getGatesBySiteID/",
+            success: function (data) {
+                $('#add_gate_SiteID').val(SiteID);
+                $('#DatesPartialViewHere').html(data);
+            }
+        });
+    };
+    function editGate(GateID) {
+        $.ajax({
+            type: "GET",
+            data: { 'id': GateID },
+            url: "/Sites/UpdateGate/",
+            success: function (data) {
+                $('#EditPartialViewHere').html(data);
+            }
+        });
+    };
+
+</script>

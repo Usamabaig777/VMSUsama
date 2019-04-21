@@ -1,0 +1,132 @@
+﻿@using VMS_ASP_NET.Models;
+@{ 
+    VMSFarhanEntities db = new VMSFarhanEntities();
+    UserRole user = (UserRole)Session["userRole"];
+    List<Site> site = db.Site.ToList();
+    VMS_ASP_NET.Models.Environment environment = db.Environment.FirstOrDefault();
+    User u = (User)Session["User"];
+}
+<header class="app-header navbar">
+    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+        <img class="navbar-brand-full" src="~/UI/assets/images/logo.png" width="auto" height="40" alt=" Logo">
+        <img class="navbar-brand-minimized" src="~/UI/assets/images/logo.png" width="auto" height="50" alt="Logo">
+    </a>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav navbar-nav d-md-down-none">
+        <li class="d-md-down-none px-3 nav-item">@environment.ApplicationName - @environment.EnvironmentName</li>
+        <li class="d-sm-down-none nav-item"><b>Site: </b></li>
+        <li class="siteListDropdown d-none d-sm-block nav-item">
+            <span>
+                @{
+                    @*@using VMS_ASP_NET.Models;*@
+
+                if (user != null)
+                {
+                    if (user.Role.RoleName == "SuperUser")
+                    {
+                        if (site != null)
+                        {
+                                <select id="SiteID" name="SiteID" class="form-control-sm form-control">
+                                    @foreach (var item in site)
+                                    {
+                                        if (item.SiteID == Convert.ToInt32(Session["SiteId"]))
+                                        {
+                                            <option id="SiteID" value="@item.SiteID" selected>@item.SiteName</option>
+                                        }
+                                        else
+                                        {
+                                            <option id="SiteID" value="@item.SiteID">@item.SiteName</option>
+                                        }
+                                    }
+                                </select>
+                            }
+                        }
+                        else
+                        {
+                            Site siteobj = (Site)Session["SiteObject"];
+                            <div>
+                                @siteobj.SiteName
+                            </div>
+                        }
+                    }
+                }
+            </span>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+
+        <div id="NotificationsHere">
+
+        </div>
+
+        @*<li class="nav-item dropdown d-md-down-none">
+            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-bell"></i>
+                <span class="badge badge-pill badge-danger">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+                <div tabindex="-1" class="text-center dropdown-header"><strong>You have 0 notifications.</strong></div>
+                <ul class="list-group">
+                    <li class="list-group-item-secondary list-group-item">
+                        <h5 class="mb-0 list-group-item-heading"> wed</h5>
+                        <span style="top: 5px; right: 10px; position: absolute; font-size: small;">2 days ago</span>
+                        <p class="mb-0 list-group-item-text" style="color: gray;"> erwe<span class="blockquote-footer"><span title="Source Title">Sent by Site Admin</span></span></p>
+                        <button class="p-0 btn btn-link btn-sm disabled" style="bottom: 5px; right: 10px; position: absolute; font-size: small; line-height: normal;" disabled=""><i class="fa fa-envelope-open-o"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </li>*@
+        <li class="nav-item dropdown">
+            <a class="nav-link nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img class="img-avatar" src="~/UI/assets/images/10.png" alt="admin@bootstrapmaster.com">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="~/Login/ChangePassword">
+                        <i class="fa fa-wrench"></i> Change Password
+                    </a>
+                    <a class="dropdown-item" href="~/Login/Logout">
+                        <i class="fa fa-lock"></i> Logout
+                    </a>
+                </div>
+        </li>
+        @if (u != null)
+        {
+            <li class="mr-2 nav-item"><a class="nav-link">@u.UserName</a></li>
+        }
+    </ul>
+</header>
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "/Notifications/NotificationList/",
+            success: function (result) {
+                $("#NotificationsHere").html(result);
+            }
+        });
+
+    })
+
+
+    $("#SiteID").change(function () {
+        //alert('change');
+        var elt = $(this).val();
+        $.ajax({
+
+            url: "/Login/SiteSelectionView/",
+            data: { 'id': elt },
+            success: function (result) {
+                //alert(result);
+                location.reload();
+            }
+
+        });
+    });
+
+</script>

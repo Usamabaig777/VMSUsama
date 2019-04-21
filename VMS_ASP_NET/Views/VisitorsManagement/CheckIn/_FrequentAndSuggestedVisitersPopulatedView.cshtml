@@ -1,0 +1,40 @@
+﻿@model IEnumerable<VMS_ASP_NET.Models.ViewModels.FrequentVisitorsList>
+@{
+    Layout = null;
+}
+@*<table style="width:430px;margin:0" class="table table-sm table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th style="width:10%">Full Name</th>
+            <th style="width:20%">Company</th>
+            <th style="width:20%">Status</th>
+            <th style="width:20%">Destination</th>
+            <th style="width:10%">ID</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>*@
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <button id="GetVisitorsList" class="btn btn-success btn-sm" onclick="fnGetVisitorDetail(@item.VisitorID)">Select</button>
+                @*<i class="btn btn-primary col-sm fa fa-sign-out"></i>*@
+            </td>
+            <td>@item.VisitorFirstName @item.VisitorLastName</td>
+            <td>@item.Company</td>
+            <td>@item.VisitorStatusDescription</td>
+            <td>@item.DestinationDescription</td>
+            <td>@item.VisitorSSN</td>
+        </tr>
+    }
+}
+else
+{
+        <tr>
+            <span>No record found</span>
+        </tr>
+}

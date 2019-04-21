@@ -1,0 +1,66 @@
+﻿@using VMS_ASP_NET.Models.ViewModel
+@{
+    Layout = null;
+    VisitorDetailID visitorID = (VisitorDetailID)Session["VisitDetail"];
+}
+
+
+<div class="card-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <div class="clearfix"><label class="float-left">Check-in Time</label><span class="float-right"> @visitorID.CheckInDate @visitorID.CheckInTime</span></div>
+
+                @if (@visitorID.CheckOutTime != null)
+                {
+                    <div class="clearfix"><label class="float-left">Check-out Time</label><span class="float-right">@visitorID.CheckOutDate @visitorID.CheckOutTime</span></div>
+                }
+
+                <div class="clearfix">
+                    <label class="float-left">Check-in Gate</label><span class="float-right">@visitorID.CheckInFromGate</span>
+                </div>
+                @if (@visitorID.CheckOutFromGate != null)
+                {
+                    <div class="clearfix">
+                        <label class="float-left">Check-out Gate</label><span class="float-right">@visitorID.CheckOutFromGate</span>
+                    </div>
+                }
+
+            </div>
+            <div class="clearfix">
+                <label class="float-left">Destination</label><span class="float-right">@visitorID.DestinationDescription</span>
+            </div>
+            <div class="clearfix">
+                <label class="float-left">License Plate</label><span class="float-right">@visitorID.CheckInLicensePlateNo</span>
+            </div>
+            <div class="clearfix">
+                <label class="float-left">Vehicle Type</label><span class="float-right">@visitorID.CheckInVehicleTypeName</span>
+            </div>
+            <div class="clearfix">
+                <label class="float-left">Vehicle Make</label><span class="float-right">@visitorID.CheckInMakeName</span>
+            </div>
+            <div class="clearfix">
+                <label class="float-left">Vehicle Color</label><span class="float-right">@visitorID.CheckInColorName</span>
+            </div>
+            <div class="clearfix">
+                <label class="float-left">Vehicle State</label><span class="float-right">@visitorID.CheckInStateName</span>
+            </div>
+            <div class="clearfix">
+                <label class="float-left">Checked In By</label><span class="float-right">@visitorID.CheckedInByUser</span>
+            </div>
+
+            @if (@visitorID.CheckedOutByUser != null)
+            {
+                <div class="ifearfix">
+                    <label class="float-left">Checked out By</label><span class="float-right">@visitorID.CheckedOutByUser</span>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

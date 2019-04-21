@@ -1,0 +1,20 @@
+﻿@model VMS_ASP_NET.Models.Gate
+@{
+    Layout = null;
+}
+
+<div class="mb-4 input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+    </div>
+    @if (ViewData["gates"] != null)
+    {
+        @Html.DropDownListFor(m => m.GateID, ViewData["gates"] as SelectList, "Select Gate", new { name = "Gates", @class = "form-control", @required = "required" })
+    }
+    else
+    {
+    <select required name="siteId" class="form-control">
+        <option value="">Select Gate</option>
+    </select>
+    }
+</div>

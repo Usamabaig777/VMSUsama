@@ -1,0 +1,1376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__EFMigrationsHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="ColorID" />
+    </Key>
+    <Property Name="ColorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ColorCode" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="70" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Destination">
+    <Key>
+      <PropertyRef Name="DestinationID" />
+    </Key>
+    <Property Name="DestinationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteID" Type="int" Nullable="false" />
+    <Property Name="DestinationDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'VMSFarhan.dbo.Environment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Environment">
+    <Key>
+      <PropertyRef Name="EnvironmentName" />
+    </Key>
+    <Property Name="EnvironmentName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ApplicationName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Gate">
+    <Key>
+      <PropertyRef Name="GateID" />
+    </Key>
+    <Property Name="GateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteID" Type="int" Nullable="false" />
+    <Property Name="GateDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IncidentReport">
+    <Key>
+      <PropertyRef Name="IncidentReportID" />
+    </Key>
+    <Property Name="IncidentReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="IncidentLocation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IncidentDescription" Type="varchar" MaxLength="7500" />
+    <Property Name="SecurityOfficerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Shift" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="PrimaryInvolvedPerson" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DriverLicenseNo" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Telephone" Type="varchar" MaxLength="12" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="SupervisorName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="VehicleMake" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleModel" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleLicensePlateNo" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleStateID" Type="int" />
+    <Property Name="TrailerAttachmentID" Type="int" />
+    <Property Name="TrailerLicensePlateNo" Type="varchar" MaxLength="50" />
+    <Property Name="TrailerVIN" Type="varchar" MaxLength="50" />
+    <Property Name="TrailerStateID" Type="int" />
+    <Property Name="CurrentlyInsured" Type="tinyint" />
+    <Property Name="PolicyNumber" Type="varchar" MaxLength="30" />
+    <Property Name="WorkSite" Type="varchar" MaxLength="30" />
+    <Property Name="Vendor" Type="varchar" MaxLength="30" />
+    <Property Name="SiteType" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="Disposition" Type="varchar" MaxLength="50" />
+    <Property Name="Signature" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="SupervisorPhoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="IncidentDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IncidentReportAttachment">
+    <Key>
+      <PropertyRef Name="IncidentReportAttachmentID" />
+    </Key>
+    <Property Name="IncidentReportAttachmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileAttachment" Type="varchar(max)" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FileType" Type="varchar" MaxLength="100" />
+    <Property Name="FileExtension" Type="varchar" MaxLength="10" />
+    <Property Name="IncidentReportID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'VMSFarhan.dbo.IncidentReportType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IncidentReportType">
+    <Key>
+      <PropertyRef Name="IncidentReportID" />
+      <PropertyRef Name="IncidentTypeID" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="CreatedOn" />
+      <PropertyRef Name="ModifiedBy" />
+      <PropertyRef Name="ModifiedOn" />
+    </Key>
+    <Property Name="IncidentReportID" Type="int" Nullable="false" />
+    <Property Name="IncidentTypeID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IncidentType">
+    <Key>
+      <PropertyRef Name="IncidentTypeID" />
+    </Key>
+    <Property Name="IncidentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IncidentTypeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationHeader" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NotificationDescription" Type="varchar" MaxLength="7500" Nullable="false" />
+    <Property Name="SiteID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Privilege">
+    <Key>
+      <PropertyRef Name="PrivilegeID" />
+    </Key>
+    <Property Name="PrivilegeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrivilegeName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PrivilegeDescription" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolePrivilege">
+    <Key>
+      <PropertyRef Name="RolePrivilegeID" />
+    </Key>
+    <Property Name="RolePrivilegeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrivilegeID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="RoleDescription" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sites">
+    <Key>
+      <PropertyRef Name="SiteID" />
+    </Key>
+    <Property Name="SiteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="SiteName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SiteDescription" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="StateProvince">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateCode" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Trailer">
+    <Key>
+      <PropertyRef Name="TrailerID" />
+    </Key>
+    <Property Name="TrailerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrailerAttachmentID" Type="int" Nullable="false" />
+    <Property Name="TrailerStateID" Type="int" Nullable="false" />
+    <Property Name="TrailerTypeID" Type="int" Nullable="false" />
+    <Property Name="TrailerPlateNo" Type="varchar" MaxLength="50" />
+    <Property Name="TrailerVIN" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrailerAttachment">
+    <Key>
+      <PropertyRef Name="TrailerAttachmentID" />
+    </Key>
+    <Property Name="TrailerAttachmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrailerAttachmentName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrailerType">
+    <Key>
+      <PropertyRef Name="TrailerTypeID" />
+    </Key>
+    <Property Name="TrailerTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrailerTypeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserNotification">
+    <Key>
+      <PropertyRef Name="UserNotificationID" />
+    </Key>
+    <Property Name="UserNotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="isRead" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleID" />
+    </Key>
+    <Property Name="UserRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="SiteID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="isLogin" Type="bit" Nullable="false" />
+    <Property Name="isPasswordReset" Type="bit" Nullable="false" />
+    <Property Name="isExternal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleTypeID" Type="int" Nullable="false" />
+    <Property Name="LicensePlateNo" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleStateID" Type="int" Nullable="false" />
+    <Property Name="MakeID" Type="int" Nullable="false" />
+    <Property Name="ModelName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="VehicleColorID" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleMake">
+    <Key>
+      <PropertyRef Name="MakeID" />
+    </Key>
+    <Property Name="MakeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MakeName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleType">
+    <Key>
+      <PropertyRef Name="VehicleTypeID" />
+    </Key>
+    <Property Name="VehicleTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleTypeName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitDetail">
+    <Key>
+      <PropertyRef Name="VisitDetailID" />
+    </Key>
+    <Property Name="VisitDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CheckiInMainID" Type="int" />
+    <Property Name="VisitorID" Type="int" Nullable="false" />
+    <Property Name="CheckOutMainID" Type="int" />
+    <Property Name="CheckInTime" Type="datetime" Nullable="false" />
+    <Property Name="isManualCheckIn" Type="bit" Nullable="false" />
+    <Property Name="isManualCheckOut" Type="tinyint" />
+    <Property Name="isDriverCheckOut" Type="tinyint" />
+    <Property Name="CheckOutTime" Type="datetime" />
+    <Property Name="ProofOfInsurance" Type="tinyint" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="50" />
+    <Property Name="DestinationID" Type="int" />
+    <Property Name="isDriverCheckIn" Type="tinyint" />
+    <Property Name="CheckInSignature" Type="varchar(max)" />
+    <Property Name="OrientationVisit" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="VisitMain">
+    <Key>
+      <PropertyRef Name="VisitMainID" />
+    </Key>
+    <Property Name="VisitMainID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorTypeID" Type="int" Nullable="false" />
+    <Property Name="SiteID" Type="int" Nullable="false" />
+    <Property Name="CheckInMainTime" Type="datetime" Nullable="false" />
+    <Property Name="CheckInDevice" Type="varchar" MaxLength="30" />
+    <Property Name="CheckInMainUserID" Type="int" Nullable="false" />
+    <Property Name="CheckInMainGateID" Type="int" Nullable="false" />
+    <Property Name="CheckInMainTrailerID" Type="int" />
+    <Property Name="CheckOutTime" Type="datetime" />
+    <Property Name="CheckOutDevice" Type="varchar" MaxLength="30" />
+    <Property Name="CheckOutMainGateID" Type="int" />
+    <Property Name="CheckOutMainUserID" Type="int" />
+    <Property Name="CheckOutMainTrailerID" Type="int" />
+    <Property Name="PlacardNo" Type="varchar" MaxLength="25" />
+    <Property Name="VehicleSearchConsent" Type="tinyint" />
+    <Property Name="UnitNo" Type="int" />
+    <Property Name="SectionSector" Type="int" />
+    <Property Name="EmergencyVehicleType" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Organization" Type="varchar" MaxLength="50" />
+    <Property Name="PassNumber" Type="varchar" MaxLength="25" />
+    <Property Name="ConeNumber" Type="varchar" MaxLength="25" />
+    <Property Name="ConeColorID" Type="int" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="VehicleID" Type="int" />
+    <Property Name="VehicleSearchResult" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Visitor">
+    <Key>
+      <PropertyRef Name="VisitorID" />
+    </Key>
+    <Property Name="VisitorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteID" Type="int" Nullable="false" />
+    <Property Name="VisitorSSN" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="VisitorFirstName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="VisitorLastName" Type="varchar" MaxLength="30" />
+    <Property Name="VisitorAddress" Type="varchar" MaxLength="100" />
+    <Property Name="VisitorEmail" Type="varchar" MaxLength="100" />
+    <Property Name="Company" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassNo" Type="varchar" MaxLength="25" />
+    <Property Name="VisitorStatusID" Type="int" />
+    <Property Name="VisitorEntryExitNotification" Type="bit" Nullable="false" />
+    <Property Name="NotificationEmailAddress" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitorNotification">
+    <Key>
+      <PropertyRef Name="VisitorNotificationID" />
+    </Key>
+    <Property Name="VisitorNotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorID" Type="int" Nullable="false" />
+    <Property Name="NotificationID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitorStatus">
+    <Key>
+      <PropertyRef Name="VisitorStatusID" />
+    </Key>
+    <Property Name="VisitorStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorStatusDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VisitorType">
+    <Key>
+      <PropertyRef Name="VisitorTypeID" />
+    </Key>
+    <Property Name="VisitorTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorTypeDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="VisitorTypeName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VisitorVehicle">
+    <Key>
+      <PropertyRef Name="VisitorVehicleID" />
+    </Key>
+    <Property Name="VisitorVehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorID" Type="int" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+    <Property Name="DestinationID" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VMSErrorLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Gate_Site">
+    <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+    <End Role="Gate" Type="Self.Gate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="SiteID" />
+      </Principal>
+      <Dependent Role="Gate">
+        <PropertyRef Name="SiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IncidentReport_Site">
+    <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+    <End Role="IncidentReport" Type="Self.IncidentReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="SiteID" />
+      </Principal>
+      <Dependent Role="IncidentReport">
+        <PropertyRef Name="SiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_Site">
+    <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="SiteID" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="SiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePrivilege_Privilege">
+    <End Role="Privilege" Type="Self.Privilege" Multiplicity="1" />
+    <End Role="RolePrivilege" Type="Self.RolePrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Privilege">
+        <PropertyRef Name="PrivilegeID" />
+      </Principal>
+      <Dependent Role="RolePrivilege">
+        <PropertyRef Name="PrivilegeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePrivilege_Role">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="RolePrivilege" Type="Self.RolePrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="RolePrivilege">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Site_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Sites" Type="Self.Sites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="Sites">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trailer_State">
+    <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="1" />
+    <End Role="Trailer" Type="Self.Trailer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateProvince">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="Trailer">
+        <PropertyRef Name="TrailerStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trailer_TrailerAttachment">
+    <End Role="TrailerAttachment" Type="Self.TrailerAttachment" Multiplicity="1" />
+    <End Role="Trailer" Type="Self.Trailer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrailerAttachment">
+        <PropertyRef Name="TrailerAttachmentID" />
+      </Principal>
+      <Dependent Role="Trailer">
+        <PropertyRef Name="TrailerAttachmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Site">
+    <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="SiteID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="SiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserNotification_Notification">
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="1" />
+    <End Role="UserNotification" Type="Self.UserNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notifications">
+        <PropertyRef Name="NotificationID" />
+      </Principal>
+      <Dependent Role="UserNotification">
+        <PropertyRef Name="NotificationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserNotification_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserNotification" Type="Self.UserNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserNotification">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_State">
+    <End Role="StateProvince" Type="Self.StateProvince" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateProvince">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="VehicleStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_VehicleColor">
+    <End Role="Color" Type="Self.Color" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ColorID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="VehicleColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicle_VehicleType">
+    <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleType">
+        <PropertyRef Name="VehicleTypeID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="VehicleTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitDetail_VisitMain">
+    <End Role="VisitMain" Type="Self.VisitMain" Multiplicity="0..1" />
+    <End Role="VisitDetail" Type="Self.VisitDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitMain">
+        <PropertyRef Name="VisitMainID" />
+      </Principal>
+      <Dependent Role="VisitDetail">
+        <PropertyRef Name="CheckiInMainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitMain_Color">
+    <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+    <End Role="VisitMain" Type="Self.VisitMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ColorID" />
+      </Principal>
+      <Dependent Role="VisitMain">
+        <PropertyRef Name="ConeColorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitMain_VisitorType">
+    <End Role="VisitorType" Type="Self.VisitorType" Multiplicity="1" />
+    <End Role="VisitMain" Type="Self.VisitMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitorType">
+        <PropertyRef Name="VisitorTypeID" />
+      </Principal>
+      <Dependent Role="VisitMain">
+        <PropertyRef Name="VisitorTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visitor_Site">
+    <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+    <End Role="Visitor" Type="Self.Visitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="SiteID" />
+      </Principal>
+      <Dependent Role="Visitor">
+        <PropertyRef Name="SiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visitor_VisitorStatus">
+    <End Role="VisitorStatus" Type="Self.VisitorStatus" Multiplicity="0..1" />
+    <End Role="Visitor" Type="Self.Visitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitorStatus">
+        <PropertyRef Name="VisitorStatusID" />
+      </Principal>
+      <Dependent Role="Visitor">
+        <PropertyRef Name="VisitorStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitorNotification_Notification">
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="1" />
+    <End Role="VisitorNotification" Type="Self.VisitorNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notifications">
+        <PropertyRef Name="NotificationID" />
+      </Principal>
+      <Dependent Role="VisitorNotification">
+        <PropertyRef Name="NotificationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitorNotification_Visitor">
+    <End Role="Visitor" Type="Self.Visitor" Multiplicity="1" />
+    <End Role="VisitorNotification" Type="Self.VisitorNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visitor">
+        <PropertyRef Name="VisitorID" />
+      </Principal>
+      <Dependent Role="VisitorNotification">
+        <PropertyRef Name="VisitorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ap_DasboardMetrics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CreateIncidentReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="IncidentLocation" Type="varchar" Mode="In" />
+    <Parameter Name="IncidentDescription" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityOfficerName" Type="varchar" Mode="In" />
+    <Parameter Name="Shift" Type="char" Mode="In" />
+    <Parameter Name="PrimaryInvolvedPerson" Type="varchar" Mode="In" />
+    <Parameter Name="DriverLicenseNo" Type="varchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="Telephone" Type="varchar" Mode="In" />
+    <Parameter Name="BirthDate" Type="date" Mode="In" />
+    <Parameter Name="SupervisorName" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleMake" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleModel" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleLicensePlateNo" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleStateID" Type="int" Mode="In" />
+    <Parameter Name="TrailerAttachmentID" Type="int" Mode="In" />
+    <Parameter Name="TrailerLicensePlateNo" Type="varchar" Mode="In" />
+    <Parameter Name="TrailerVIN" Type="varchar" Mode="In" />
+    <Parameter Name="TrailerStateID" Type="int" Mode="In" />
+    <Parameter Name="CurrentlyInsured" Type="tinyint" Mode="In" />
+    <Parameter Name="PolicyNumber" Type="varchar" Mode="In" />
+    <Parameter Name="WorkSite" Type="varchar" Mode="In" />
+    <Parameter Name="Vendor" Type="varchar" Mode="In" />
+    <Parameter Name="SiteType" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+    <Parameter Name="Disposition" Type="varchar" Mode="In" />
+    <Parameter Name="Signature" Type="bit" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+    <Parameter Name="Notes" Type="varchar" Mode="In" />
+    <Parameter Name="SupervisorPhoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="IncidentDateTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetAllIncidentType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Rpt_CreateOperationalReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VisitorFirstName" Type="varchar" Mode="In" />
+    <Parameter Name="VisitorLastName" Type="varchar" Mode="In" />
+    <Parameter Name="VisitorSSN" Type="varchar" Mode="In" />
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="GateID" Type="int" Mode="In" />
+    <Parameter Name="GuardID" Type="int" Mode="In" />
+    <Parameter Name="Company" Type="varchar" Mode="In" />
+    <Parameter Name="LicensePlateNo" Type="varchar" Mode="In" />
+    <Parameter Name="MakeID" Type="int" Mode="In" />
+    <Parameter Name="VehicleColorID" Type="int" Mode="In" />
+    <Parameter Name="ModelName" Type="varchar" Mode="In" />
+    <Parameter Name="DaysCount" Type="int" Mode="In" />
+    <Parameter Name="StartDateTime" Type="datetime" Mode="In" />
+    <Parameter Name="EndDateTime" Type="datetime" Mode="In" />
+    <Parameter Name="ReportType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InputString" Type="varchar" Mode="In" />
+    <Parameter Name="Delimiter" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Item" Type="varchar" MaxLength="8000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="usp_AuthenticateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateColor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ColorName" Type="varchar" Mode="In" />
+    <Parameter Name="ColorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateCommandParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+    <Parameter Name="Object" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateGate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="GateDescription" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateInsertCommandColumns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateInsertParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateModelClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreatePrivilege" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PrivilegeName" Type="varchar" Mode="In" />
+    <Parameter Name="PrivilegeDescription" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreatePrivilegSeeder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="permissionList" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateRolePrivilege" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="PrivilegeIDs" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateRoleSeeder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rolelist" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateSite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="SiteName" Type="varchar" Mode="In" />
+    <Parameter Name="SiteDescription" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateTrailer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrailerAttachmentID" Type="int" Mode="In" />
+    <Parameter Name="TrailerStateID" Type="int" Mode="In" />
+    <Parameter Name="TrailerTypeID" Type="int" Mode="In" />
+    <Parameter Name="TrailerPlateNo" Type="varchar" Mode="In" />
+    <Parameter Name="TrailerVIN" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateTrailerType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrailerTypeDescription" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateUpdateParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+    <Parameter Name="isActive" Type="bit" Mode="In" />
+    <Parameter Name="isLogin" Type="bit" Mode="In" />
+    <Parameter Name="isExternal" Type="bit" Mode="In" />
+    <Parameter Name="isPasswordReset" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateUserRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="RolesID" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateUserSeeder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userList" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateVehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VehicleTypeID" Type="int" Mode="In" />
+    <Parameter Name="LicensePlateNo" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleStateID" Type="int" Mode="In" />
+    <Parameter Name="MakeID" Type="int" Mode="In" />
+    <Parameter Name="ModelName" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleColorID" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateVehicleMake" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MakeName" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateVehicleType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VehicleTypeName" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateVisitor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="VisitorSSN" Type="char" Mode="In" />
+    <Parameter Name="VisitorFirstName" Type="varchar" Mode="In" />
+    <Parameter Name="VisitorLastName" Type="varchar" Mode="In" />
+    <Parameter Name="VisitorAddress" Type="varchar" Mode="In" />
+    <Parameter Name="VisitorEmail" Type="varchar" Mode="In" />
+    <Parameter Name="Company" Type="varchar" Mode="In" />
+    <Parameter Name="PassNo" Type="varchar" Mode="In" />
+    <Parameter Name="VisitorStatusID" Type="int" Mode="In" />
+    <Parameter Name="VisitorEntryExitNotification" Type="bit" Mode="In" />
+    <Parameter Name="NotificationEmailAddress" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CreateVisitorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VisitorTypeDescription" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_CreatRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleDescription" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_DeleteGate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GateID" Type="int" Mode="In" />
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllColors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllCompanies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllGates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllPermissions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllSites" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllTrailers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllTrailerTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllVehicleMakes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_GetAllVehicles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllVehicleTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllVisitors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetAllVisitorTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetGateDetailsByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetPermissionsByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CUserID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetSiteGates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetUserByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetVisitorDetailVisitorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="VisitorID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PrivilegesByRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RolesByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="PID" Type="int" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OldPassword" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SignOffUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TableDataSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+    <Parameter Name="Object" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateGate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GateID" Type="int" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="GateDescription" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateSite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="SiteName" Type="varchar" Mode="In" />
+    <Parameter Name="SiteDescription" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+    <Parameter Name="isActive" Type="bit" Mode="In" />
+    <Parameter Name="isLogin" Type="bit" Mode="In" />
+    <Parameter Name="isExternal" Type="bit" Mode="In" />
+    <Parameter Name="isPasswordReset" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_VisitorActivityFeed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_VMSErrorLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Message" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="vms_Android_GetVisitorDetailByVisitDetailID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VisitDetailID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_CleanBuggyData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="vms_DotNet_GetVisitorDetailByVisitDetailID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VisitDetailID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_GetAllCheckedInVisits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_GetAllCheckedInVisitsDotNet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VMS_GetAllIncidentReports" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VMS_GetAllNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VMS_GetAllNotificationsDotNet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VMS_GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_GetSiteBySiteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_getTodaysAllCheckoutsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SiteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_UpdateUserSiteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+    <Parameter Name="siteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="vms_UpdateVehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VehicleID" Type="int" Mode="In" />
+    <Parameter Name="VehicleTypeID" Type="int" Mode="In" />
+    <Parameter Name="VehicleStateID" Type="int" Mode="In" />
+    <Parameter Name="MakeID" Type="int" Mode="In" />
+    <Parameter Name="ModelName" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleColorID" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="vms_UpdateVehicleInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VehicleID" Type="int" Mode="In" />
+    <Parameter Name="VehicleTypeID" Type="int" Mode="In" />
+    <Parameter Name="LicensePlateNo" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleStateID" Type="int" Mode="In" />
+    <Parameter Name="MakeID" Type="int" Mode="In" />
+    <Parameter Name="ModelName" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleColorID" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="VMSModelStoreContainer">
+    <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Destination" EntityType="Self.Destination" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gate" EntityType="Self.Gate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncidentReport" EntityType="Self.IncidentReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncidentReportAttachment" EntityType="Self.IncidentReportAttachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncidentType" EntityType="Self.IncidentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Privilege" EntityType="Self.Privilege" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePrivilege" EntityType="Self.RolePrivilege" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateProvince" EntityType="Self.StateProvince" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trailer" EntityType="Self.Trailer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrailerAttachment" EntityType="Self.TrailerAttachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrailerType" EntityType="Self.TrailerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserNotification" EntityType="Self.UserNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleMake" EntityType="Self.VehicleMake" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitDetail" EntityType="Self.VisitDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitMain" EntityType="Self.VisitMain" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Visitor" EntityType="Self.Visitor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitorNotification" EntityType="Self.VisitorNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitorStatus" EntityType="Self.VisitorStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitorType" EntityType="Self.VisitorType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitorVehicle" EntityType="Self.VisitorVehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VMSErrorLog" EntityType="Self.VMSErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Environment" EntityType="Self.Environment" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Environment].[EnvironmentName] AS [EnvironmentName], 
+    [Environment].[ApplicationName] AS [ApplicationName]
+    FROM [dbo].[Environment] AS [Environment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="IncidentReportType" EntityType="Self.IncidentReportType" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IncidentReportType].[IncidentReportID] AS [IncidentReportID], 
+    [IncidentReportType].[IncidentTypeID] AS [IncidentTypeID], 
+    [IncidentReportType].[CreatedBy] AS [CreatedBy], 
+    [IncidentReportType].[CreatedOn] AS [CreatedOn], 
+    [IncidentReportType].[ModifiedBy] AS [ModifiedBy], 
+    [IncidentReportType].[ModifiedOn] AS [ModifiedOn]
+    FROM [dbo].[IncidentReportType] AS [IncidentReportType]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Gate_Site" Association="Self.FK_Gate_Site">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="Gate" EntitySet="Gate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IncidentReport_Site" Association="Self.FK_IncidentReport_Site">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="IncidentReport" EntitySet="IncidentReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_Site" Association="Self.FK_Notification_Site">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePrivilege_Privilege" Association="Self.FK_RolePrivilege_Privilege">
+      <End Role="Privilege" EntitySet="Privilege" />
+      <End Role="RolePrivilege" EntitySet="RolePrivilege" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePrivilege_Role" Association="Self.FK_RolePrivilege_Role">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolePrivilege" EntitySet="RolePrivilege" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Site_Company" Association="Self.FK_Site_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Sites" EntitySet="Sites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trailer_State" Association="Self.FK_Trailer_State">
+      <End Role="StateProvince" EntitySet="StateProvince" />
+      <End Role="Trailer" EntitySet="Trailer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trailer_TrailerAttachment" Association="Self.FK_Trailer_TrailerAttachment">
+      <End Role="TrailerAttachment" EntitySet="TrailerAttachment" />
+      <End Role="Trailer" EntitySet="Trailer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Site" Association="Self.FK_User_Site">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserNotification_Notification" Association="Self.FK_UserNotification_Notification">
+      <End Role="Notifications" EntitySet="Notifications" />
+      <End Role="UserNotification" EntitySet="UserNotification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserNotification_User" Association="Self.FK_UserNotification_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserNotification" EntitySet="UserNotification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_State" Association="Self.FK_Vehicle_State">
+      <End Role="StateProvince" EntitySet="StateProvince" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_VehicleColor" Association="Self.FK_Vehicle_VehicleColor">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicle_VehicleType" Association="Self.FK_Vehicle_VehicleType">
+      <End Role="VehicleType" EntitySet="VehicleType" />
+      <End Role="Vehicle" EntitySet="Vehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitDetail_VisitMain" Association="Self.FK_VisitDetail_VisitMain">
+      <End Role="VisitMain" EntitySet="VisitMain" />
+      <End Role="VisitDetail" EntitySet="VisitDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitMain_Color" Association="Self.FK_VisitMain_Color">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="VisitMain" EntitySet="VisitMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitMain_VisitorType" Association="Self.FK_VisitMain_VisitorType">
+      <End Role="VisitorType" EntitySet="VisitorType" />
+      <End Role="VisitMain" EntitySet="VisitMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visitor_Site" Association="Self.FK_Visitor_Site">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="Visitor" EntitySet="Visitor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visitor_VisitorStatus" Association="Self.FK_Visitor_VisitorStatus">
+      <End Role="VisitorStatus" EntitySet="VisitorStatus" />
+      <End Role="Visitor" EntitySet="Visitor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitorNotification_Notification" Association="Self.FK_VisitorNotification_Notification">
+      <End Role="Notifications" EntitySet="Notifications" />
+      <End Role="VisitorNotification" EntitySet="VisitorNotification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitorNotification_Visitor" Association="Self.FK_VisitorNotification_Visitor">
+      <End Role="Visitor" EntitySet="Visitor" />
+      <End Role="VisitorNotification" EntitySet="VisitorNotification" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

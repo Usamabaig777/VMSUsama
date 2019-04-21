@@ -1,0 +1,1387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VMSModelStoreContainer" CdmEntityContainer="VMSEntities">
+    <EntitySetMapping Name="C__EFMigrationsHistory">
+      <EntityTypeMapping TypeName="VMSModel.C__EFMigrationsHistory">
+        <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="VMSModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="VMSModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Destinations">
+      <EntityTypeMapping TypeName="VMSModel.Destination">
+        <MappingFragment StoreEntitySet="Destination">
+          <ScalarProperty Name="DestinationID" ColumnName="DestinationID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="DestinationDescription" ColumnName="DestinationDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gates">
+      <EntityTypeMapping TypeName="VMSModel.Gate">
+        <MappingFragment StoreEntitySet="Gate">
+          <ScalarProperty Name="GateID" ColumnName="GateID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="GateDescription" ColumnName="GateDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncidentReports">
+      <EntityTypeMapping TypeName="VMSModel.IncidentReport">
+        <MappingFragment StoreEntitySet="IncidentReport">
+          <ScalarProperty Name="IncidentReportID" ColumnName="IncidentReportID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="IncidentLocation" ColumnName="IncidentLocation" />
+          <ScalarProperty Name="IncidentDescription" ColumnName="IncidentDescription" />
+          <ScalarProperty Name="SecurityOfficerName" ColumnName="SecurityOfficerName" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="PrimaryInvolvedPerson" ColumnName="PrimaryInvolvedPerson" />
+          <ScalarProperty Name="DriverLicenseNo" ColumnName="DriverLicenseNo" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+          <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleLicensePlateNo" ColumnName="VehicleLicensePlateNo" />
+          <ScalarProperty Name="VehicleStateID" ColumnName="VehicleStateID" />
+          <ScalarProperty Name="TrailerAttachmentID" ColumnName="TrailerAttachmentID" />
+          <ScalarProperty Name="TrailerLicensePlateNo" ColumnName="TrailerLicensePlateNo" />
+          <ScalarProperty Name="TrailerVIN" ColumnName="TrailerVIN" />
+          <ScalarProperty Name="TrailerStateID" ColumnName="TrailerStateID" />
+          <ScalarProperty Name="CurrentlyInsured" ColumnName="CurrentlyInsured" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="WorkSite" ColumnName="WorkSite" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="SiteType" ColumnName="SiteType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Disposition" ColumnName="Disposition" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="SupervisorPhoneNumber" ColumnName="SupervisorPhoneNumber" />
+          <ScalarProperty Name="IncidentDateTime" ColumnName="IncidentDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncidentReportAttachments">
+      <EntityTypeMapping TypeName="VMSModel.IncidentReportAttachment">
+        <MappingFragment StoreEntitySet="IncidentReportAttachment">
+          <ScalarProperty Name="IncidentReportAttachmentID" ColumnName="IncidentReportAttachmentID" />
+          <ScalarProperty Name="FileAttachment" ColumnName="FileAttachment" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="IncidentReportID" ColumnName="IncidentReportID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncidentTypes">
+      <EntityTypeMapping TypeName="VMSModel.IncidentType">
+        <MappingFragment StoreEntitySet="IncidentType">
+          <ScalarProperty Name="IncidentTypeID" ColumnName="IncidentTypeID" />
+          <ScalarProperty Name="IncidentTypeDescription" ColumnName="IncidentTypeDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="VMSModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="NotificationHeader" ColumnName="NotificationHeader" />
+          <ScalarProperty Name="NotificationDescription" ColumnName="NotificationDescription" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Privileges">
+      <EntityTypeMapping TypeName="VMSModel.Privilege">
+        <MappingFragment StoreEntitySet="Privilege">
+          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
+          <ScalarProperty Name="PrivilegeName" ColumnName="PrivilegeName" />
+          <ScalarProperty Name="PrivilegeDescription" ColumnName="PrivilegeDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolePrivileges">
+      <EntityTypeMapping TypeName="VMSModel.RolePrivilege">
+        <MappingFragment StoreEntitySet="RolePrivilege">
+          <ScalarProperty Name="RolePrivilegeID" ColumnName="RolePrivilegeID" />
+          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="VMSModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="VMSModel.Site">
+        <MappingFragment StoreEntitySet="Sites">
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="SiteDescription" ColumnName="SiteDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateProvinces">
+      <EntityTypeMapping TypeName="VMSModel.StateProvince">
+        <MappingFragment StoreEntitySet="StateProvince">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="VMSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trailers">
+      <EntityTypeMapping TypeName="VMSModel.Trailer">
+        <MappingFragment StoreEntitySet="Trailer">
+          <ScalarProperty Name="TrailerID" ColumnName="TrailerID" />
+          <ScalarProperty Name="TrailerAttachmentID" ColumnName="TrailerAttachmentID" />
+          <ScalarProperty Name="TrailerStateID" ColumnName="TrailerStateID" />
+          <ScalarProperty Name="TrailerTypeID" ColumnName="TrailerTypeID" />
+          <ScalarProperty Name="TrailerPlateNo" ColumnName="TrailerPlateNo" />
+          <ScalarProperty Name="TrailerVIN" ColumnName="TrailerVIN" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrailerAttachments">
+      <EntityTypeMapping TypeName="VMSModel.TrailerAttachment">
+        <MappingFragment StoreEntitySet="TrailerAttachment">
+          <ScalarProperty Name="TrailerAttachmentID" ColumnName="TrailerAttachmentID" />
+          <ScalarProperty Name="TrailerAttachmentName" ColumnName="TrailerAttachmentName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrailerTypes">
+      <EntityTypeMapping TypeName="VMSModel.TrailerType">
+        <MappingFragment StoreEntitySet="TrailerType">
+          <ScalarProperty Name="TrailerTypeID" ColumnName="TrailerTypeID" />
+          <ScalarProperty Name="TrailerTypeDescription" ColumnName="TrailerTypeDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserNotifications">
+      <EntityTypeMapping TypeName="VMSModel.UserNotification">
+        <MappingFragment StoreEntitySet="UserNotification">
+          <ScalarProperty Name="UserNotificationID" ColumnName="UserNotificationID" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="isRead" ColumnName="isRead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="VMSModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="VMSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="VMSModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="LicensePlateNo" ColumnName="LicensePlateNo" />
+          <ScalarProperty Name="VehicleStateID" ColumnName="VehicleStateID" />
+          <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="VehicleColorID" ColumnName="VehicleColorID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleMakes">
+      <EntityTypeMapping TypeName="VMSModel.VehicleMake">
+        <MappingFragment StoreEntitySet="VehicleMake">
+          <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleTypes">
+      <EntityTypeMapping TypeName="VMSModel.VehicleType">
+        <MappingFragment StoreEntitySet="VehicleType">
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="VehicleTypeName" ColumnName="VehicleTypeName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitDetails">
+      <EntityTypeMapping TypeName="VMSModel.VisitDetail">
+        <MappingFragment StoreEntitySet="VisitDetail">
+          <ScalarProperty Name="VisitDetailID" ColumnName="VisitDetailID" />
+          <ScalarProperty Name="CheckiInMainID" ColumnName="CheckiInMainID" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="CheckOutMainID" ColumnName="CheckOutMainID" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="isManualCheckIn" ColumnName="isManualCheckIn" />
+          <ScalarProperty Name="isManualCheckOut" ColumnName="isManualCheckOut" />
+          <ScalarProperty Name="isDriverCheckOut" ColumnName="isDriverCheckOut" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="ProofOfInsurance" ColumnName="ProofOfInsurance" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="DestinationID" ColumnName="DestinationID" />
+          <ScalarProperty Name="isDriverCheckIn" ColumnName="isDriverCheckIn" />
+          <ScalarProperty Name="CheckInSignature" ColumnName="CheckInSignature" />
+          <ScalarProperty Name="OrientationVisit" ColumnName="OrientationVisit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitMains">
+      <EntityTypeMapping TypeName="VMSModel.VisitMain">
+        <MappingFragment StoreEntitySet="VisitMain">
+          <ScalarProperty Name="VisitMainID" ColumnName="VisitMainID" />
+          <ScalarProperty Name="VisitorTypeID" ColumnName="VisitorTypeID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CheckInMainTime" ColumnName="CheckInMainTime" />
+          <ScalarProperty Name="CheckInDevice" ColumnName="CheckInDevice" />
+          <ScalarProperty Name="CheckInMainUserID" ColumnName="CheckInMainUserID" />
+          <ScalarProperty Name="CheckInMainGateID" ColumnName="CheckInMainGateID" />
+          <ScalarProperty Name="CheckInMainTrailerID" ColumnName="CheckInMainTrailerID" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOutDevice" ColumnName="CheckOutDevice" />
+          <ScalarProperty Name="CheckOutMainGateID" ColumnName="CheckOutMainGateID" />
+          <ScalarProperty Name="CheckOutMainUserID" ColumnName="CheckOutMainUserID" />
+          <ScalarProperty Name="CheckOutMainTrailerID" ColumnName="CheckOutMainTrailerID" />
+          <ScalarProperty Name="PlacardNo" ColumnName="PlacardNo" />
+          <ScalarProperty Name="VehicleSearchConsent" ColumnName="VehicleSearchConsent" />
+          <ScalarProperty Name="UnitNo" ColumnName="UnitNo" />
+          <ScalarProperty Name="SectionSector" ColumnName="SectionSector" />
+          <ScalarProperty Name="EmergencyVehicleType" ColumnName="EmergencyVehicleType" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="PassNumber" ColumnName="PassNumber" />
+          <ScalarProperty Name="ConeNumber" ColumnName="ConeNumber" />
+          <ScalarProperty Name="ConeColorID" ColumnName="ConeColorID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleSearchResult" ColumnName="VehicleSearchResult" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visitors">
+      <EntityTypeMapping TypeName="VMSModel.Visitor">
+        <MappingFragment StoreEntitySet="Visitor">
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="VisitorSSN" ColumnName="VisitorSSN" />
+          <ScalarProperty Name="VisitorFirstName" ColumnName="VisitorFirstName" />
+          <ScalarProperty Name="VisitorLastName" ColumnName="VisitorLastName" />
+          <ScalarProperty Name="VisitorAddress" ColumnName="VisitorAddress" />
+          <ScalarProperty Name="VisitorEmail" ColumnName="VisitorEmail" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+          <ScalarProperty Name="VisitorStatusID" ColumnName="VisitorStatusID" />
+          <ScalarProperty Name="VisitorEntryExitNotification" ColumnName="VisitorEntryExitNotification" />
+          <ScalarProperty Name="NotificationEmailAddress" ColumnName="NotificationEmailAddress" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitorNotifications">
+      <EntityTypeMapping TypeName="VMSModel.VisitorNotification">
+        <MappingFragment StoreEntitySet="VisitorNotification">
+          <ScalarProperty Name="VisitorNotificationID" ColumnName="VisitorNotificationID" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitorStatus">
+      <EntityTypeMapping TypeName="VMSModel.VisitorStatu">
+        <MappingFragment StoreEntitySet="VisitorStatus">
+          <ScalarProperty Name="VisitorStatusID" ColumnName="VisitorStatusID" />
+          <ScalarProperty Name="VisitorStatusDescription" ColumnName="VisitorStatusDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitorTypes">
+      <EntityTypeMapping TypeName="VMSModel.VisitorType">
+        <MappingFragment StoreEntitySet="VisitorType">
+          <ScalarProperty Name="VisitorTypeID" ColumnName="VisitorTypeID" />
+          <ScalarProperty Name="VisitorTypeDescription" ColumnName="VisitorTypeDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="VisitorTypeName" ColumnName="VisitorTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitorVehicles">
+      <EntityTypeMapping TypeName="VMSModel.VisitorVehicle">
+        <MappingFragment StoreEntitySet="VisitorVehicle">
+          <ScalarProperty Name="VisitorVehicleID" ColumnName="VisitorVehicleID" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="DestinationID" ColumnName="DestinationID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VMSErrorLogs">
+      <EntityTypeMapping TypeName="VMSModel.VMSErrorLog">
+        <MappingFragment StoreEntitySet="VMSErrorLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Environments">
+      <EntityTypeMapping TypeName="VMSModel.Environment">
+        <MappingFragment StoreEntitySet="Environment">
+          <ScalarProperty Name="EnvironmentName" ColumnName="EnvironmentName" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncidentReportTypes">
+      <EntityTypeMapping TypeName="VMSModel.IncidentReportType">
+        <MappingFragment StoreEntitySet="IncidentReportType">
+          <ScalarProperty Name="IncidentReportID" ColumnName="IncidentReportID" />
+          <ScalarProperty Name="IncidentTypeID" ColumnName="IncidentTypeID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="VMSModel.Store.Split" FunctionImportName="Split">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.Split_Result">
+          <ScalarProperty Name="Item" ColumnName="Item" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ap_DasboardMetrics" FunctionName="VMSModel.Store.ap_DasboardMetrics">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.ap_DasboardMetrics_Result">
+          <ScalarProperty Name="TotalCheckedInVisitors" ColumnName="TotalCheckedInVisitors" />
+          <ScalarProperty Name="IncidentReported" ColumnName="IncidentReported" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CreateIncidentReport" FunctionName="VMSModel.Store.CreateIncidentReport" />
+    <FunctionImportMapping FunctionImportName="GetAllIncidentType" FunctionName="VMSModel.Store.GetAllIncidentType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.GetAllIncidentType_Result">
+          <ScalarProperty Name="IncidentTypeID" ColumnName="IncidentTypeID" />
+          <ScalarProperty Name="IncidentTypeDescription" ColumnName="IncidentTypeDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUser" FunctionName="VMSModel.Store.GetUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.GetUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Rpt_CreateOperationalReports" FunctionName="VMSModel.Store.Rpt_CreateOperationalReports">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.Rpt_CreateOperationalReports_Result">
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+          <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckInVehicleLicensePlateNo" ColumnName="CheckInVehicleLicensePlateNo" />
+          <ScalarProperty Name="CheckInVehicleMakeName" ColumnName="CheckInVehicleMakeName" />
+          <ScalarProperty Name="CheckInVehicleModelName" ColumnName="CheckInVehicleModelName" />
+          <ScalarProperty Name="CheckInVehicleColorName" ColumnName="CheckInVehicleColorName" />
+          <ScalarProperty Name="CheckOutVehicleLicensePlateNo" ColumnName="CheckOutVehicleLicensePlateNo" />
+          <ScalarProperty Name="CheckOutVehicleMakeName" ColumnName="CheckOutVehicleMakeName" />
+          <ScalarProperty Name="CheckOutVehicleModelName" ColumnName="CheckOutVehicleModelName" />
+          <ScalarProperty Name="CheckOutVehicleColorName" ColumnName="CheckOutVehicleColorName" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="ReportingOfficerCheckIn" ColumnName="ReportingOfficerCheckIn" />
+          <ScalarProperty Name="ReportingOfficerCheckOut" ColumnName="ReportingOfficerCheckOut" />
+          <ScalarProperty Name="CheckInGate" ColumnName="CheckInGate" />
+          <ScalarProperty Name="CheckOutGate" ColumnName="CheckOutGate" />
+          <ScalarProperty Name="VisitorFirstName" ColumnName="VisitorFirstName" />
+          <ScalarProperty Name="VisitorLastName" ColumnName="VisitorLastName" />
+          <ScalarProperty Name="DesignationCheckin" ColumnName="DesignationCheckin" />
+          <ScalarProperty Name="DesignationCheckOut" ColumnName="DesignationCheckOut" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="VMSModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="VMSModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="VMSModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="VMSModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="VMSModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="VMSModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="VMSModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="usp_AuthenticateUser" FunctionName="VMSModel.Store.usp_AuthenticateUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_AuthenticateUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="Environment" ColumnName="Environment" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CreateColor" FunctionName="VMSModel.Store.usp_CreateColor" />
+    <FunctionImportMapping FunctionImportName="usp_CreateCommandParameter" FunctionName="VMSModel.Store.usp_CreateCommandParameter" />
+    <FunctionImportMapping FunctionImportName="usp_CreateCompany" FunctionName="VMSModel.Store.usp_CreateCompany" />
+    <FunctionImportMapping FunctionImportName="usp_CreateGate" FunctionName="VMSModel.Store.usp_CreateGate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_CreateGate_Result">
+          <ScalarProperty Name="GateID" ColumnName="GateID" />
+          <ScalarProperty Name="GateDescription" ColumnName="GateDescription" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CreateInsertCommandColumns" FunctionName="VMSModel.Store.usp_CreateInsertCommandColumns" />
+    <FunctionImportMapping FunctionImportName="usp_CreateInsertParameter" FunctionName="VMSModel.Store.usp_CreateInsertParameter" />
+    <FunctionImportMapping FunctionImportName="usp_CreateModelClass" FunctionName="VMSModel.Store.usp_CreateModelClass" />
+    <FunctionImportMapping FunctionImportName="usp_CreatePrivilege" FunctionName="VMSModel.Store.usp_CreatePrivilege" />
+    <FunctionImportMapping FunctionImportName="usp_CreatePrivilegSeeder" FunctionName="VMSModel.Store.usp_CreatePrivilegSeeder" />
+    <FunctionImportMapping FunctionImportName="usp_CreateRolePrivilege" FunctionName="VMSModel.Store.usp_CreateRolePrivilege" />
+    <FunctionImportMapping FunctionImportName="usp_CreateRoleSeeder" FunctionName="VMSModel.Store.usp_CreateRoleSeeder" />
+    <FunctionImportMapping FunctionImportName="usp_CreateSite" FunctionName="VMSModel.Store.usp_CreateSite">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_CreateSite_Result">
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="SiteDescription" ColumnName="SiteDescription" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CreateTrailer" FunctionName="VMSModel.Store.usp_CreateTrailer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_CreateTrailer_Result">
+          <ScalarProperty Name="TrailerAttachmentID" ColumnName="TrailerAttachmentID" />
+          <ScalarProperty Name="TrailerStateID" ColumnName="TrailerStateID" />
+          <ScalarProperty Name="TrailerTypeID" ColumnName="TrailerTypeID" />
+          <ScalarProperty Name="TrailerPlateNo" ColumnName="TrailerPlateNo" />
+          <ScalarProperty Name="TrailerVIN" ColumnName="TrailerVIN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CreateTrailerType" FunctionName="VMSModel.Store.usp_CreateTrailerType" />
+    <FunctionImportMapping FunctionImportName="usp_CreateUpdateParameter" FunctionName="VMSModel.Store.usp_CreateUpdateParameter" />
+    <FunctionImportMapping FunctionImportName="usp_CreateUser" FunctionName="VMSModel.Store.usp_CreateUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_CreateUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CreateUserRoles" FunctionName="VMSModel.Store.usp_CreateUserRoles" />
+    <FunctionImportMapping FunctionImportName="usp_CreateUserSeeder" FunctionName="VMSModel.Store.usp_CreateUserSeeder" />
+    <FunctionImportMapping FunctionImportName="usp_CreateVehicle" FunctionName="VMSModel.Store.usp_CreateVehicle" />
+    <FunctionImportMapping FunctionImportName="usp_CreateVehicleMake" FunctionName="VMSModel.Store.usp_CreateVehicleMake" />
+    <FunctionImportMapping FunctionImportName="usp_CreateVehicleType" FunctionName="VMSModel.Store.usp_CreateVehicleType" />
+    <FunctionImportMapping FunctionImportName="usp_CreateVisitor" FunctionName="VMSModel.Store.usp_CreateVisitor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_CreateVisitor_Result">
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="VisitorSSN" ColumnName="VisitorSSN" />
+          <ScalarProperty Name="VisitorFirstName" ColumnName="VisitorFirstName" />
+          <ScalarProperty Name="VisitorLastName" ColumnName="VisitorLastName" />
+          <ScalarProperty Name="VisitorAddress" ColumnName="VisitorAddress" />
+          <ScalarProperty Name="VisitorEmail" ColumnName="VisitorEmail" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+          <ScalarProperty Name="VisitorStatusID" ColumnName="VisitorStatusID" />
+          <ScalarProperty Name="VisitorEntryExitNotification" ColumnName="VisitorEntryExitNotification" />
+          <ScalarProperty Name="NotificationEmailAddress" ColumnName="NotificationEmailAddress" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_CreateVisitorType" FunctionName="VMSModel.Store.usp_CreateVisitorType" />
+    <FunctionImportMapping FunctionImportName="usp_CreatRole" FunctionName="VMSModel.Store.usp_CreatRole" />
+    <FunctionImportMapping FunctionImportName="usp_DeleteGate" FunctionName="VMSModel.Store.usp_DeleteGate" />
+    <FunctionImportMapping FunctionImportName="usp_GetAllColors" FunctionName="VMSModel.Store.usp_GetAllColors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllColors_Result">
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllCompanies" FunctionName="VMSModel.Store.usp_GetAllCompanies">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllCompanies_Result">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllGates" FunctionName="VMSModel.Store.usp_GetAllGates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllGates_Result">
+          <ScalarProperty Name="GateID" ColumnName="GateID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="GateDescription" ColumnName="GateDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllPermissions" FunctionName="VMSModel.Store.usp_GetAllPermissions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllPermissions_Result">
+          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
+          <ScalarProperty Name="PrivilegeName" ColumnName="PrivilegeName" />
+          <ScalarProperty Name="PrivilegeDescription" ColumnName="PrivilegeDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllRoles" FunctionName="VMSModel.Store.usp_GetAllRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllRoles_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllSites" FunctionName="VMSModel.Store.usp_GetAllSites">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllSites_Result">
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="SiteDescription" ColumnName="SiteDescription" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllTrailers" FunctionName="VMSModel.Store.usp_GetAllTrailers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllTrailers_Result">
+          <ScalarProperty Name="TrailerID" ColumnName="TrailerID" />
+          <ScalarProperty Name="TrailerAttachmentID" ColumnName="TrailerAttachmentID" />
+          <ScalarProperty Name="TrailerStateID" ColumnName="TrailerStateID" />
+          <ScalarProperty Name="TrailerTypeID" ColumnName="TrailerTypeID" />
+          <ScalarProperty Name="TrailerPlateNo" ColumnName="TrailerPlateNo" />
+          <ScalarProperty Name="TrailerVIN" ColumnName="TrailerVIN" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllTrailerTypes" FunctionName="VMSModel.Store.usp_GetAllTrailerTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllTrailerTypes_Result">
+          <ScalarProperty Name="TrailerTypeID" ColumnName="TrailerTypeID" />
+          <ScalarProperty Name="TrailerTypeDescription" ColumnName="TrailerTypeDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllUsers" FunctionName="VMSModel.Store.usp_GetAllUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllVehicleMakes" FunctionName="VMSModel.Store.usp_GetAllVehicleMakes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllVehicleMakes_Result">
+          <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllVehicles" FunctionName="VMSModel.Store.usp_GetAllVehicles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllVehicles_Result">
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="LicensePlateNo" ColumnName="LicensePlateNo" />
+          <ScalarProperty Name="VehicleStateID" ColumnName="VehicleStateID" />
+          <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="VehicleColorID" ColumnName="VehicleColorID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllVehicleTypes" FunctionName="VMSModel.Store.usp_GetAllVehicleTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllVehicleTypes_Result">
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="VehicleTypeName" ColumnName="VehicleTypeName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllVisitors" FunctionName="VMSModel.Store.usp_GetAllVisitors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllVisitors_Result">
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="VisitorSSN" ColumnName="VisitorSSN" />
+          <ScalarProperty Name="VisitorFirstName" ColumnName="VisitorFirstName" />
+          <ScalarProperty Name="VisitorLastName" ColumnName="VisitorLastName" />
+          <ScalarProperty Name="VisitorAddress" ColumnName="VisitorAddress" />
+          <ScalarProperty Name="VisitorEmail" ColumnName="VisitorEmail" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+          <ScalarProperty Name="VisitorStatusID" ColumnName="VisitorStatusID" />
+          <ScalarProperty Name="VisitorEntryExitNotification" ColumnName="VisitorEntryExitNotification" />
+          <ScalarProperty Name="NotificationEmailAddress" ColumnName="NotificationEmailAddress" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetAllVisitorTypes" FunctionName="VMSModel.Store.usp_GetAllVisitorTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetAllVisitorTypes_Result">
+          <ScalarProperty Name="VisitorTypeID" ColumnName="VisitorTypeID" />
+          <ScalarProperty Name="VisitorTypeDescription" ColumnName="VisitorTypeDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetGateDetailsByUserID" FunctionName="VMSModel.Store.usp_GetGateDetailsByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetGateDetailsByUserID_Result">
+          <ScalarProperty Name="GateID" ColumnName="GateID" />
+          <ScalarProperty Name="GateDescription" ColumnName="GateDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetPermissionsByUserID" FunctionName="VMSModel.Store.usp_GetPermissionsByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetPermissionsByUserID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetSiteGates" FunctionName="VMSModel.Store.usp_GetSiteGates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetSiteGates_Result">
+          <ScalarProperty Name="GateID" ColumnName="GateID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="GateDescription" ColumnName="GateDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetUserByUserID" FunctionName="VMSModel.Store.usp_GetUserByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetUserByUserID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="Environment" ColumnName="Environment" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetVisitorDetailVisitorID" FunctionName="VMSModel.Store.usp_GetVisitorDetailVisitorID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_GetVisitorDetailVisitorID_Result">
+          <ScalarProperty Name="VisitMainID" ColumnName="VisitMainID" />
+          <ScalarProperty Name="VisitorTypeID" ColumnName="VisitorTypeID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CheckInMainTime" ColumnName="CheckInMainTime" />
+          <ScalarProperty Name="CheckInDevice" ColumnName="CheckInDevice" />
+          <ScalarProperty Name="CheckInMainUserID" ColumnName="CheckInMainUserID" />
+          <ScalarProperty Name="CheckInMainGateID" ColumnName="CheckInMainGateID" />
+          <ScalarProperty Name="CheckInMainTrailerID" ColumnName="CheckInMainTrailerID" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOutDevice" ColumnName="CheckOutDevice" />
+          <ScalarProperty Name="CheckOutMainGateID" ColumnName="CheckOutMainGateID" />
+          <ScalarProperty Name="CheckOutMainUserID" ColumnName="CheckOutMainUserID" />
+          <ScalarProperty Name="CheckOutMainTrailerID" ColumnName="CheckOutMainTrailerID" />
+          <ScalarProperty Name="PlacardNo" ColumnName="PlacardNo" />
+          <ScalarProperty Name="VehicleSearchConsent" ColumnName="VehicleSearchConsent" />
+          <ScalarProperty Name="UnitNo" ColumnName="UnitNo" />
+          <ScalarProperty Name="SectionSector" ColumnName="SectionSector" />
+          <ScalarProperty Name="EmergencyVehicleType" ColumnName="EmergencyVehicleType" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="PassNumber" ColumnName="PassNumber" />
+          <ScalarProperty Name="ConeNumber" ColumnName="ConeNumber" />
+          <ScalarProperty Name="ConeColorID" ColumnName="ConeColorID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleSearchResult" ColumnName="VehicleSearchResult" />
+          <ScalarProperty Name="VisitDetailID" ColumnName="VisitDetailID" />
+          <ScalarProperty Name="CheckiInMainID" ColumnName="CheckiInMainID" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="CheckOutMainID" ColumnName="CheckOutMainID" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="isManualCheckIn" ColumnName="isManualCheckIn" />
+          <ScalarProperty Name="isManualCheckOut" ColumnName="isManualCheckOut" />
+          <ScalarProperty Name="isDriverCheckOut" ColumnName="isDriverCheckOut" />
+          <ScalarProperty Name="CheckOutTime1" ColumnName="CheckOutTime1" />
+          <ScalarProperty Name="ProofOfInsurance" ColumnName="ProofOfInsurance" />
+          <ScalarProperty Name="CreatedBy1" ColumnName="CreatedBy1" />
+          <ScalarProperty Name="CreatedOn1" ColumnName="CreatedOn1" />
+          <ScalarProperty Name="ModifiedBy1" ColumnName="ModifiedBy1" />
+          <ScalarProperty Name="ModifiedOn1" ColumnName="ModifiedOn1" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="DestinationID" ColumnName="DestinationID" />
+          <ScalarProperty Name="isDriverCheckIn" ColumnName="isDriverCheckIn" />
+          <ScalarProperty Name="CheckInSignature" ColumnName="CheckInSignature" />
+          <ScalarProperty Name="OrientationVisit" ColumnName="OrientationVisit" />
+          <ScalarProperty Name="VisitorID1" ColumnName="VisitorID1" />
+          <ScalarProperty Name="SiteID1" ColumnName="SiteID1" />
+          <ScalarProperty Name="VisitorSSN" ColumnName="VisitorSSN" />
+          <ScalarProperty Name="VisitorFirstName" ColumnName="VisitorFirstName" />
+          <ScalarProperty Name="VisitorLastName" ColumnName="VisitorLastName" />
+          <ScalarProperty Name="VisitorAddress" ColumnName="VisitorAddress" />
+          <ScalarProperty Name="VisitorEmail" ColumnName="VisitorEmail" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+          <ScalarProperty Name="VisitorStatusID" ColumnName="VisitorStatusID" />
+          <ScalarProperty Name="VisitorEntryExitNotification" ColumnName="VisitorEntryExitNotification" />
+          <ScalarProperty Name="NotificationEmailAddress" ColumnName="NotificationEmailAddress" />
+          <ScalarProperty Name="CreatedBy2" ColumnName="CreatedBy2" />
+          <ScalarProperty Name="CreatedOn2" ColumnName="CreatedOn2" />
+          <ScalarProperty Name="ModifiedBy2" ColumnName="ModifiedBy2" />
+          <ScalarProperty Name="ModifiedOn2" ColumnName="ModifiedOn2" />
+          <ScalarProperty Name="DestinationID1" ColumnName="DestinationID1" />
+          <ScalarProperty Name="SiteID2" ColumnName="SiteID2" />
+          <ScalarProperty Name="DestinationDescription" ColumnName="DestinationDescription" />
+          <ScalarProperty Name="CreatedBy3" ColumnName="CreatedBy3" />
+          <ScalarProperty Name="CreatedOn3" ColumnName="CreatedOn3" />
+          <ScalarProperty Name="ModifiedBy3" ColumnName="ModifiedBy3" />
+          <ScalarProperty Name="ModifiedOn3" ColumnName="ModifiedOn3" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SiteID3" ColumnName="SiteID3" />
+          <ScalarProperty Name="CreatedBy4" ColumnName="CreatedBy4" />
+          <ScalarProperty Name="CreatedOn4" ColumnName="CreatedOn4" />
+          <ScalarProperty Name="ModifiedBy4" ColumnName="ModifiedBy4" />
+          <ScalarProperty Name="ModifiedOn4" ColumnName="ModifiedOn4" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+          <ScalarProperty Name="VehicleID1" ColumnName="VehicleID1" />
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="LicensePlateNo" ColumnName="LicensePlateNo" />
+          <ScalarProperty Name="VehicleStateID" ColumnName="VehicleStateID" />
+          <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="VehicleColorID" ColumnName="VehicleColorID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedBy5" ColumnName="CreatedBy5" />
+          <ScalarProperty Name="CreatedOn5" ColumnName="CreatedOn5" />
+          <ScalarProperty Name="ModifiedBy5" ColumnName="ModifiedBy5" />
+          <ScalarProperty Name="ModifiedOn5" ColumnName="ModifiedOn5" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_PrivilegesByRoleID" FunctionName="VMSModel.Store.usp_PrivilegesByRoleID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_PrivilegesByRoleID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RolesByUserID" FunctionName="VMSModel.Store.usp_RolesByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_RolesByUserID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_SetPassword" FunctionName="VMSModel.Store.usp_SetPassword" />
+    <FunctionImportMapping FunctionImportName="usp_SignOffUser" FunctionName="VMSModel.Store.usp_SignOffUser" />
+    <FunctionImportMapping FunctionImportName="usp_TableDataSet" FunctionName="VMSModel.Store.usp_TableDataSet" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateGate" FunctionName="VMSModel.Store.usp_UpdateGate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_UpdateGate_Result">
+          <ScalarProperty Name="GateID" ColumnName="GateID" />
+          <ScalarProperty Name="GateDescription" ColumnName="GateDescription" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_UpdateSite" FunctionName="VMSModel.Store.usp_UpdateSite">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_UpdateSite_Result">
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SiteDescription" ColumnName="SiteDescription" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_UpdateUser" FunctionName="VMSModel.Store.usp_UpdateUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_UpdateUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_VisitorActivityFeed" FunctionName="VMSModel.Store.usp_VisitorActivityFeed">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.usp_VisitorActivityFeed_Result">
+          <ScalarProperty Name="VisitorActivity" ColumnName="VisitorActivity" />
+          <ScalarProperty Name="VisitSummary" ColumnName="VisitSummary" />
+          <ScalarProperty Name="VisitorID" ColumnName="VisitorID" />
+          <ScalarProperty Name="CheckInCheckOutTime" ColumnName="CheckInCheckOutTime" />
+          <ScalarProperty Name="VisitDetailID" ColumnName="VisitDetailID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_VMSErrorLog" FunctionName="VMSModel.Store.usp_VMSErrorLog" />
+    <FunctionImportMapping FunctionImportName="vms_Android_GetVisitorDetailByVisitDetailID" FunctionName="VMSModel.Store.vms_Android_GetVisitorDetailByVisitDetailID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_Android_GetVisitorDetailByVisitDetailID_Result">
+          <ScalarProperty Name="VisitorName" ColumnName="VisitorName" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckInFromGate" ColumnName="CheckInFromGate" />
+          <ScalarProperty Name="CheckedInByUser" ColumnName="CheckedInByUser" />
+          <ScalarProperty Name="CheckInTime1" ColumnName="CheckInTime1" />
+          <ScalarProperty Name="DestinationDescription" ColumnName="DestinationDescription" />
+          <ScalarProperty Name="CheckInLicensePlateNo" ColumnName="CheckInLicensePlateNo" />
+          <ScalarProperty Name="CheckInStateName" ColumnName="CheckInStateName" />
+          <ScalarProperty Name="CheckInVehicleTypeName" ColumnName="CheckInVehicleTypeName" />
+          <ScalarProperty Name="CheckInColorName" ColumnName="CheckInColorName" />
+          <ScalarProperty Name="CheckInMakeName" ColumnName="CheckInMakeName" />
+          <ScalarProperty Name="CheckInModelName" ColumnName="CheckInModelName" />
+          <ScalarProperty Name="CheckinAs" ColumnName="CheckinAs" />
+          <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOutFromGate" ColumnName="CheckOutFromGate" />
+          <ScalarProperty Name="CheckedOutByUser" ColumnName="CheckedOutByUser" />
+          <ScalarProperty Name="CheckOutLicensePlateNo" ColumnName="CheckOutLicensePlateNo" />
+          <ScalarProperty Name="CheckOutStateName" ColumnName="CheckOutStateName" />
+          <ScalarProperty Name="CheckOutVehicleTypeName" ColumnName="CheckOutVehicleTypeName" />
+          <ScalarProperty Name="CheckOutColorName" ColumnName="CheckOutColorName" />
+          <ScalarProperty Name="CheckOutMakeName" ColumnName="CheckOutMakeName" />
+          <ScalarProperty Name="CheckOutModelName" ColumnName="CheckOutModelName" />
+          <ScalarProperty Name="CheckOutAs" ColumnName="CheckOutAs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_CleanBuggyData" FunctionName="VMSModel.Store.vms_CleanBuggyData" />
+    <FunctionImportMapping FunctionImportName="vms_GetAllCheckedInVisits" FunctionName="VMSModel.Store.vms_GetAllCheckedInVisits">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_GetAllCheckedInVisits_Result">
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckInGate" ColumnName="CheckInGate" />
+          <ScalarProperty Name="VisitorTypeID" ColumnName="VisitorTypeID" />
+          <ScalarProperty Name="VisitSummary" ColumnName="VisitSummary" />
+          <ScalarProperty Name="VisitMainID" ColumnName="VisitMainID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VMS_GetAllIncidentReports" FunctionName="VMSModel.Store.VMS_GetAllIncidentReports">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.VMS_GetAllIncidentReports_Result">
+          <ScalarProperty Name="IncidentReportID" ColumnName="IncidentReportID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="IncidentLocation" ColumnName="IncidentLocation" />
+          <ScalarProperty Name="IncidentDescription" ColumnName="IncidentDescription" />
+          <ScalarProperty Name="SecurityOfficerName" ColumnName="SecurityOfficerName" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="PrimaryInvolvedPerson" ColumnName="PrimaryInvolvedPerson" />
+          <ScalarProperty Name="DriverLicenseNo" ColumnName="DriverLicenseNo" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+          <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleLicensePlateNo" ColumnName="VehicleLicensePlateNo" />
+          <ScalarProperty Name="VehicleStateID" ColumnName="VehicleStateID" />
+          <ScalarProperty Name="TrailerAttachmentID" ColumnName="TrailerAttachmentID" />
+          <ScalarProperty Name="TrailerLicensePlateNo" ColumnName="TrailerLicensePlateNo" />
+          <ScalarProperty Name="TrailerVIN" ColumnName="TrailerVIN" />
+          <ScalarProperty Name="TrailerStateID" ColumnName="TrailerStateID" />
+          <ScalarProperty Name="CurrentlyInsured" ColumnName="CurrentlyInsured" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="WorkSite" ColumnName="WorkSite" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="SiteType" ColumnName="SiteType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Disposition" ColumnName="Disposition" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="SupervisorPhoneNumber" ColumnName="SupervisorPhoneNumber" />
+          <ScalarProperty Name="IncidentDateTime" ColumnName="IncidentDateTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VMS_GetAllUsers" FunctionName="VMSModel.Store.VMS_GetAllUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.VMS_GetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_GetSiteBySiteID" FunctionName="VMSModel.Store.vms_GetSiteBySiteID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_GetSiteBySiteID_Result">
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_getTodaysAllCheckoutsList" FunctionName="VMSModel.Store.vms_getTodaysAllCheckoutsList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_getTodaysAllCheckoutsList_Result">
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckInGate" ColumnName="CheckInGate" />
+          <ScalarProperty Name="CheckOutGate" ColumnName="CheckOutGate" />
+          <ScalarProperty Name="VisitorTypeID" ColumnName="VisitorTypeID" />
+          <ScalarProperty Name="VisitSummary" ColumnName="VisitSummary" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_GetUserDetails" FunctionName="VMSModel.Store.vms_GetUserDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_GetUserDetails_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_UpdateUserSiteID" FunctionName="VMSModel.Store.vms_UpdateUserSiteID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_UpdateUserSiteID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isLogin" ColumnName="isLogin" />
+          <ScalarProperty Name="isPasswordReset" ColumnName="isPasswordReset" />
+          <ScalarProperty Name="isExternal" ColumnName="isExternal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_UpdateVehicle" FunctionName="VMSModel.Store.vms_UpdateVehicle" />
+    <FunctionImportMapping FunctionImportName="vms_UpdateVehicleInformation" FunctionName="VMSModel.Store.vms_UpdateVehicleInformation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_UpdateVehicleInformation_Result">
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="VehicleTypeID" ColumnName="VehicleTypeID" />
+          <ScalarProperty Name="LicensePlateNo" ColumnName="LicensePlateNo" />
+          <ScalarProperty Name="VehicleStateID" ColumnName="VehicleStateID" />
+          <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="VehicleColorID" ColumnName="VehicleColorID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_DotNet_GetVisitorDetailByVisitDetailID" FunctionName="VMSModel.Store.vms_DotNet_GetVisitorDetailByVisitDetailID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_DotNet_GetVisitorDetailByVisitDetailID_Result">
+          <ScalarProperty Name="VisitorName" ColumnName="VisitorName" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckInFromGate" ColumnName="CheckInFromGate" />
+          <ScalarProperty Name="CheckedInByUser" ColumnName="CheckedInByUser" />
+          <ScalarProperty Name="DestinationDescription" ColumnName="DestinationDescription" />
+          <ScalarProperty Name="CheckInLicensePlateNo" ColumnName="CheckInLicensePlateNo" />
+          <ScalarProperty Name="CheckInStateName" ColumnName="CheckInStateName" />
+          <ScalarProperty Name="CheckInVehicleTypeName" ColumnName="CheckInVehicleTypeName" />
+          <ScalarProperty Name="CheckInColorName" ColumnName="CheckInColorName" />
+          <ScalarProperty Name="CheckInMakeName" ColumnName="CheckInMakeName" />
+          <ScalarProperty Name="CheckInModelName" ColumnName="CheckInModelName" />
+          <ScalarProperty Name="CheckinAs" ColumnName="CheckinAs" />
+          <ScalarProperty Name="CheckOutDate" ColumnName="CheckOutDate" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOutFromGate" ColumnName="CheckOutFromGate" />
+          <ScalarProperty Name="CheckedOutByUser" ColumnName="CheckedOutByUser" />
+          <ScalarProperty Name="CheckOutLicensePlateNo" ColumnName="CheckOutLicensePlateNo" />
+          <ScalarProperty Name="CheckOutStateName" ColumnName="CheckOutStateName" />
+          <ScalarProperty Name="CheckOutVehicleTypeName" ColumnName="CheckOutVehicleTypeName" />
+          <ScalarProperty Name="CheckOutColorName" ColumnName="CheckOutColorName" />
+          <ScalarProperty Name="CheckOutMakeName" ColumnName="CheckOutMakeName" />
+          <ScalarProperty Name="CheckOutModelName" ColumnName="CheckOutModelName" />
+          <ScalarProperty Name="CheckOutAs" ColumnName="CheckOutAs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="vms_GetAllCheckedInVisitsDotNet" FunctionName="VMSModel.Store.vms_GetAllCheckedInVisitsDotNet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.vms_GetAllCheckedInVisitsDotNet_Result">
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckInGate" ColumnName="CheckInGate" />
+          <ScalarProperty Name="VisitorTypeID" ColumnName="VisitorTypeID" />
+          <ScalarProperty Name="VisitorTypeDescription" ColumnName="VisitorTypeDescription" />
+          <ScalarProperty Name="VisitSummary" ColumnName="VisitSummary" />
+          <ScalarProperty Name="VisitMainID" ColumnName="VisitMainID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VMS_GetAllNotifications" FunctionName="VMSModel.Store.VMS_GetAllNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.VMS_GetAllNotifications_Result">
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="NotificationHeader" ColumnName="NotificationHeader" />
+          <ScalarProperty Name="NotificationDescription" ColumnName="NotificationDescription" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="TimeAgo" ColumnName="TimeAgo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VMS_GetAllNotificationsDotNet" FunctionName="VMSModel.Store.VMS_GetAllNotificationsDotNet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VMSModel.VMS_GetAllNotificationsDotNet_Result">
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+          <ScalarProperty Name="UserNotificationID" ColumnName="UserNotificationID" />
+          <ScalarProperty Name="NotificationHeader" ColumnName="NotificationHeader" />
+          <ScalarProperty Name="NotificationDescription" ColumnName="NotificationDescription" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="isRead" ColumnName="isRead" />
+          <ScalarProperty Name="TimeAgo" ColumnName="TimeAgo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

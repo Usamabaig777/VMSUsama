@@ -1,0 +1,53 @@
+﻿@*Please place here side menu code Completly*@
+@using VMS_ASP_NET.Models
+@{ 
+    UserRole loginUser = (UserRole)Session["userRole"];
+}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="~/Dashboard">
+                    <i class="nav-icon icon-speedometer"></i>Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/VisitorsManagement">
+                    <i class="nav-icon icon-people"></i>Visitor Management
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Reports">
+                    <i class="nav-icon fa fa-bar-chart"></i>Reports
+                </a>
+            </li>
+            @if (loginUser.Role.RoleName == "SuperUser" || loginUser.Role.RoleName == "Administrator")
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Sites">
+                        <i class="nav-icon fa fa-sitemap"></i>Sites
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Users">
+                        <i class="nav-icon fa fa-user-o"></i>Users
+                    </a>
+                </li>
+            }
+            @if (loginUser.Role.RoleName != "ExternalAdmin")
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Notifications">
+                        <i class="nav-icon fa fa-bell"></i>Notifications
+                    </a>
+                </li>
+            }
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="nav-icon fa fa-sign-out"></i>Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer mt-auto" type="button"></button>
+</div>

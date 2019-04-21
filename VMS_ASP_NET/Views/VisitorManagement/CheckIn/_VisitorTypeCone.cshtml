@@ -1,0 +1,21 @@
+﻿@model VMS.Models.CheckInVM
+
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="position-relative row form-group">
+            <label class="col-sm-4 col-form-label"> Cone Number<b style="color: red;"> *</b></label>
+            <div class="col-sm-8">
+                    <div class="position-relative form-group">
+                <input asp-for="ConeNumber" placeholder="Cone Number" pattern="^[0-9]+$" type="text" class="is-touched is-pristine av-valid form-control" value=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="position-relative row form-group">
+            <label for="exampleSelect" class="col-sm-4 col-form-label"> Color<b style="color: red;"> *</b></label>
+            <div class="col-sm-8">
+                <select asp-for="ConeColorID" asp-items="ViewBag.ColorID" class="form-control">
+                    <option value="">Select Color</option>
+                </select>
+            </div>
+        </div>
+    </div>

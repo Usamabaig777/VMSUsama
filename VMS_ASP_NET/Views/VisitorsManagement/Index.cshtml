@@ -1,0 +1,838 @@
+﻿@model VMS_ASP_NET.Models.CheckInVM
+@using VMS_ASP_NET.Models
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    UserRole userRole = (UserRole)Session["userRole"];
+}
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <ul class="nav nav-tabs">
+            <a href="#">
+                <li class="nav-item">
+                    <a class="active nav-link" href="#checkin" data-toggle="tab">
+                        <i class="fa fa-sign-in"></i> <span class=""> CheckIns</span>
+                    </a>
+                </li>
+            </a>
+            <a href="#">
+                <li class="nav-item">
+                    <a class="nav-link" href="#checkouts" data-toggle="tab">
+                        <i class="fa fa-sign-out"></i> <span class="d-none"> CheckOuts</span>
+                    </a>
+                </li>
+            </a>
+            <a href="#">
+                <li class="nav-item">
+                    <a class="nav-link" href="#visitor" data-toggle="tab">
+                        <i class="fa fa-users"></i> <span class="d-none"> Visitors</span>
+                    </a>
+                </li>
+            </a>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane active" id="checkin">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body">
+                                <div class="animated fadeIn">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <div class="mb-0 card">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                            @if (userRole.Role.RoleName == "ExternalAdmin")
+                                                            {
+                                                                <button type="button" disabled class="mr-1 btn btn-success" data-toggle="modal" data-target="#createcheckin">
+                                                                    <i class="fa fa-sign-in fa-lg"></i> Check-in
+                                                                </button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button type="button" class="mr-1 btn btn-success" data-toggle="modal" data-target="#createcheckin">
+
+                                                                    <i class="fa fa-sign-in fa-lg"></i> Check-in
+                                                                </button>    
+                                                            }
+                                                        </div>
+                                                        @*<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group"><label class="mr-sm-2">Filter All: </label><input placeholder="Search here ..." type="text" class="form-control" value=""></div>
+
+                                                            </div>*@
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <span></span>
+                                                    @*<div class="ReactTable -striped -highlight hideFilterRow">
+                                                            <div class="rt-table" role="grid">
+                                                                <div class="rt-thead -header" style="min-width: 600px;">
+                                                                    <div class="rt-tr" role="row">
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;">
+                                                                            <div class="rt-resizable-header-content">Check In Time</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 150 0 auto; width: 150px; max-width: 150px;">
+                                                                            <div class="rt-resizable-header-content">Check In Gate</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                            <div class="">Visit Summary</div>
+                                                                        </div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 150 0 auto; width: 150px; max-width: 150px;">
+                                                                            <div class="">Actions</div>
+                                                                        </div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                                                            <div class=""></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-thead -filters" style="min-width: 600px;">
+                                                                    <div class="rt-tr" role="row">
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 150 0 auto; width: 150px; max-width: 150px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 150 0 auto; width: 150px; max-width: 150px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-tbody" style="min-width: 600px;">
+                                                                    @foreach (var visits in ViewBag.getAllCheckInVisits)
+                                                                    {
+                                                                        <div class="rt-tr-group" role="rowgroup">
+                                                                            <div class="rt-tr -odd" role="row">
+                                                                                <div class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 200px; max-width: 200px;">
+                                                                                    @visits.CheckInTime
+                                                                                </div>
+                                                                                <div class="rt-td text-center" role="gridcell" style="flex: 150 0 auto; width: 150px; max-width: 150px;">
+                                                                                    @visits.CheckInGate
+                                                                                </div>
+                                                                                <div class="rt-td" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                                                    @if (visits.VisitorTypeDescription == "Emergency")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark" style="background-color:#4DBD74"> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @if (visits.VisitorTypeDescription == "Regulatory")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark" style="background-color:#C8CED3"> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @if (visits.VisitorTypeDescription == "Cone")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark" style="background-color:#20A8D8 "> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @if (visits.VisitorTypeDescription == "Regular")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark"> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @visits.VisitSummary
+                                                                                </div>
+
+
+                                                                                <div class="rt-td" role="gridcell" style="flex: 150 0 auto; width: 150px; max-width: 150px;">
+
+                                                                                    @if (visits.VisitorTypeDescription == "Regular")
+                                                                                    {
+                                                                                        <button type="button" class="mr-1 btn btn-secondary btn-sm" data-toggle="modal" data-target="#details" onclick="fnLoadVisitDetails(@visits.VisitMainID)">
+                                                                                            Detail
+                                                                                        </button>
+                                                                                    }
+                                                                                    <button type="button" class="mr-1 btn btn-success btn-sm">
+                                                                                        <i class="fa fa-sign-out ">
+                                                                                        </i> Check-out
+                                                                                    </button>
+                                                                                </div>
+
+                                                                                <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="pagination-bottom">
+                                                                    <div class="-pagination">
+                                                                        <div class="-previous"><button type="button" disabled="" class="-btn">Previous</button></div>
+                                                                        <div class="-center">
+                                                                            <span class="-pageInfo">
+                                                                                Page
+                                                                                <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div>
+                                                                                of <span class="-totalPages">1</span>
+                                                                            </span>
+                                                                            <span class="select-wrap -pageSizeOptions">
+                                                                                <select aria-label="rows per page">
+                                                                                    <option value="5">5 rows</option>
+                                                                                    <option value="10">10 rows</option>
+                                                                                    <option value="20">20 rows</option>
+                                                                                    <option value="25">25 rows</option>
+                                                                                    <option value="50">50 rows</option>
+                                                                                    <option value="100">100 rows</option>
+                                                                                </select>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="-next">
+                                                                            <button type="button" disabled="" class="-btn">Next</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="-loading">
+                                                                    <div class="-loading-inner">Loading...</div>
+                                                                </div>
+                                                        </div>*@
+                                                    <div class="box">
+                                                        <div class="box-header">
+                                                            <div class="box-body">
+                                                                <div style="overflow-x:auto;">
+                                                                    <table id="checkins_list_table" class="table table-bordered table-striped table-hover">
+                                                                        <thead style="min-width: 600px;" rt-thead -header">
+                                                                            <tr class="rt-tr">
+                                                                                <th class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 100px; max-width: 100px;" r">
+                                                                                    @Html.Label("Check In Time")
+                                                                                </th>
+                                                                                <th class="rt-th rt-resizable-header -cursor-pointer" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 150px;">
+                                                                                    @Html.Label("Check In Gate")
+                                                                                    @*<div class="" role="columnheader">
+                                                                                            <div class="rt-resizable-header-content"></div>
+                                                                                            <div class="rt-resizer"></div>
+                                                                                        </div>*@
+                                                                                </th>
+                                                                                <th class="rt-th -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 300 0 auto; width: 300px;">
+                                                                                    @Html.Label("Visit Summary")
+                                                                                </th>
+                                                                                <th class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                                    @Html.Label("Actions")
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @foreach (var visits in ViewBag.getAllCheckInVisits)
+                                                                            {
+                                                                            <tr>
+                                                                                <td>@visits.CheckInTime.ToString("mm-dd-yyyy hh:mm tt")</td>
+                                                                                <td>@visits.CheckInGate</td>
+                                                                                <td>
+                                                                                    @if (visits.VisitorTypeDescription == "Emergency")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark" style="background-color:#4DBD74"> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @if (visits.VisitorTypeDescription == "Regulatory")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark" style="background-color:#C8CED3"> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @if (visits.VisitorTypeDescription == "Cone")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark" style="background-color:#20A8D8 "> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @if (visits.VisitorTypeDescription == "Regular")
+                                                                                    {
+                                                                                        <span>
+                                                                                            <span class="customBadgeForTable badge badge-dark"> </span>
+                                                                                        </span>
+                                                                                    }
+                                                                                    @visits.VisitSummary
+                                                                                </td>
+                                                                                @if (userRole.Role.RoleName == "ExternalAdmin")
+                                                                                { 
+                                                                                    <td>
+                                                                                        @if (visits.VisitorTypeDescription == "Regular")
+                                                                                        {
+                                                                                            <button type="button" disabled class="mr-1 btn btn-secondary btn-sm" data-toggle="modal" data-target="#details" onclick="fnLoadVisitDetails(@visits.VisitMainID)">
+                                                                                                Detail
+                                                                                            </button>
+                                                                                        }
+                                                                                        <button type="button" disabled class="mr-1 btn btn-success btn-sm">
+                                                                                            <i class="fa fa-sign-out ">
+                                                                                            </i> Check-out
+                                                                                        </button>
+                                                                                    </td>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <td>
+                                                                                        @if (visits.VisitorTypeDescription == "Regular")
+                                                                                        {
+                                                                                            <button type="button" class="mr-1 btn btn-secondary btn-sm" data-toggle="modal" data-target="#details" onclick="fnLoadVisitDetails(@visits.VisitMainID)">
+                                                                                                Detail
+                                                                                            </button>
+                                                                                        }
+                                                                                        <button type="button" class="mr-1 btn btn-success btn-sm">
+                                                                                            <i class="fa fa-sign-out ">
+                                                                                            </i> Check-out
+                                                                                        </button>
+                                                                                    </td>
+                                                                                }
+                                                                                </tr>
+                                                                            }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="checkouts">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body">
+                                <div class="animated fadeIn">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <div class="mb-0 card">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"><button type="button" class="mr-1 btn btn-success" data-toggle="modal" data-target="#checkout-1"><i class="fa fa-sign-out fa-lg"></i> Check-out</button></div>
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                            @*<form class="float-right form-inline">*@
+                                                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group"><label class="mr-sm-2">Filter All: </label><input placeholder="Search here ..." type="text" class="form-control" value=""></div>
+                                                            @*</form>*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="ReactTable -striped -highlight hideFilterRow">
+                                                        <div class="rt-table" role="grid">
+                                                            <div class="rt-thead -header" style="min-width: 680px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 160 0 auto; width: 160px; max-width: 160px;">
+                                                                        <div class="rt-resizable-header-content">Check In Time</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 160 0 auto; width: 160px; max-width: 160px;">
+                                                                        <div class="rt-resizable-header-content">Check Out Time </div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 130 0 auto; width: 130px; max-width: 130px;">
+                                                                        <div class="rt-resizable-header-content">Check In Gate</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 130 0 auto; width: 130px; max-width: 130px;">
+                                                                        <div class="rt-resizable-header-content">Check Out Gate</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="">Visitor Summary</div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                                                        <div class="rt-resizable-header-content"></div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-thead -filters" style="min-width: 680px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 160 0 auto; width: 160px; max-width: 160px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 160 0 auto; width: 160px; max-width: 160px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 130 0 auto; width: 130px; max-width: 130px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 130 0 auto; width: 130px; max-width: 130px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-tbody" style="min-width: 680px;"></div>
+                                                        </div>
+                                                        <div class="pagination-bottom">
+                                                            <div class="-pagination">
+                                                                <div class="-previous"><button type="button" disabled="" class="-btn">Previous</button></div>
+                                                                <div class="-center">
+                                                                    <span class="-pageInfo">
+                                                                        Page
+                                                                        <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div>
+                                                                        of <span class="-totalPages">1</span>
+                                                                    </span>
+                                                                    <span class="select-wrap -pageSizeOptions">
+                                                                        <select aria-label="rows per page">
+                                                                            <option value="5">5 rows</option>
+                                                                            <option value="10">10 rows</option>
+                                                                            <option value="20">20 rows</option>
+                                                                            <option value="25">25 rows</option>
+                                                                            <option value="50">50 rows</option>
+                                                                            <option value="100">100 rows</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="-next"><button type="button" disabled="" class="-btn">Next</button></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rt-noData">No rows found</div>
+                                                        <div class="-loading">
+                                                            <div class="-loading-inner">Loading...</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="visitor">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body">
+                                <div class="animated fadeIn">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <div class="mb-0 card">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                            <button type="button" class="mr-1 btn btn-success" data-toggle="modal" data-target="#visitors"><i class="fa fa-plus"></i> Visitor</button>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                            @*<form class="float-right form-inline">*@
+                                                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group"><label class="mr-sm-2">Filter All: </label><input placeholder="Search here ..." type="text" class="form-control" value=""></div>
+                                                            @*</form>*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="ReactTable -striped -highlight hideFilterRow">
+                                                        <div class="rt-table" role="grid">
+                                                            <div class="rt-thead -header" style="min-width: 720px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                        <div class="rt-resizable-header-content">First Name</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Last Name</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 50 0 auto; width: 50px; max-width: 50px;">
+                                                                        <div class="rt-resizable-header-content">SSN</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Address</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Email</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Company</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="">Status</div>
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 70 0 auto; width: 70px; max-width: 70px;">
+                                                                        <div class="">Actions</div>
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                                                        <div class=""></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-thead -filters" style="min-width: 720px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 50 0 auto; width: 50px; max-width: 50px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 70 0 auto; width: 70px; max-width: 70px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-tbody" style="min-width: 720px;">
+                                                                <div class="rt-tr-group" role="rowgroup">
+                                                                    <div class="rt-tr -odd" role="row">
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Scott</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Schloff</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">1227</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">steamboat</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                                            <td>Grant access to visitor</td>
+                                                                        </div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 70 0 auto; width: 70px; max-width: 70px;"><button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button></div>
+                                                                        <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-tr-group" role="rowgroup">
+                                                                    <div class="rt-tr -even" role="row">
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Mike</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Stinson</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">0583</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Generic</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                                            <td>Grant access to visitor</td>
+                                                                        </div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 70 0 auto; width: 70px; max-width: 70px;"><button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button></div>
+                                                                        <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-tr-group" role="rowgroup">
+                                                                    <div class="rt-tr -odd" role="row">
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">john </div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">doe</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">5874</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Tester</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                                            <td>Grant access to visitor</td>
+                                                                        </div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 70 0 auto; width: 70px; max-width: 70px;"><button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button></div>
+                                                                        <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-tr-group" role="rowgroup">
+                                                                    <div class="rt-tr -even" role="row">
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Jane</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Austin</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">7800</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Canada Inc.</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                                            <td>Grant access to visitor</td>
+                                                                        </div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 70 0 auto; width: 70px; max-width: 70px;"><button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button></div>
+                                                                        <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-tr-group" role="rowgroup">
+                                                                    <div class="rt-tr -odd" role="row">
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Garry</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">Luke</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">4321</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">TechCii</div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                                            <td>Grant access to visitor</td>
+                                                                        </div>
+                                                                        <div class="rt-td text-center" role="gridcell" style="flex: 70 0 auto; width: 70px; max-width: 70px;"><button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button></div>
+                                                                        <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pagination-bottom">
+                                                            <div class="-pagination">
+                                                                <div class="-previous"><button type="button" disabled="" class="-btn">Previous</button></div>
+                                                                <div class="-center">
+                                                                    <span class="-pageInfo">
+                                                                        Page
+                                                                        <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div>
+                                                                        of <span class="-totalPages">5</span>
+                                                                    </span>
+                                                                    <span class="select-wrap -pageSizeOptions">
+                                                                        <select aria-label="rows per page">
+                                                                            <option value="5">5 rows</option>
+                                                                            <option value="10">10 rows</option>
+                                                                            <option value="20">20 rows</option>
+                                                                            <option value="25">25 rows</option>
+                                                                            <option value="50">50 rows</option>
+                                                                            <option value="100">100 rows</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="-next"><button type="button" class="-btn">Next</button></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="-loading">
+                                                            <div class="-loading-inner">Loading...</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade show" id="createcheckin">
+    <div class="modal-dialog modal-lg modal-success createCheckInModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-sign-in fa-lg"></i> Check-in</h5>
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+            </div>
+            @using (Html.BeginForm("CreateRegularCheckIn", "VisitorsManagement", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="pt-2 pb-2 modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="mb-2 position-relative row form-group">
+                                <label class="col-12 col-sm-6 col-md-5 col-lg-5 col-form-label">Visitor Type<b style="color: red;"> * </b></label>
+                                <div class="col-12 col-sm-6 col-md-7 col-lg-7">
+                                    @*<select asp-for="VehicleTypeID" asp-items="ViewBag.VehicleTypeID"></select>*@
+                                    @*<select id="VisitorTypeID" name="VisitorTypeID" asp-items="ViewBag.VisitorTypeID" class="form-control-sm form-control" onchange="fnChangeVisitorTypeForm()">
+                                            <option value="">Select Visitor Type</option>
+                                            <option value="1">Cone</option>
+                                            <option value="2">Regulatory</option>
+                                            <option value="3">Emergency</option>
+                                            <option value="4">Regular</option>
+                                        </select>*@
+                                    @Html.DropDownListFor(x => x.VisitorTypeID, ViewBag.VisitorTypes as SelectList, "Select Visitor Type", new { @class = "form-control-sm form-control", @onchange = "fnChangeVisitorTypeForm()" })
+                                    @Html.ValidationMessageFor(x => x.VisitorTypeID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="mb-2 position-relative row form-group">
+                                <label for="exampleSelect" class="col-12 col-sm-6 col-md-2 col-lg-5 col-form-label">Gate<b style="color: red;"> * </b></label>
+                                <div class="col-12 col-sm-6 col-md-10 col-lg-7">
+                                    @Html.DropDownListFor(x => x.GateID, ViewBag.Gates as SelectList, "Select Gate", new { @class = "form-control-sm form-control" })
+                                    @Html.ValidationMessageFor(x => x.GateID, "", new { @class = "text-danger" })
+
+                                    @*<select asp-for="CheckiInMainID" asp-items="ViewBag.GateID" class="form-control-sm form-control">
+                                            <option value="0">Select Gate</option>
+                                        </select>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-md-1 mb-sm-1 pl-0 col-sm-12 col-md-12 col-lg-4"></div>
+                    </div>
+                    <div class="row" id="VisitorTypeConePV">
+                        @{
+                            Html.RenderPartial("CheckIn/_VisitorTypeCone");
+                        }
+                    </div>
+                    <div class="row" id="VisitorTypeEmergencyPV">
+                        @{
+                            Html.RenderPartial("CheckIn/_VisitorTypeEmergency");
+                        }
+                    </div>
+                    <div class="row" id="VisitorTypeRegulatoryPV">
+                        @{
+                            Html.RenderPartial("CheckIn/_VisitorTypeRegulatory");
+                        }
+                    </div>
+                    <div class="row" id="VisitorTypeRegularPV">
+                        <div class="col-12 col-sm-5">
+                            @{
+                                Html.RenderPartial("CheckIn/_VehicleView");
+                            }
+                        </div>
+                        <div class="col-12 col-sm-7">
+                            @{
+                                Html.RenderPartial("CheckIn/_FrequentAndSuggestedVisitersView");
+
+                                Html.RenderPartial("CheckIn/_VisitorsDetailsView");
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="">
+                        <button type="submit" class="btn btn-success ">Check-in &amp; Continue</button>
+                        <button type="submit" class="btn btn-success">Check-in &amp; Complete</button>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@*@section Scripts {
+        @{Html.RenderPartial("_ValidationScriptsPartial");}
+    }*@
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#checkins_list_table').DataTable(
+            {
+                scrollY: 300,
+                "pagingType": "full_numbers"
+            });
+        $('#VisitorTypeConePV').hide();
+        //$('#VisitorTypeRegularPV').hide();
+        $('#VisitorTypeEmergencyPV').hide();
+        $('#VisitorTypeRegulatoryPV').hide();
+        $('#trailer_view').hide();
+        $('.searchable').select2();
+
+    });
+
+    function fnChangeVisitorTypeForm() {
+        var VisitorTypeIDVal=$('#VisitorTypeID').val();
+        if (VisitorTypeIDVal === "1") {
+            $('#VisitorTypeConePV').show();
+            $('#VisitorTypeRegularPV').hide();
+            $('#VisitorTypeEmergencyPV').hide();
+            $('#VisitorTypeRegulatoryPV').hide();
+        }
+        if (VisitorTypeIDVal == "2") {
+            $('#VisitorTypeRegulatoryPV').show();
+            $('#VisitorTypeRegularPV').hide();
+            $('#VisitorTypeEmergencyPV').hide();
+            $('#VisitorTypeConePV').hide();
+        }
+        if (VisitorTypeIDVal == "3") {
+            $('#VisitorTypeEmergencyPV').show();
+            $('#VisitorTypeRegularPV').hide();
+            $('#VisitorTypeRegulatoryPV').hide();
+            $('#VisitorTypeConePV').hide();
+        }
+        if (VisitorTypeIDVal == "4") {
+            $('#VisitorTypeRegularPV').show();
+            $('#VisitorTypeEmergencyPV').hide();
+            $('#VisitorTypeRegulatoryPV').hide();
+            $('#VisitorTypeConePV').hide();
+        }
+    }
+
+    function fnLoadDropdownLists() {
+        $.ajax({
+            url: "@Url.Action("fbGetDataList","VisitorsManagement")",
+            dataType: "json",
+            type: "GET",
+            //error: function () {
+            //    alert(" An error occurred.");
+            //},
+            success: function (data) {
+                var vehiclesDDL = '<option value="' +
+                 0 + '">' + "Select Vehicle" + '</option>';
+                $("#LicensePlateNo").append(vehiclesDDL);
+
+                $.each(data, function (i) {
+
+                    var vehiclesDDL = '<option value="' +
+                        data[i].value + '">' + data[i].text + '</option>';
+                    $("#LicensePlateNo").append(vehiclesDDL);
+                });
+            }
+        });
+    }
+
+    function fnCheckTrailer() {
+        if ($('#trailerAttach').is(':checked', true)) {
+            $('#trailer_view').show();
+        }
+        else {
+            $('#trailer_view').hide();
+        }
+    }
+
+    function fnGetVehicleInfo() {
+        var VehicleID = $('#VehicleID').val();
+        $.ajax({
+            url: "@Url.Action("fbGetVehicleData","VisitorsManagement")",
+            dataType: "json",
+            data: { 'VehicleID': VehicleID },
+            type: "GET",
+            //error: function () {
+            //    alert(" An error occurred.");
+            //},
+            success: function (data) {
+
+            }
+        });
+    }
+
+    function fnGetVisitorDetail(id) {
+
+        $.ajax({
+            type: 'Get',
+            dataType: 'json',
+            url: "/VisitorsManagement/fnGetVisitorDetail/",
+            data: { 'id': id },
+            success: function (result) {
+                if (result.success) {
+                    $('#VisitorFirstNameText').val(result.visitor.VisitorFirstName);
+                    $('#VisitorLastNameText').val(result.visitor.VisitorLastName);
+                    $('#CompanyText').val(result.visitor.Company);
+                    $('#VisitorSSNText').val(result.visitor.VisitorFirstName);
+                }
+            }
+        });
+
+    }
+
+</script>

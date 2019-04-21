@@ -1,0 +1,264 @@
+﻿@model VMS_ASP_NET.Models.CheckInVM
+
+<div class="card">
+    <div class="pt-1 pr-1 pb-1 pl-1 card-header">
+        <i class="fa fa-car"></i>
+        <b>Vehicle Detail</b>
+        <button type="button" class="float-right btn btn-secondary btn-sm">
+            Clear
+        </button>
+    </div>
+    <div class="pt-2 pl-2 pr-2 pb-2 card-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="mb-2 position-relative row form-group">
+                    <label class="col-sm-12 col-md-12 col-lg-5 col-form-label">License Plate #<b style="color: red;"> * </b></label>
+                    @*@Html.LabelFor(x => x.LicensePlateNo, htmlAttributes: new { @class = "col-sm-12 col-md-12 col-lg-5 col-form-label" })<b style="color: red;">*</b>*@
+                    <div class="autoCompleteCustomWrapperClass col-sm-12 col-md-12 col-lg-7">
+                        <div style="display: inline-block;">
+                            @*@Html.DropDownListFor(x => x.VehicleID, ViewBag.VehicleLicensePlate as SelectList, "License Plate No", new { @class = "form-control-sm form-control searchable", @onchange="fnGetVehicleInfo()" })*@
+                            @*<select id="LicensePlateNoSelect" class = "form-control-sm form-control searchable">
+                                    <option value="">License Plate No</option>
+                                    @foreach (var item in ViewBag.VehicleLicensePlate)
+                                    {
+                                        <option value="@item.VehicleID">@item.LicensePlateNo</option>
+                                    }
+                                    <option value="0" id="OtherLLPlateNo" onclick="fnShowLPNTextBox()">Other</option>
+                                </select>*@
+                            @Html.EditorFor(x => x.LicensePlateNo, new { @class = "form-control-sm form-control"})
+                            <select id="seacrhedlpNo">
+                            </select>
+                            @*<input type="text" id="LicensePlateNo" name="LicensePlateNo" onkeyup="fnSearchLicensePlateNo()" class="form-control-sm form-control"/>*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Vehicle Type<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            @Html.DropDownListFor(x => x.VehicleTypeID, ViewBag.VehicleType as SelectList, "Select Vehicle Type", new { @class = "form-control-sm form-control" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Vehicle State<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            @Html.DropDownListFor(x => x.VehicleStateID, ViewBag.VehicleState as SelectList, "Select Vehicle State", new { @class = "form-control-sm form-control" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Vehicle Make<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            @Html.DropDownListFor(x => x.MakeID, ViewBag.Make as SelectList, "Select Vehicle Make", new { @class = "form-control-sm form-control" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Model Name<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                            <div class="position-relative form-group">
+                                <input placeholder="Model Name" id="ModelName" name="ModelName" required maxlength="20" type="text" class="form-control-sm mb-0 is-untouched is-pristine av-valid form-control" value="">
+                            </div>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label for="exampleSelect" class="col-sm-5 col-form-label">Color<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            @Html.DropDownListFor(x => x.VehicleColorID, ViewBag.colors as SelectList, "Select Color", new { @class = "form-control-sm form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <div class="form-control-sm pl-3 col-sm-12 col-md-12 col-lg-5"><label for="searchConsent" class="">Search Consent</label></div>
+                        <div class="col-sm-12 col-md-12 col-lg-7">
+                            <div class="mb-0 position-relative form-group">
+                                <select id="VehicleSearchConsent" name="VehicleSearchConsent" class="form-control-sm form-control">
+                                    <option value="-1">Please Select</option>
+                                    <option value="">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <div class="form-control-sm pl-3 col-sm-12 col-md-12 col-lg-5">
+                            <div class="custom-checkbox custom-control">
+                                <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label" for="assignPlacard">Assign Placard</label>
+                            </div>
+                        </div>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <div class="form-control-sm pl-3 col-sm-12 col-md-12">
+                            <div class="custom-checkbox custom-control">
+                                <input type="checkbox" id="trailerAttach" name="trailerAttach" class="custom-control-input" onclick="fnCheckTrailer()">
+                                <label class="custom-control-label" for="trailerAttach">Trailer Attach</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="trailer_view">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="mb-2 position-relative row form-group">
+                                    <label class="col-sm-5 col-form-label">Trailer Plate #<b style="color: red;"> * </b></label>
+                                    <div class="col-sm-7">
+                                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                        <div class="position-relative form-group">
+                                            @Html.EditorFor(x => x.TrailerPlateNo, new { @class = "form-control-sm form-control" })
+
+                                            @*<select id="CheckInMainTrailerID" name="CheckInMainTrailerID" asp-items="ViewBag.TrailerID" class="form-control-sm form-control selectable">
+                                                <option value="">License Plate No</option>
+                                            </select>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="mb-2 position-relative row form-group">
+                                    <label class="col-sm-5 col-form-label">Trailer VIN<b style="color: red;"> * </b></label>
+                                    <div class="col-sm-7">
+                                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                        <div class="position-relative form-group">
+                                            <input name="TrailerVIN" placeholder="Trailer VIN" maxlength="50" id="TrailerVIN" type="text" class="form-control-sm mb-0 is-untouched is-pristine av-valid form-control" value="">
+                                        </div>
+                                        @*</form>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="mb-2 position-relative row form-group">
+                                    <label class="col-sm-5 col-form-label">Trailer Type<b style="color: red;"> * </b></label>
+                                    <div class="col-sm-7">
+                                        @Html.DropDownListFor(x => x.TrailerTypeID, ViewBag.TrailerTypeList as SelectList, new { @class = "form-control-sm form-control" })
+                                        @*<select id="TrailerTypeID" asp-items="ViewBag.TrailerTypeID" class="form-control-sm form-control">
+                                                <option value="">Select Type</option>
+                                            </select>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="mb-2 position-relative row form-group">
+                                    <label class="col-sm-5 col-form-label">Trailer State<b style="color: red;"> * </b></label>
+                                    <div class="col-sm-7">
+                                        @Html.DropDownListFor(x => x.TrailerStateID, ViewBag.TrailerStatesList as SelectList, new { @class = "form-control-sm form-control" })
+
+                                        @*<select id="TrailerStateID" asp-items="ViewBag.TrailerStateID" class="form-control-sm form-control">
+                                            <option value="">Select State</option>
+                                        </select>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="mb-2 position-relative row form-group">
+                                    <label class="col-sm-12 col-md-6 col-lg-6 col-form-label">Trailer Attachment ?<b style="color: red;">*</b></label>
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        @Html.DropDownListFor(x => x.TrailerAttachmentID, ViewBag.TrailerAttachment as SelectList, new { @class = "form-control-sm form-control" })
+
+                                        @*<select id="TrailerAttachmentID" asp-items="ViewBag.TrailerAttachmentID" class="form-control-sm form-control">
+                                            <option value="">Select Attachment</option>
+                                        </select>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="position-relative form-group">
+                        <label class="">Comments</label>
+                        <textarea id="Comments" name="Comments" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<link href="~/UI/css/jquery-ui.css" rel="stylesheet" />*@
+@*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">*@
+@*<script src="//code.jquery.com/jquery-1.10.2.js"></script>*@
+@*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+
+@*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+<script src="~/UI/js/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#seacrhedlpNo').hide();
+        $("#LicensePlateNo").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/VisitorsManagement/GetVehiclesLicensePlateNo",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            $('#seacrhedlpNo').empty();
+                            $.each(data, function (index, itemData) {
+                                //alert("Index:" + itemData.VehicleID + ", Value:" + itemData.LicensePlateNo);
+                                var lpNoList = "<option value = '" + itemData.VehicleID + "'>" + itemData.LicensePlateNo + "</option>";
+                                //var app = "<li value=''>" + item.LicensePlateNo +"</li>";
+                                $('#seacrhedlpNo').append(lpNoList)
+                                $('#seacrhedlpNo').show();
+                            });
+                            //return { label: item.LicensePlateNo, value: item.LicensePlateNo };
+                        }))
+                    }
+                })
+            },
+            messages: {
+                noResults: "",
+                results: function (count) {
+                    return count + (count > 1 ? ' results' : ' result ') + ' found';
+                }
+            }
+        });
+    })
+</script>

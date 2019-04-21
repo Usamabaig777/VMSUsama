@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d760d03c43e14fe9aef2c664bef8b22e" Name="Diagram1">
+        <EntityTypeShape EntityType="VMSModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Color" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Company" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Destination" Width="1.5" PointX="2.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Gate" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.IncidentReport" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.IncidentReportAttachment" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.IncidentType" Width="1.5" PointX="7.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Notification" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Privilege" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.RolePrivilege" Width="1.5" PointX="7.5" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Role" Width="1.5" PointX="5.25" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Site" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.StateProvince" Width="1.5" PointX="10.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Trailer" Width="1.5" PointX="16" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.TrailerAttachment" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.TrailerType" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.UserNotification" Width="1.5" PointX="7.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.UserRole" Width="1.5" PointX="7.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.User" Width="1.5" PointX="5.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Vehicle" Width="1.5" PointX="13" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VehicleMake" Width="1.5" PointX="12.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VehicleType" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VisitDetail" Width="1.5" PointX="18.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VisitMain" Width="1.5" PointX="16" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Visitor" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VisitorNotification" Width="1.5" PointX="7.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VisitorStatu" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VisitorType" Width="1.5" PointX="13.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VisitorVehicle" Width="1.5" PointX="10.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.VMSErrorLog" Width="1.5" PointX="12.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.Environment" Width="1.5" PointX="14.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSModel.IncidentReportType" Width="1.5" PointX="14.75" PointY="16.625" IsExpanded="true" />
+        <AssociationConnector Association="VMSModel.FK_Vehicle_VehicleColor" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_VisitMain_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Site_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Gate_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_IncidentReport_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Notification_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_UserNotification_Notification" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_VisitorNotification_Notification" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_RolePrivilege_Privilege" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_RolePrivilege_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_UserRole_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_User_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Visitor_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Trailer_State" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Vehicle_State" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Trailer_TrailerAttachment" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_UserNotification_User" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_UserRole_User" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Vehicle_VehicleType" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_VisitDetail_VisitMain" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_VisitMain_VisitorType" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_Visitor_VisitorStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSModel.FK_VisitorNotification_Visitor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

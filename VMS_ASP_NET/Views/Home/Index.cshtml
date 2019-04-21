@@ -1,0 +1,144 @@
+﻿@model VMS_ASP_NET.Models.Login
+@using VMS_ASP_NET.Models
+@{
+
+    Layout = null;
+    Login login = (Login)Session["LoginFail"];
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- Removed by WebCopy --><!--<base href="./">--><!-- Removed by WebCopy -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gryphon ESP</title>
+
+    @*<environment include="Development">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        </environment>
+        <environment exclude="Development">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+                  crossorigin="anonymous"
+                  integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
+        </environment>*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+
+    <title>Gryphon ESP</title>
+
+    <link href="~/Gryphon-Lib/vendors/coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <link href="~/Gryphon-Lib/css/style.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+
+</head>
+
+<body class="app flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-sm-10 col-md-6 col-lg-4 col-xl-4">
+                <div class="card-group">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <img src="~/Gryphon-Lib/img/logo.png" alt="Logo" width="250px" class="img img-responsive">
+                            <h2>Login</h2>
+                            <p class="text-muted">Sign In to your account</p>
+
+                            @if (Session["LoginFail"] != null)
+                            {
+                                using (Html.BeginForm("Index", "Login", FormMethod.Post, new { Id = "submit" }))
+                                {
+                                    <div class="mb-3 input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="icon-user"></i>
+                                            </span>
+                                        </div>
+                                        <input placeholder="Username" value="@login.UserName" required autocomplete="number" name="UserName" type="text" class="form-control-warning form-control">
+                                    </div>
+                                    <div class="mb-4 input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="icon-lock"></i></span>
+                                        </div>
+                                        <input placeholder="Password" value="@login.Password" required autocomplete="current-password" name="Password" type="password" class="form-control">
+                                    </div>
+                                    if (Session["ErrorMessage"] != null)
+                                    {
+                                        <div style="color:red">
+                                            @Session["ErrorMessage"]
+                                        </div>
+                                    }
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                            <input type="submit" value="Login" class="px-4 btn btn-primary">
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+                            else
+                            {
+                                using (Html.BeginForm("Index", "Login", FormMethod.Post, new { Id = "submit" }))
+                                {
+                                    <div class="mb-3 input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="icon-user"></i>
+                                            </span>
+                                        </div>
+                                        <input placeholder="Username" required autocomplete="number" name="UserName" type="text" class="form-control-warning form-control">
+                                    </div>
+                                    <div class="mb-4 input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="icon-lock"></i></span>
+                                        </div>
+                                        <input placeholder="Password" required autocomplete="current-password" name="Password" type="password" class="form-control">
+                                    </div>
+                                    @*if (Session["ErrorMessage"] != null)
+                                        {
+                                            <div style="color:red">
+                                                @Session["ErrorMessage"]
+                                            </div>
+                                        }*@
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                            <input type="submit" value="Login" class="px-4 btn btn-primary">
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Gryphon-Lib/vendors/jquery/js/jquery.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/popper.js/js/popper.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/pace-progress/js/pace.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/coreui/coreui-pro/js/coreui.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('#ui-view').ajaxLoad();
+        $(document).ajaxComplete(function () {
+            Pace.restart()
+        });
+    </script>
+</body>
+</html>

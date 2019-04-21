@@ -1,0 +1,83 @@
+﻿
+    @using VMS_ASP_NET.Models.ViewModel
+    @using VMS_ASP_NET.Models
+    @{
+        Layout = null;
+        List<AllNotificationsVM> notification = (List<AllNotificationsVM>)Session["Notifications"];
+        int count = 0;
+    }
+
+
+
+    <li class="nav-item dropdown d-md-down-none">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="icon-bell"></i>
+            @foreach (var item in notification)
+            {
+                if (item.isRead == 0)
+                {
+                    count++;
+                }
+            }
+            <span class="badge badge-pill badge-danger">@count</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg" style="min-width:400px;">
+            <div tabindex="-1" class="text-center dropdown-header"><strong>You have @count notifications.</strong></div>
+            <ul class="list-group">
+                @foreach (var item in notification)
+                {
+                    string NotifiColor = "";
+                    if (item.isRead == 1)
+                    {
+                        NotifiColor = "secondary";
+                    }
+                    else
+                    {
+                        NotifiColor = "primary";
+                    }
+                    <li class="list-group-item-@NotifiColor list-group-item">
+                        <h5 class="mb-0 list-group-item-heading"> @item.NotificationHeader</h5>
+                        <span style="top: 5px; right: 10px; position: absolute; font-size: small;">@item.TimeAgo</span>
+                        <p class="mb-0 list-group-item-text" style="color: gray;">
+                            @item.NotificationDescription
+                            @{
+                                User user = (User)Session["User"];
+                            }
+                            @if (item.UserID == user.UserID)
+                            {
+                                <span class="blockquote-footer"><span title="Source Title">Sent by You</span></span>
+                            }
+                            else
+                            {
+                                <span class="blockquote-footer"><span title="Source Title">Sent by @item.SenderName</span></span>
+                            }
+                        </p>
+                        @if (item.isRead == 1)
+                        {
+                            <button class="p-0 btn btn-link btn-sm" style="bottom: 5px; right: 10px; position: absolute; font-size: small; line-height: normal;"><i class="fa fa-envelope-open-o"></i></button>
+                        }
+                        else
+                        {
+                            <button class="p-0 btn btn-link btn-sm" onclick="ReadNotification(@item.UserNotificationID)" style="bottom: 5px; right: 10px; position: absolute; font-size: small; line-height: normal;"><i class="fa fa-envelope-o"></i></button>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    </li>
+
+
+<script>
+    function ReadNotification(id) {
+        $.ajax({
+
+            url: "/Notifications/ReadNotification/",
+            data: { 'id': id },
+            success: function (result) {
+                location.reload();
+            }
+        });
+
+    };
+
+</script>

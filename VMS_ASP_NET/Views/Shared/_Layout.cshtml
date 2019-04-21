@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>@ViewData["Title"] Gryphon ESP</title>
+    <link rel="icon" href="~/UI/assets/images/coreui-icon.png" />
+    <link rel="stylesheet" href="~/UI/assets/css/coreui-icons.min.css" />
+    <link rel="stylesheet" href="~/UI/assets/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="~/UI/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/UI/assets/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="~/UI/assets/css/style.css" />
+    <link href="~/Gryphon-Lib/css/chosen.css" rel="stylesheet" />
+    <link href="~/Content/select2.min.css" rel="stylesheet" />
+    @*<link href="~/UI/assets/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/UI/assets/css/react-table.css" />
+    <link rel="stylesheet" href="~/UI/assets/css/pace.min.css" />
+    <link href="~/UI/assets/css/datepicker.css" rel="stylesheet" />
+    <link href="~/UI/assets/css/time-picker.css" rel="stylesheet" />
+    @RenderSection("CSS", required: false)
+    <script src="~/UI/assets/js/jquery.min.js"></script>
+    <script src="~/UI/assets/js/notify.min.js"></script>
+    <script src="~/UI/assets/js/datepicker.js"></script>
+    <script src="~/UI/assets/js/time-picker.min.js"></script>
+    <script src="~/UI/assets/datatables/js/jquery.dataTablesnew.js"></script>
+    <script src="~/UI/assets/datatables/js/dataTables.jqueryuinew.min.js"></script>
+    @*<script src="~/UI/assets/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="~/UI/assets/datatables/js/dataTables.bootstrap.min.js"></script>*@
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    @Html.Partial("Header")
+    <div class="app-body">
+        @Html.Partial("Sidebar")
+        @*<div>
+            <partial name="_CookieConsentPartial" />*@
+        <main role="main" class="main">
+            @RenderBody()
+        </main>
+        @*</div>*@
+    </div>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+    <script src="~/UI/assets/js/popper.min.js"></script>
+    <script src="~/UI/assets/js/bootstrap.min.js"></script>
+    <script src="~/UI/assets/js/pace.min.js"></script>
+    <script src="~/UI/assets/js/perfect-scrollbar.min.js"></script>
+    <script src="~/UI/assets/js/coreui.min.js"></script>
+    <script src="~/UI/assets/js/notify.min.js"></script>
+    <script src="~/UI/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/UI/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

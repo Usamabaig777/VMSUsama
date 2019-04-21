@@ -1,0 +1,117 @@
+﻿@*@model VMS.Models.CheckInVM*@
+<div class="row">
+    <div class="pl-0 col-12 col-sm-12">
+        <div class="card">
+            <div class="pt-1 pr-1 pb-1 pl-1 clearfix card-header">
+                <span class="float-left">
+                    <i class="fa fa-user"></i>
+                    <b class="ml-1">Visitor Detail</b>
+                </span><button type="button" class="float-right btn btn-secondary btn-sm">Clear</button>
+                <span class="float-right pr-1">
+                    <div class="custom-checkbox custom-control">
+                        <input type="checkbox" disabled="" class="custom-control-input" checked="">
+                        <label class="custom-control-label" for="isDriver">Driver</label>
+                    </div>
+                </span>
+            </div>
+            <div class="pt-2 pl-2 pr-2 pb-2 card-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="mb-2 position-relative form-group">
+                            <label class="mr-sm-2" style="font-size: small;">First Name<b style="color: red;"> * </b></label>
+                            @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                <div class="position-relative form-group">
+                                    <input asp-for="VisitorFirstName" placeholder="First Name" required maxlength="30" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                </div>
+                            @*</form>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="mb-2 position-relative form-group">
+                            <label class="mr-sm-2" style="font-size: small;">Last Name<b style="color: red;"> * </b></label>
+                            @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                <div class="position-relative form-group">
+                                    <input asp-for="VisitorLastName" placeholder="Last Name" required maxlength="30" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                </div>
+                            @*</form>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="mb-2 position-relative form-group">
+                            <label class="" style="font-size: small;">ID (Last 4 digits)<b style="color: red;"> * </b></label>
+                            @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                <div class="position-relative form-group">
+                                    <input asp-for="VisitorSSN" placeholder="ID" pattern="^[0-9]+$" required minlength="4" maxlength="4" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                </div>
+                            @*</form>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        <div class="mb-2 position-relative form-group">
+                            <label class="" style="font-size: small;">Company<b style="color: red;"> * </b></label>
+                            @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                <div class="position-relative form-group">
+                            <input asp-for="Company" placeholder="Company" maxlength="50" required type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value=""></div>
+                            @*</form>*@
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="mb-2 position-relative form-group">
+                                    <label class="" style="font-size: small;">Destination<b style="color: red;"> * </b></label>
+                                    <select asp-for="DestinationID" asp-items="ViewBag.DestinationID" required class="form-control-sm form-control">
+                                        <option value="">Select Destination</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12"><span></span></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="mb-2 position-relative form-group">
+                            <label class="" style="font-size: small;">Status<b style="color: red;"> * </b></label>
+                            <select asp-for="VisitorStatusID" asp-items="ViewBag.VisitorStatusID" required class="form-control-sm form-control">
+                                <option value="1">Select Status</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="mb-0 position-relative form-group">
+                            <label for="orientationFlag" class="" style="font-size: small;">Orientation</label>
+                            <select asp-for="OrientationVisit" class="form-control-sm form-control">
+                                <option value="">Please Select</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="pl-0 pb-0 col-sm-12 col-md-12 col-lg-12">
+                            <div class="mb-2 position-relative form-group">
+                                <div class="custom-checkbox custom-control">
+                                <input type="checkbox" class="custom-control-input" required>
+                                <label class="custom-control-label" for="proofOfInsurance">Proof Of Insurance</label></div>
+                                <b style="color: red; float: right; margin-top: -11%; margin-right: 19%;">*</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="position-relative form-group">
+                            <label class="">Check-In Signature<b style="color: red;"> * </b></label>
+                            <canvas class="" width="201" height="100" style="width: 100%; touch-action: none;background-color:#e5e5e5;" id="signature_canvas"></canvas>
+                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button>
+                            <button type="button" class="btn btn-success btn-sm"><i class="fa fa-check"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="mb-0" style="font-size: smaller;">By my electronic signature, I acknowledge that I understand, and agree to the policies and procedures of this ranch and that my failure to abide by these rules may result in my dismissal and banishment from this property.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

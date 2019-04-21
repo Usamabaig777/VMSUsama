@@ -1,0 +1,139 @@
+﻿@model VMS_ASP_NET.Models.Visitor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Visitor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitorSSN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitorSSN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitorLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitorAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitorAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitorEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitorEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitorEntryExitNotification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitorEntryExitNotification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotificationEmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotificationEmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Site.SiteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Site.SiteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitorStatu.VisitorStatusDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitorStatu.VisitorStatusDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VisitorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

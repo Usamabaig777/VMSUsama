@@ -1,0 +1,118 @@
+﻿@model IEnumerable<VMS_ASP_NET.Models.Visitor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitorSSN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitorFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitorLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitorAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitorEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitorEntryExitNotification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotificationEmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Site.SiteName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitorStatu.VisitorStatusDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitorSSN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitorFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitorLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitorAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitorEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitorEntryExitNotification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotificationEmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Site.SiteName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitorStatu.VisitorStatusDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VisitorID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VisitorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VisitorID })
+        </td>
+    </tr>
+}
+
+</table>

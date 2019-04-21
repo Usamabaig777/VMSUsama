@@ -1,0 +1,123 @@
+﻿@using VMS_ASP_NET.Models
+@{
+    Layout = null;
+    List<SelectListItem> sitesList = (List<SelectListItem>)Session["AllSitesList"];
+    List<Role> role = (List<Role>)Session["roleList"];
+}
+
+@using (Html.BeginForm("CreateUser", "Users", FormMethod.Post , new { Id = "submit" }))
+{
+    <div class="modal-body">
+        <div class="mb-0 position-relative form-group">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <label class="">Username<b style="color: red;"> * </b></label>
+                    <div class="position-relative form-group">
+                        <input placeholder="UserName" onchange="fnGetDuplicateUser()" name="UserName" required="" minlength="1" maxlength="50" id="UserName" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control" value="">
+                    </div>
+                    <span id="ErrorHere" class="text-danger"></span>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <label class="">Password<b style="color: red;"> * </b></label>
+                    <div class="position-relative form-group">
+                        <input placeholder="Password" name="Password" required="" id="Password" type="password" class="form-control-sm is-untouched is-pristine av-invalid form-control" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-0 position-relative form-group">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <label class="">First Name<b style="color: red;"> * </b></label>
+                    <div class="position-relative form-group">
+                        <input name="FirstName" placeholder="First Name" required="" minlength="1" maxlength="50" id="FirstName" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control" value="">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <label class="">Last Name<b style="color: red;"> * </b></label>
+                    <div class="position-relative form-group">
+                        <input placeholder="Last Name" required name="LastName" minlength="1" maxlength="50" id="LastName" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative form-group">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <label class="">Site<b style="color: red;"> * </b></label>
+                    @Html.DropDownList("SiteID", sitesList, "Select", new { @class = "form-control-sm form-control", required = "required" })
+                    @*<select name="SiteID" class="form-control-sm form-control">
+                        <option value="">Select</option>
+                        <option value="1">Site 1</option>
+                        <option value="44">Site 2</option>
+                        <option value="45">Site 5</option>
+                        <option value="46">Site 6</option>
+                    </select>*@
+                </div>
+                <div class="col-12 col-sm-6">
+                    <label class="">Current Status<b style="color: red;"> * </b></label>
+                    <select name="isActive" required class="form-control-sm form-control">
+                        <option value="">Select</option>
+                        <option value="True">Active</option>
+                        <option value="False">Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative form-group">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <label class="">User Role<b style="color: red;"> * </b></label>
+                    <select name="roleID" required class="form-control-sm form-control">
+                        <option value="">Select one role</option>
+                        @foreach (var item in role)
+                        {
+                            if (item.RoleName!= "SuperUser")
+                            {
+                                <option id="RoleID" value="@item.RoleID">@item.RoleName</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" id="CreateUser" class="btn btn-success">Create</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+}
+
+<script>
+
+    function fnGetDuplicateUser() {
+
+        var userName = $('#UserName').val();
+        $.ajax({
+
+            type: 'Get',
+            dataType: 'json',
+            url: "/Users/CheckDuplicateUser/",
+            data: {
+                'userNameField': userName,
+            },
+            success: function (result) {
+                if (result.success) {
+
+                    if (result.user != null) {
+                        $('#ErrorHere').show();
+                        $('#ErrorHere').text("User Name Already Exist");
+                        $("#CreateUser").attr('disabled', true);
+                    }
+                    else {
+                        $('#ErrorHere').hide();
+                        $("#CreateUser").attr('disabled', false);
+                    }
+                    
+                }
+            }
+        });
+
+    }
+
+</script>

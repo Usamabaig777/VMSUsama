@@ -1,0 +1,34 @@
+﻿@using VMS_ASP_NET.Models
+@{
+    Layout = null;
+    Site site = (Site)ViewBag.Sites;
+}
+@using (Html.BeginForm("UpdateSite", "Sites", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="modal-header">
+        <h5 class="modal-title"><i class="fa fa-plus"></i> Edit Site</h5>
+        <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+    </div>
+    <input type="hidden" value="@site.SiteID" name="SiteID" id="SiteID" />
+    <div class="modal-body">
+        <div class="position-relative form-group">
+            <label for="SiteName" class="">Name<b style="color: red;"> * </b></label>
+            <input name="SiteName" type="text" value="@site.SiteName" class="form-control" required>
+        </div>
+        <div class="position-relative form-group">
+            <label for="SiteDescription" class="">Description<b style="color: red;"> * </b></label>
+            <textarea name="SiteDescription" class="form-control" required>@site.SiteDescription</textarea>
+        </div>
+        <div class="mb-2 position-relative form-group">
+            <label for="Email" class="">Email</label>
+            <div class="position-relative form-group">
+                <input name="Email" maxlength="100" required id="Email" value="@site.Email" type="email" class="form-control-sm is-untouched is-pristine av-valid form-control">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-success" name="Update" />
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+
+}

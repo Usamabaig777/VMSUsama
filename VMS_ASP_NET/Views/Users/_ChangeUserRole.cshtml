@@ -1,0 +1,104 @@
+﻿@using VMS_ASP_NET.Models;
+@{
+    Layout = null;
+    UserRole userRole = (UserRole)Session["UserRoleName"];
+    List<Role> roleList = (List<Role>)Session["RoleList"];
+    UserRole loginUser = (UserRole)Session["userRole"];
+}
+<input type="hidden" value="@userRole.UserRoleID" id="UserRoleHidden" />
+
+<div class="modal-body">
+    @foreach (var item in roleList)
+    {
+        if (item.RoleName != "SuperUser")
+        {
+            if (loginUser.Role.RoleName == "Administrator")
+            {
+                if (item.RoleName != "Administrator")
+                {
+                    if (userRole.RoleID == item.RoleID)
+                    {
+                        <div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;">
+                            <div class="form-check-input custom-radio custom-control custom-control-inline">
+                                <input id="@item.RoleID" onchange="fnGetUserRoleID(@item.RoleID)" type="radio" name="RoleName" class="custom-control-input testClass" value="@item.RoleID" checked="">
+                                <label class="custom-control-label" for="@item.RoleID"></label>
+                            </div>
+                            <label class="form-check-label form-check-label">@item.RoleName</label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;">
+                            <div class="form-check-input custom-radio custom-control custom-control-inline">
+                                <input id="@item.RoleID" type="radio" name="RoleName" class="custom-control-input testClass" value="@item.RoleID">
+                                <label class="custom-control-label" for="@item.RoleID"></label>
+                            </div>
+                            <label class="form-check-label form-check-label">@item.RoleName</label>
+                        </div>
+                    }
+                }
+            }
+            else
+            {
+                if (userRole.RoleID == item.RoleID)
+                {
+                    <div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;">
+                        <div class="form-check-input custom-radio custom-control custom-control-inline">
+                            <input id="@item.RoleID" onchange="fnGetUserRoleID(@item.RoleID)" type="radio" name="RoleName" class="custom-control-input testClass" value="@item.RoleID" checked="">
+                            <label class="custom-control-label" for="@item.RoleID"></label>
+                        </div>
+                        <label class="form-check-label form-check-label">@item.RoleName</label>
+                    </div>
+                }
+                else
+                {
+                    <div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;">
+                        <div class="form-check-input custom-radio custom-control custom-control-inline">
+                            <input id="@item.RoleID" type="radio" name="RoleName" class="custom-control-input testClass" value="@item.RoleID">
+                            <label class="custom-control-label" for="@item.RoleID"></label>
+                        </div>
+                        <label class="form-check-label form-check-label">@item.RoleName</label>
+                    </div>
+                }
+            }
+        }
+    }
+
+</div>
+<div class="modal-footer">
+    <button id="UpdateButton" type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> Update</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+</div>
+
+
+<script>
+        //function fnUpdateUserRole() {
+        //    //var DeleteThis = $(this).closest('.').find("#").text();
+        //    //alert(DeleteThis);
+    //}
+    var value = null;
+    $('input[type=radio][name=RoleName]').change(function () {
+        value = $(this).val();
+        alert(value);
+    });
+
+    $('#UpdateButton').click(function () {
+        var userRole = $('#UserRoleHidden').val();
+        alert(value);
+        alert(userRole);
+        $.ajax({
+
+            url: "/Users/UpdateUserRole/",
+            data: {
+                'roleID': value,
+                'userRoleID': userRole
+            },
+            success: function (result) {
+                alert('Success');
+                location.reload();
+            }
+        });
+
+    });
+
+</script>

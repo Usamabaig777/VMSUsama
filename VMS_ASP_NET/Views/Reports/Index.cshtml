@@ -1,0 +1,735 @@
+﻿@model VMS_ASP_NET.Models.Reports
+@using System.Data
+@using VMS_ASP_NET.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<IncidentReport> incidentReportsList = ViewBag.IncidentReports;
+    UserRole userRole = (UserRole)Session["userRole"];
+}
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="#FirstTab" data-toggle="tab"><i class="fa fa-bar-chart"></i> <span class=""> Incident</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#SecondTab" data-toggle="tab"><i class="fa fa-area-chart"></i> <span class="d-none"> Operational</span></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="FirstTab">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body">
+                                <div class="animated fadeIn">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="clearfix" style="padding: 0.5rem;">
+                                                        @if (userRole.Role.RoleName == "ExternalAdmin")
+                                                        {
+                                                            <button class="mr-1 btn btn-success" disabled data-toggle="modal" data-target="#create_incident_report" onclick="fnGetIncidentReportModal()">
+                                                                <i class="fa fa-plus"></i>
+                                                                Create Incident Report
+                                                            </button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button class="mr-1 btn btn-success" data-toggle="modal" data-target="#create_incident_report" onclick="fnGetIncidentReportModal()">
+                                                                <i class="fa fa-plus"></i>
+                                                                Create Incident Report
+                                                            </button>
+                                                        }
+                                                        <form class="float-right form-inline">
+                                                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                                <label class="mr-sm-2">Search by: </label>
+                                                                <input placeholder="Search ..." type="text" class="form-control" value="">
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="ReactTable -striped -highlight hideFilterRow">
+                                                        <div class="rt-table" role="grid">
+                                                            <div class="rt-thead -header" style="min-width: 730px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 50 0 auto; width: 50px; max-width: 50px;">
+                                                                        <div class="rt-resizable-header-content">#</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Vehicle License Plate</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;">
+                                                                        <div class="rt-resizable-header-content">Date &amp; Time</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Location</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Security Officer Name</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                        <div class="rt-resizable-header-content">Status</div>
+                                                                        <div class="rt-resizer"></div>
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                        <div class="">Actions</div>
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                                                        <div class=""></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-thead -filters" style="min-width: 730px;">
+                                                                <div class="rt-tr" role="row">
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 50 0 auto; width: 50px; max-width: 50px;">
+                                                                        <input type="text" value="" style="width: 100%;">
+                                                                    </div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 80 0 auto; width: 80px; max-width: 80px;"></div>
+                                                                    <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rt-tbody" style="min-width: 730px;">
+                                                                @{
+                                                                    if (incidentReportsList != null)
+                                                                    {
+                                                                        foreach (var item in incidentReportsList)
+                                                                        {
+                                                                            <div class="rt-tr-group" role="rowgroup">
+                                                                                <div class="rt-tr -odd feeRow" role="row">
+                                                                                    <input type="hidden" value="@item.IncidentReportID" name="IncidentHidden" id="IncidentHidden" />
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">@item.IncidentReportID</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">@item.VehicleLicensePlateNo</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 200px; max-width: 200px;">@item.IncidentDateTime</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">@item.IncidentLocation</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">@item.SecurityOfficerName</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">@item.Status</div>
+                                                                                    <div class="rt-td text-center" role="gridcell" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                                        @*<a asp-action="Edit" id="editHere" class="mr-1 btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_incident_report" onclick="fnEditIncidentReport()">
+                                                                                                <i class="fa fa-pencil"></i>
+                                                                                                <span>Edit</span>
+                                                                                            </a>*@
+                                                                                        @if (userRole.Role.RoleName == "ExternalAdmin")
+                                                                                        {
+                                                                                            <button type="button" id="editHere" disabled class="mr-1 btn btn-primary btn-sm editHere" data-target="#create_incident_report" onclick="fnEditIncidentReport()" data-toggle="modal"><i class="fa fa-pencil"></i> Edit</button>
+
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <button type="button" id="editHere" class="mr-1 btn btn-primary btn-sm editHere" data-target="#create_incident_report" onclick="fnEditIncidentReport()" data-toggle="modal"><i class="fa fa-pencil"></i> Edit</button>
+                                                                                        }
+                                                                                    </div>
+                                                                                    <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="pagination-bottom">
+                                                            <div class="-pagination">
+                                                                <div class="-previous">
+                                                                    <button type="button" disabled="" class="-btn">Previous</button>
+                                                                </div>
+                                                                <div class="-center"><span class="-pageInfo">Page <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div> of <span class="-totalPages">1</span></span><span class="select-wrap -pageSizeOptions"><select aria-label="rows per page"><option value="5">5 rows</option><option value="10">10 rows</option><option value="20">20 rows</option><option value="25">25 rows</option><option value="50">50 rows</option><option value="100">100 rows</option></select></span></div>
+                                                                <div class="-next">
+                                                                    <button type="button" disabled="" class="-btn">Next</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="-loading">
+                                                            <div class="-loading-inner">Loading...</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="SecondTab">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="pt-0 pr-0 pl-0 pb-0 card-body">
+                                <div class="animated fadeIn">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-12">
+                                            <div class="mb-0 card">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                                            <h4 class="mb-0">Operational Reports</h4>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                                            <select name="reportID" id="reportID" class="form-control">
+                                                                <option value="Individual">Individual</option>
+                                                                <option value="Site">Site</option>
+                                                                <option value="Gate">Gate</option>
+                                                                <option value="Guard">Guard</option>
+                                                                <option value="Company">Company</option>
+                                                                <option value="Vehicle">Vehicle</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                                                            <button type="button" disabled="" class="btn btn-primary disabled">Run Report</button>
+                                                        </div><span></span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="border-right: 1px solid; margin-bottom: 5px;">
+                                                            <div class="row">
+                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                                    <h5>Filter By Time:</h5>
+                                                                </div>
+                                                                <div class="mb-1 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                                    <form class="form-inline">
+                                                                        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                                            <label class="mr-sm-2" style="font-size: small;">Select Filter Type</label>
+                                                                            <select name="TimeFilter" class="form-control-sm form-control">
+                                                                                <option value="0">By Days</option>
+                                                                                <option value="1">By Duration</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Select Days</label>
+                                                                        <select name="DaysCount" class="form-control-sm form-control">
+                                                                            <option value="0">Select Days</option>
+                                                                            <option value="7">7 Days</option>
+                                                                            <option value="14">14 Days</option>
+                                                                            <option value="30">30 Days</option>
+                                                                            <option value="180">6 Months</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Start Date</label>
+                                                                        <div class="rdt FilterDateTimePickerClass">
+                                                                            <input type="text" class="form-control" placeholder="Start Date" disabled="" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">End Date</label>
+                                                                        <div class="rdt FilterDateTimePickerClass">
+                                                                            <input type="text" class="form-control" placeholder="End Date" disabled="" value="">
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                            <div class="row">
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                                    <h5>Report Filter:</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" id="IndividualPortion">
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">First Name</label>
+                                                                        <form novalidate="" action="#" method="get" class="av-valid">
+                                                                            <div class="position-relative form-group">
+                                                                                <input placeholder="First Name" name="VisitorFirstName" maxlength="30" id="VisitorFirstName" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Last Name</label>
+                                                                        <form novalidate="" action="#" method="get" class="av-valid">
+                                                                            <div class="position-relative form-group">
+                                                                                <input placeholder="Last Name" name="VisitorLastName" maxlength="30" id="VisitorLastName" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="form-control-sm mb-0" style="font-size: small;">ID <i class="icon-question" id="SSNTooltipElement"></i></label>
+                                                                        <form novalidate="" action="#" method="get" class="av-valid">
+                                                                            <div class="position-relative form-group">
+                                                                                <input name="VisitorSSN" placeholder="ID" pattern="^[0-9]+$" minlength="4" maxlength="4" id="VisitorSSN" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" id="SitePortion">
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Site</label>
+                                                                        <select name="SiteID" class="form-control-sm form-control">
+                                                                            <option value="0">All Sites</option>
+                                                                            <option value="1">Site 1</option>
+                                                                            <option value="44">Site 2</option>
+                                                                            <option value="45">Site 3</option>
+                                                                            <option value="46">Site 4</option>
+                                                                            <option value="47">Site 5</option>
+                                                                            <option value="48">Site 6</option>
+                                                                            <option value="58">techdivlhr</option>
+                                                                            <option value="59">Site 78</option>
+                                                                            <option value="60">Site 8</option>
+                                                                            <option value="61">test site 2345</option>
+                                                                            <option value="62">Notification Site</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" id="GatePortion">
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Select Site</label>
+                                                                        <select name="SiteID" class="form-control-sm form-control">
+                                                                            <option value="0">All Sites</option>
+                                                                            <option value="1">Site 1</option>
+                                                                            <option value="44">Site 2</option>
+                                                                            <option value="45">Site 3</option>
+                                                                            <option value="46">Site 4</option>
+                                                                            <option value="47">Site 5</option>
+                                                                            <option value="48">Site 6</option>
+                                                                            <option value="58">techdivlhr</option>
+                                                                            <option value="59">Site 78</option>
+                                                                            <option value="60">Site 8</option>
+                                                                            <option value="61">test site 2345</option>
+                                                                            <option value="62">Notification Site</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Gate</label>
+                                                                        <select name="GateID" class="form-control-sm form-control">
+                                                                            <option value="0">All Gates</option>
+                                                                            <option value="77">Gate 7</option>
+                                                                            <option value="78">Gate 1</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" id="GuardPortion">
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Select Site</label>
+                                                                        <select name="SiteID" class="form-control-sm form-control">
+                                                                            <option value="0">All Sites</option>
+                                                                            <option value="1">Site 1</option>
+                                                                            <option value="44">Site 2</option>
+                                                                            <option value="45">Site 3</option>
+                                                                            <option value="46">Site 4</option>
+                                                                            <option value="47">Site 5</option>
+                                                                            <option value="48">Site 6</option>
+                                                                            <option value="58">techdivlhr</option>
+                                                                            <option value="59">Site 78</option>
+                                                                            <option value="60">Site 8</option>
+                                                                            <option value="61">test site 2345</option>
+                                                                            <option value="62">Notification Site</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Guard</label>
+                                                                        <select name="GuardID" class="form-control-sm form-control">
+                                                                            <option value="0">All Guards</option>
+                                                                            <option value="5">Farhan Ahmed ( guard )</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" id="CompanyPortion">
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Company</label>
+                                                                        <form novalidate="" action="#" method="get" class="av-valid">
+                                                                            <div class="position-relative form-group">
+                                                                                <input placeholder="Company" name="Company" maxlength="50" id="Company" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" id="VehiclePortion">
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Select Site</label>
+                                                                        <select name="SiteID" class="form-control-sm form-control">
+                                                                            <option value="0">All Sites</option>
+                                                                            <option value="1">Site 1</option>
+                                                                            <option value="44">Site 2</option>
+                                                                            <option value="45">Site 3</option>
+                                                                            <option value="46">Site 4</option>
+                                                                            <option value="47">Site 5</option>
+                                                                            <option value="48">Site 6</option>
+                                                                            <option value="58">techdivlhr</option>
+                                                                            <option value="59">Site 78</option>
+                                                                            <option value="60">Site 8</option>
+                                                                            <option value="61">test site 2345</option>
+                                                                            <option value="62">Notification Site</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">License Plate # </label>
+                                                                        <form novalidate="" action="#" method="get" class="av-valid">
+                                                                            <div class="position-relative form-group">
+                                                                                <input placeholder="" name="LicensePlateNo" maxlength="50" id="LicensePlateNo" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value="">
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Select Color</label>
+                                                                        <select name="VehicleColorID" class="form-control-sm form-control">
+                                                                            <option value="0">Choose One</option>
+                                                                            <option value="1">Aluminum</option>
+                                                                            <option value="2">Beige</option>
+                                                                            <option value="3">Black</option>
+                                                                            <option value="4">Blue</option>
+                                                                            <option value="5">Brown</option>
+                                                                            <option value="6">Bronze</option>
+                                                                            <option value="7">Claret</option>
+                                                                            <option value="8">Copper</option>
+                                                                            <option value="9">Cream</option>
+                                                                            <option value="10">Gold</option>
+                                                                            <option value="11">Gray</option>
+                                                                            <option value="12">Green</option>
+                                                                            <option value="13">Maroon</option>
+                                                                            <option value="14">Metallic</option>
+                                                                            <option value="15">Navy</option>
+                                                                            <option value="16">Metallic</option>
+                                                                            <option value="17">Orange</option>
+                                                                            <option value="18">Pink</option>
+                                                                            <option value="19">Purple</option>
+                                                                            <option value="20">Red</option>
+                                                                            <option value="21">Rose</option>
+                                                                            <option value="22">Rust</option>
+                                                                            <option value="23">Silver</option>
+                                                                            <option value="24">Tan</option>
+                                                                            <option value="25">Turquoise</option>
+                                                                            <option value="26">White</option>
+                                                                            <option value="27">Yellow</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Select Make</label>
+                                                                        <select name="MakeID" class="form-control-sm form-control">
+                                                                            <option value="0">Choose One</option>
+                                                                            <option value="1">ACURA</option>
+                                                                            <option value="2">ALFA ROMEO</option>
+                                                                            <option value="3">ASTON MARTIN</option>
+                                                                            <option value="4">AUDI</option>
+                                                                            <option value="5">BUGATTI</option>
+                                                                            <option value="6">BUICK</option>
+                                                                            <option value="7">CADILLAC</option>
+                                                                            <option value="8">CHEVROLET</option>
+                                                                            <option value="9">CHRYSLER</option>
+                                                                            <option value="10">DODGE</option>
+                                                                            <option value="11">FERRARI</option>
+                                                                            <option value="12">FORD</option>
+                                                                            <option value="13">GMC</option>
+                                                                            <option value="14">HUMMER</option>
+                                                                            <option value="15">HYUNDAI</option>
+                                                                            <option value="16">INFINITI</option>
+                                                                            <option value="17">ISUZU</option>
+                                                                            <option value="18">JAGUAR</option>
+                                                                            <option value="19">JEEP</option>
+                                                                            <option value="20">KIA</option>
+                                                                            <option value="21">LAMBORGHINI</option>
+                                                                            <option value="22">LAND ROVER</option>
+                                                                            <option value="23">LEXUS</option>
+                                                                            <option value="24">LINCOLN</option>
+                                                                            <option value="25">LOTUS</option>
+                                                                            <option value="26">MASERATI</option>
+                                                                            <option value="27">MAYBACH</option>
+                                                                            <option value="28">MAZDA</option>
+                                                                            <option value="29">MCLAREN</option>
+                                                                            <option value="30">MERCEDES-BENZ</option>
+                                                                            <option value="31">MERCURY</option>
+                                                                            <option value="32">MITSUBISHI</option>
+                                                                            <option value="33">NISSAN</option>
+                                                                            <option value="34">PONTIAC</option>
+                                                                            <option value="35">PORSCHE</option>
+                                                                            <option value="36">ROLLS-ROYCE</option>
+                                                                            <option value="37">SAAB</option>
+                                                                            <option value="38">SATURN</option>
+                                                                            <option value="39">SUBARU</option>
+                                                                            <option value="40">SUZUKI</option>
+                                                                            <option value="41">TESLA</option>
+                                                                            <option value="42">TOYOTA</option>
+                                                                            <option value="43">VOLKSWAGEN</option>
+                                                                            <option value="44">VOLVO</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                                                    <div class="position-relative form-group">
+                                                                        <label class="" style="font-size: small;">Model</label>
+                                                                        <input placeholder="" name="ModelName" type="text" class="form-control-sm form-control" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                            <div class="ReactTable -striped -highlight hideFilterRow">
+                                                                <div class="rt-table" role="grid">
+                                                                    <div class="rt-thead -headerGroups" style="min-width: 2200px;">
+                                                                        <div class="rt-tr" role="row">
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px;">Date</div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px;">Time</div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 400 0 auto; width: 400px;">CheckIn Vehicle</div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 400 0 auto; width: 400px;">CheckOut Vehicle</div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px;">Reporting Officer</div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px;">Gate</div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px;">Passenger</div>
+                                                                            <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px;">Designation</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rt-thead -header" style="min-width: 2200px;">
+                                                                        <div class="rt-tr" role="row">
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Site Name</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckIn</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckOut</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckIn</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckOut</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">License Plate</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Make</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Model</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Color</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">License Plate</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Make</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Model</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Color</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Company</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckIn</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckOut</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckIn</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">CheckOut</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">First Name</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Last Name</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Check-in</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                            <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                                <div class="rt-resizable-header-content">Check-out</div>
+                                                                                <div class="rt-resizer"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rt-tbody" style="min-width: 2200px;"></div>
+                                                                </div>
+                                                                <div class="pagination-bottom">
+                                                                    <div class="-pagination">
+                                                                        <div class="-previous">
+                                                                            <button type="button" class="-btn">Previous</button>
+                                                                        </div>
+                                                                        <div class="-center"><span class="-pageInfo">Page <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div> of <span class="-totalPages">1</span></span><span class="select-wrap -pageSizeOptions"><select aria-label="rows per page"><option value="5">5 rows</option><option value="10">10 rows</option><option value="20">20 rows</option><option value="25">25 rows</option><option value="50">50 rows</option><option value="100">100 rows</option></select></span></div>
+                                                                        <div class="-next">
+                                                                            <button type="button" class="-btn">Next</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="modal" id="create_incident_report" style=" padding-left: 17px;">
+    <div class="modal-dialog modal-lg modal-success incidentReportModal" role="document">
+        <div class="modal-content">
+            <div id="IncidentReportSaveForm">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Edit Incident Report Form-->
+<div class="modal" id="edit_incident_report" style=" padding-left: 17px;">
+    <div class="modal-dialog modal-lg modal-success incidentReportModal" role="document">
+        <div class="modal-content">
+            @*<div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fa fa-pencil"></i>
+                        Edit Incident Report
+                    </h5>
+                    <button type="button" data-dismiss="modal" class="close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>*@
+            <div id="IncidentReportEditForm">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+        alert('I am here');
+        $('#SitePortion').hide();
+        $('#GatePortion').hide();
+        $('#GuardPortion').hide();
+        $('#CompanyPortion').hide();
+        $('#VehiclePortion').hide();
+    });
+    $('#reportID').change(function () {
+
+        var reportIDVal = $('#reportID').val();
+        alert(reportIDVal);
+
+        if (reportIDVal == 'IndividualPortion') {
+            $('#SitePortion').hide();
+            $('#GatePortion').hide();
+            $('#GuardPortion').hide();
+            $('#CompanyPortion').hide();
+            $('#VehiclePortion').hide();
+        }
+        else if (reportIDVal == 'SitePortion') {
+            $('#GatePortion').hide();
+            $('#GuardPortion').hide();
+            $('#CompanyPortion').hide();
+            $('#VehiclePortion').hide();
+        }
+
+    })
+    function fnGetIncidentReportModal() {
+        $.ajax({
+
+            url: "/Reports/CreateIncidentReport/",
+            success: function (result) {
+                $("#IncidentReportSaveForm").html(result);
+            }
+        });
+    };
+
+    $('.editHere').click(function () {
+        var IncidentID = $(this).closest(".feeRow").find("#IncidentHidden").val();
+        //var IncidentID = $('#IncidentHidden').val();
+        $.ajax({
+
+            url: "/Reports/UpdateIncidentReport/",
+            data: { 'id': IncidentID },
+            success: function (result) {
+                $("#IncidentReportSaveForm").html(result);
+            }
+        });
+
+    })
+</script>
+

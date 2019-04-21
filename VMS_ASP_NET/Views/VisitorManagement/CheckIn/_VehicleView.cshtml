@@ -1,0 +1,206 @@
+﻿@*@model VMS.Models.CheckInVM*@
+
+<div class="card">
+    <div class="pt-1 pr-1 pb-1 pl-1 card-header">
+        <i class="fa fa-car"></i>
+        <b>Vehicle Detail</b>
+        <button type="button" class="float-right btn btn-secondary btn-sm">
+            Clear
+        </button>
+    </div>
+    <div class="pt-2 pl-2 pr-2 pb-2 card-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="mb-2 position-relative row form-group">
+                    <label class="col-sm-12 col-md-12 col-lg-5 col-form-label">License Plate #<b style="color: red;"> * </b></label>
+                    <div class="autoCompleteCustomWrapperClass col-sm-12 col-md-12 col-lg-7">
+                        <div style="display: inline-block;">
+                            <input asp-for="LicensePlateNo" onkeyup="fnSearchLicensePlateNo()" class="form-control-sm form-control" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Vehicle Type<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            <select asp-for="VehicleTypeID" asp-items="ViewBag.VehicleTypeID" required class="form-control-sm form-control">
+                                <option value="">Select Vehicle Type</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Vehicle State<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            <select asp-for="VehicleStateID" asp-items="ViewBag.VehicleStateID" required class="form-control-sm form-control">
+                                <option value="">Select Vehicle State</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Vehicle Make<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            <select asp-for="MakeID" asp-items="ViewBag.MakeID" required class="form-control-sm form-control">
+                                <option value="">Select Vehicle Make</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label class="col-sm-5 col-form-label">Model Name<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                            <div class="position-relative form-group">
+                                <input placeholder="Model Name" asp-for="ModelName" required maxlength="20" type="text" class="form-control-sm mb-0 is-untouched is-pristine av-valid form-control" value="">
+                            </div>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <label for="exampleSelect" class="col-sm-5 col-form-label">Color<b style="color: red;"> * </b></label>
+                        <div class="col-sm-7">
+                            <select asp-for="VehicleColorID" asp-items="ViewBag.ColorID" required class="form-control-sm form-control">
+                                <option value="">Select Color</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <div class="form-control-sm pl-3 col-sm-12 col-md-12 col-lg-5"><label for="searchConsent" class="">Search Consent</label></div>
+                        <div class="col-sm-12 col-md-12 col-lg-7">
+                            <div class="mb-0 position-relative form-group">
+                                <select asp-for="VehicleSearchConsent" class="form-control-sm form-control">
+                                    <option value="-1">Please Select</option>
+                                    <option value="">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span></span>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <div class="form-control-sm pl-3 col-sm-12 col-md-12 col-lg-5">
+                            <div class="custom-checkbox custom-control">
+                                <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label" for="assignPlacard">Assign Placard</label>
+                            </div>
+                        </div>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="mb-2 position-relative row form-group">
+                        <div class="form-control-sm pl-3 col-sm-12 col-md-12">
+                            <div class="custom-checkbox custom-control">
+                                <input type="checkbox" id="trailerAttach" class="custom-control-input">
+                                <label class="custom-control-label" for="trailerAttach">Trailer Attach</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="mb-2 position-relative row form-group">
+                                <label class="col-sm-5 col-form-label">Trailer Plate #<b style="color: red;"> * </b></label>
+                                <div class="col-sm-7">
+                                    @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                    <div class="position-relative form-group">
+                                        <select asp-for="CheckInMainTrailerID" asp-items="ViewBag.TrailerID" class="form-control-sm form-control selectable">
+                                            <option value="">License Plate No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="mb-2 position-relative row form-group">
+                                <label class="col-sm-5 col-form-label">Trailer VIN<b style="color: red;"> * </b></label>
+                                <div class="col-sm-7">
+                                    @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                                    <div class="position-relative form-group">
+                                        <input name="TrailerVIN" placeholder="Trailer VIN" maxlength="50" id="TrailerVIN" type="text" class="form-control-sm mb-0 is-untouched is-pristine av-valid form-control" value="">
+                                    </div>
+                                    @*</form>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="mb-2 position-relative row form-group">
+                                <label class="col-sm-5 col-form-label">Trailer Type<b style="color: red;"> * </b></label>
+                                <div class="col-sm-7">
+                                    <select asp-for="TrailerTypeID" asp-items="ViewBag.TrailerTypeID" class="form-control-sm form-control">
+                                        <option value="">Select Type</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="mb-2 position-relative row form-group">
+                                <label class="col-sm-5 col-form-label">Trailer State<b style="color: red;"> * </b></label>
+                                <div class="col-sm-7">
+                                    <select asp-for="TrailerStateID" asp-items="ViewBag.TrailerStateID" class="form-control-sm form-control">
+                                        <option value="">Select State</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="mb-2 position-relative row form-group">
+                                <label class="col-sm-12 col-md-6 col-lg-6 col-form-label">Trailer Attachment ?<b style="color: red;">*</b></label>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <select asp-for="TrailerAttachmentID" asp-items="ViewBag.TrailerAttachmentID" class="form-control-sm form-control">
+                                        <option value="">Select Attachment</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="position-relative form-group">
+                        <label class="">Comments</label>
+                        <textarea asp-for="Comments" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

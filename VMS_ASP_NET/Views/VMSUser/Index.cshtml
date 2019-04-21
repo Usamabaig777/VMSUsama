@@ -1,0 +1,231 @@
+﻿@model IEnumerable<VMS_ASP_NET.Models.ViewModels.UserRolesViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"><button type="button" class="mr-1 btn btn-success" data-toggle="modal" data-target="#createuser"><i class="fa fa-plus"></i> Create User</button></div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <form class="float-right form-inline">
+                                    <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group"><label class="mr-sm-2">Filter All: </label><input placeholder="Search here ..." type="text" class="form-control" value=""></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="ReactTable -striped -highlight hideFilterRow">
+                            <div class="rt-table" role="grid">
+                                <div class="rt-thead -header" style="min-width: 870px;">
+                                    <div class="rt-tr" role="row">
+                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="rt-resizable-header-content">Username</div>
+                                            <div class="rt-resizer"></div>
+                                        </div>
+                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="rt-resizable-header-content">First Name</div>
+                                            <div class="rt-resizer"></div>
+                                        </div>
+                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="rt-resizable-header-content">Last Name</div>
+                                            <div class="rt-resizer"></div>
+                                        </div>
+                                        <div class="rt-th rt-resizable-header" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="rt-resizable-header-content">Roles</div>
+                                            <div class="rt-resizer"></div>
+                                        </div>
+                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="rt-resizable-header-content">User Type</div>
+                                            <div class="rt-resizer"></div>
+                                        </div>
+                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="rt-resizable-header-content">Current Status</div>
+                                            <div class="rt-resizer"></div>
+                                        </div>
+                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="rt-resizable-header-content">Currently Logged In</div>
+                                            <div class="rt-resizer"></div>
+                                        </div>
+                                        <div class="rt-th -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                            <div class="">Password Reset</div>
+                                        </div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 70 0 auto; width: 70px; max-width: 70px;">
+                                            <div class="">Actions</div>
+                                        </div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                            <div class=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rt-thead -filters" style="min-width: 870px;">
+                                    <div class="rt-tr" role="row">
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 70 0 auto; width: 70px; max-width: 70px;"></div>
+                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                    </div>
+                                </div>
+                                <div class="rt-tbody" style="min-width: 870px;">
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <div class="rt-tr-group" role="rowgroup">
+                                                <div class="rt-tr -odd" role="row">
+                                                    <div class="rt-td text-left" role="gridcell" style="flex: 100 0 auto; width: 100px;  ">@item.UserName</div>
+                                                    <div class="rt-td text-left" role="gridcell" style="flex: 100 0 auto; width: 100px;">@item.FirstName</div>
+                                                    <div class="rt-td text-left" role="gridcell" style="flex: 100 0 auto; width: 100px;">@item.LastName</div>
+                                                    <div class="rt-td text-left" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                        <td>
+                                                            <div class="item">
+                                                                <span class="badge badge-success" style="margin: 0.1rem;text-align:left;">@item.RoleName</span>
+                                                                @if (item.RoleName == "SuperUser")
+                                                                { }
+                                                                else
+                                                                {<button type="button" class="p-2 btn btn-link btn-sm" data-toggle="modal" data-target="#edituser-role"><i class="fa fa-pencil"></i></button>}
+
+                                                            </div>
+                                                        </td>
+                                                    </div>
+                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                        @if (@item.isExternal == false)
+                                                        {<span>Internal</span>}
+                                                        else
+                                                        { <span>External</span>}
+                                                    </div>
+                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                        @if (@item.isActive == true)
+                                                        {<span> Yes</span>}
+                                                        else
+                                                        {<span>No</span>}
+                                                    </div>
+                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                        @if (@item.isLogin == true)
+                                                        {<span class="badge badge-success">Yes</span>}
+                                                        else
+                                                        {<span class="badge badge-success">No</span>}
+                                                    </div>
+                                                    <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                        @if (@item.isPasswordReset == true)
+                                                        {<span class="badge badge-success">Yes</span>}
+                                                        else
+                                                        { <span class="badge badge-success">No</span>}
+                                                    </div>
+                                                    <div class="rt-td text-center" role="gridcell" style="flex: 70 0 auto; width: 70px; max-width: 70px;text-align:left;">
+                                                        <td><button type="button" class="mr-1 btn btn-primary btn-sm" data-toggle="modal" data-target="#edituser"><i class="fa fa-pencil"></i> Edit</button></td>
+                                                    </div>
+                                                    <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="pagination-bottom">
+                                <div class="-pagination">
+                                    <div class="-previous"><button type="button" disabled="" class="-btn">Previous</button></div>
+                                    <div class="-center">
+                                        <span class="-pageInfo">
+                                            Page
+                                            <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div>
+                                            of <span class="-totalPages">1</span>
+                                        </span>
+                                        <span class="select-wrap -pageSizeOptions">
+                                            <select aria-label="rows per page">
+                                                <option value="5">5 rows</option>
+                                                <option value="10">10 rows</option>
+                                                <option value="20">20 rows</option>
+                                                <option value="25">25 rows</option>
+                                                <option value="50">50 rows</option>
+                                                <option value="100">100 rows</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div class="-next"><button type="button" disabled="" class="-btn">Next</button></div>
+                                </div>
+                            </div>
+                            <div class="-loading">
+                                <div class="-loading-inner">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade show" id="createuser">
+    <div class="modal-dialog modal-success modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-plus"></i> Create User</h5>
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-0 position-relative form-group">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <label class="">Username<b style="color: red;"> * </b></label>
+                            <form novalidate="" action="#" method="get" class="av-invalid">
+                                <div class="position-relative form-group">
+                                    <input placeholder="UserName" name="UserName" required="" minlength="1" maxlength="50" id="UserName" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control" value="">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <label class="">Password<b style="color: red;"> * </b></label>
+                            <form novalidate="" action="#" method="get" class="av-invalid">
+                                <div class="position-relative form-group">
+                                    <input placeholder="Password" name="Password" required="" id="Password" type="password" class="form-control-sm is-untouched is-pristine av-invalid form-control" value="">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-0 position-relative form-group">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <label class="">First Name<b style="color: red;"> * </b></label>
+                            <form novalidate="" action="#" method="get" class="av-invalid">
+                                <div class="position-relative form-group">
+                                    <input name="FirstName" placeholder="First Name" required="" minlength="1" maxlength="50" id="FirstName" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control" value="">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <label class="">Last Name<b style="color: red;"> * </b></label>
+                            <form novalidate="" action="#" method="get" class="av-valid"><div class="position-relative form-group"><input placeholder="Last Name" name="LastName" minlength="1" maxlength="50" id="LastName" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control" value=""></div></form>
+                        </div>
+                    </div>
+                </div><div class="position-relative form-group"><div class="row"><div class="col-12 col-sm-6"><label class="">Site<b style="color: red;"> * </b></label><select name="SiteID" class="form-control-sm form-control"><option value="">Select</option><option value="1">Site 1</option><option value="44">Site 2</option><option value="45">Site 5</option><option value="46">Site 6</option></select></div><div class="col-12 col-sm-6"><label class="">Current Status<b style="color: red;"> * </b></label><select name="isActive" class="form-control-sm form-control"><option value="">Select</option><option value="1">Active</option><option value="0">Inactive</option></select></div></div></div><div class="position-relative form-group"><div class="row"><div class="col-12 col-sm-6"><label class="">User Role<b style="color: red;"> * </b></label><select name="roleID" class="form-control-sm form-control"><option value="0">Select one role</option><option value="2">Administrator</option><option value="3">Supervisor</option><option value="4">Guard</option><option value="19">ExternalAdmin</option></select></div></div></div>
+            </div><div class="modal-footer"><button type="button" class="btn btn-success">Create</button> <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade show" id="edituser"><div class="modal-dialog modal-primary modal-lg" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i class="fa fa-pencil"></i> Edit User</h5><button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button></div><div class="modal-body"><div class="position-relative form-group"><div class="row"><div class="col-12 col-sm-6"><label for="UserName" class="">UserName<b style="color: red;"> * </b></label><input name="UserName" type="text" class="form-control" value="superuser"></div><div class="col-12 col-sm-6"><label for="Password" class="">Password<b style="color: red;"> * </b></label><input name="Password" type="password" class="form-control" value="2020"></div></div></div><div class="position-relative form-group"><div class="row"><div class="col-12 col-sm-6"><label for="FirstName" class="">First Name<b style="color: red;"> * </b></label><input name="FirstName" type="text" class="form-control" value="Super"></div><div class="col-12 col-sm-6"><label for="LastName" class="">Last Name<b style="color: red;"> * </b></label><input name="LastName" type="text" class="form-control" value="User"></div></div></div><div class="position-relative form-group"><div class="row"><div class="col-12 col-sm-6"><label for="SiteID" class="">Site<b style="color: red;"> * </b></label><select name="SiteID" class="form-control"><option value="1">Site 1</option><option value="44">Site 2</option><option value="45">Site 5</option><option value="46">Site 6</option></select></div><div class="col-12 col-sm-6"><label for="LastName" class="">Current Status ?<b style="color: red;"> * </b></label><select name="isActive" class="form-control"><option value="1">Active</option><option value="0">Inactive</option></select></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-primary">Update</button> <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button></div></div></div></div>
+<div class="modal fade show" id="edituser-role"><div class="modal-dialog modal-primary" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i class="fa fa-pencil"></i> Edit User Roles</h5><button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button></div><div class="modal-body"><div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;"><div class="form-check-input custom-radio custom-control custom-control-inline"><input id="2" type="radio" class="custom-control-input" value="Administrator" checked=""><label class="custom-control-label" for="2"></label></div><label class="form-check-label form-check-label">Administrator</label></div><div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;"><div class="form-check-input custom-radio custom-control custom-control-inline"><input id="3" type="radio" class="custom-control-input" value="Supervisor"><label class="custom-control-label" for="3"></label></div><label class="form-check-label form-check-label">Supervisor</label></div><div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;"><div class="form-check-input custom-radio custom-control custom-control-inline"><input id="4" type="radio" class="custom-control-input" value="Guard"><label class="custom-control-label" for="4"></label></div><label class="form-check-label form-check-label">Guard</label></div><div class="checkbox position-relative form-check form-check-inline" style="margin-right: 1rem;"><div class="form-check-input custom-radio custom-control custom-control-inline"><input id="19" type="radio" class="custom-control-input" value="ExternalAdmin"><label class="custom-control-label" for="19"></label></div><label class="form-check-label form-check-label">ExternalAdmin</label></div></div><div class="modal-footer"><button type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> Update</button> <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button></div></div></div></div>
+<script src="vendors\jquery\js\jquery.min.js"></script>
+<script src="vendors\popper.js\js\popper.min.js"></script>
+<script src="vendors\bootstrap\js\bootstrap.min.js"></script>
+<script src="vendors\pace-progress\js\pace.min.js"></script>
+<script src="vendors\perfect-scrollbar\js\perfect-scrollbar.min.js"></script>
+<script>
+    $('#ui-view').ajaxLoad();
+    $(document).ajaxComplete(function () {
+        Pace.restart()
+    });
+</script>

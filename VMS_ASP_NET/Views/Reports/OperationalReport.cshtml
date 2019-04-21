@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "OperationalReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <ul class="nav nav-tabs">
+                <a class="active" href="/reports/incident">
+                    <li class="nav-item"><a class="nav-link active"><i class="fa fa-bar-chart"></i> <span class=""> Incident</span></a></li>
+                </a>
+                <a class="active" href="/reports/operational">
+                    <li class="nav-item"><a class="nav-link"><i class="fa fa-area-chart"></i> <span class="d-none"> Operational</span></a></li>
+                </a>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="pt-0 pr-0 pl-0 pb-0 card-body">
+                                    <div class="animated fadeIn">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <div class="clearfix" style="padding: 0.5rem;">
+                                                            <button type="button" class="mr-1 btn btn-success"><i class="fa fa-plus"></i> Create Incident Report</button>
+                                                            <form class="float-right form-inline">
+                                                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                                    <label class="mr-sm-2">Search by: </label>
+                                                                    <input placeholder="Search ..." type="text" class="form-control" value="">
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="ReactTable -striped -highlight hideFilterRow">
+                                                            <div class="rt-table" role="grid">
+                                                                <div class="rt-thead -header" style="min-width: 730px;">
+                                                                    <div class="rt-tr" role="row">
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 50 0 auto; width: 50px; max-width: 50px;">
+                                                                            <div class="rt-resizable-header-content">#</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                            <div class="rt-resizable-header-content">Vehicle License Plate</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;">
+                                                                            <div class="rt-resizable-header-content">Date &amp; Time</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                            <div class="rt-resizable-header-content">Location</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                            <div class="rt-resizable-header-content">Security Officer Name</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th rt-resizable-header -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                            <div class="rt-resizable-header-content">Status</div>
+                                                                            <div class="rt-resizer"></div>
+                                                                        </div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                            <div class="">Actions</div>
+                                                                        </div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                                                            <div class=""></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-thead -filters" style="min-width: 730px;">
+                                                                    <div class="rt-tr" role="row">
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 50 0 auto; width: 50px; max-width: 50px;">
+                                                                            <input type="text" value="" style="width: 100%;">
+                                                                        </div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 80 0 auto; width: 80px; max-width: 80px;"></div>
+                                                                        <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rt-tbody" style="min-width: 730px;">
+                                                                    <div class="rt-tr-group" role="rowgroup">
+                                                                        <div class="rt-tr -odd" role="row">
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">98</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 200px; max-width: 200px;">04-18-2019 07:59 PM</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">aaaaa</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">dgffgg</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;"> Approved </div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                                <button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                                                                            </div>
+                                                                            <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rt-tr-group" role="rowgroup">
+                                                                        <div class="rt-tr -even" role="row">
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">96</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 200px; max-width: 200px;">04-19-2019 04:56 PM</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Faisalabad</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Test Officer</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;"> Approved </div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                                <button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                                                                            </div>
+                                                                            <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rt-tr-group" role="rowgroup">
+                                                                        <div class="rt-tr -odd" role="row">
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">97</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">uiuas</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 200px; max-width: 200px;">04-19-2019 06:31 AM</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Pakistan</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Guard</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                                <button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                                                                            </div>
+                                                                            <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rt-tr-group" role="rowgroup">
+                                                                        <div class="rt-tr -even" role="row">
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">94</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 200px; max-width: 200px;">04-19-2019 03:29 AM</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">XN 4545</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Linda</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                                <button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                                                                            </div>
+                                                                            <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="rt-tr-group" role="rowgroup">
+                                                                        <div class="rt-tr -odd" role="row">
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 50 0 auto; width: 50px; max-width: 50px;">93</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">123456</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 200 0 auto; width: 200px; max-width: 200px;">04-18-2019 11:47 PM</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Test Location</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px;">Test Officer</div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;"> Approved </div>
+                                                                            <div class="rt-td text-center" role="gridcell" style="flex: 80 0 auto; width: 80px; max-width: 80px;">
+                                                                                <button type="button" class="mr-1 btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                                                                            </div>
+                                                                            <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pagination-bottom">
+                                                                <div class="-pagination">
+                                                                    <div class="-previous">
+                                                                        <button type="button" disabled="" class="-btn">Previous</button>
+                                                                    </div>
+                                                                    <div class="-center"><span class="-pageInfo">Page <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div> of <span class="-totalPages">1</span></span><span class="select-wrap -pageSizeOptions"><select aria-label="rows per page"><option value="5">5 rows</option><option value="10">10 rows</option><option value="20">20 rows</option><option value="25">25 rows</option><option value="50">50 rows</option><option value="100">100 rows</option></select></span></div>
+                                                                    <div class="-next">
+                                                                        <button type="button" disabled="" class="-btn">Next</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="-loading">
+                                                                <div class="-loading-inner">Loading...</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="pt-0 pr-0 pl-0 pb-0 card-body"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

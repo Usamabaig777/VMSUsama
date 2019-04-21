@@ -1,0 +1,106 @@
+﻿@model VMS_ASP_NET.Models.Site
+@using VMS_ASP_NET.Models
+@{
+    Layout = null;
+    UserRole userRole = (UserRole)Session["userRole"];
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- Removed by WebCopy --><!--<base href="./">--><!-- Removed by WebCopy -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+
+    <title>Gryphon ESP</title>
+
+    <link href="~/Gryphon-Lib/vendors/coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <link href="~/Gryphon-Lib/css/style.css" rel="stylesheet">
+    <link href="~/Gryphon-Lib/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+
+</head>
+<body class="app flex-row align-items-center">
+    <div class="container">
+        <div class="justify-content-center row">
+            <div class="col-10 col-sm-10 col-md-6 col-lg-4 col-xl-4">
+                <div class="card-group">
+                    <div class="p-4 card">
+                        <div class="card-body">
+                            <h2>Select Site and Gate</h2>
+
+                            @using (Html.BeginForm("SitesGates", "Login", FormMethod.Post, new { Id = "submit", enctype = "multipart/form-data" }))
+                            {
+
+                                <div class="mb-4 input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+                                    </div>
+                                    @*@Html.DropDownList("Sites", sites, "Select Site", new {name= "Sites", @class = "form-control", required = "required" })*@
+                                    @Html.DropDownListFor(m => m.SiteID, ViewBag.sites as SelectList, "Select Site", new { name = "Sites", @class = "form-control", @required = "required" })
+
+                                    @*<select asp-for="SiteID" class="form-control" asp-items="ViewBag.sites">
+                                            <option value="">Select Site</option>
+                                        </select>*@
+                                </div>
+                                if (userRole.Role.RoleName == "Guard")
+                                {
+                                    <div class="mb-4 input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+                                        </div>
+                                        <select id="gates" class="form-control" required>
+                                            <option value="">Select Gate</option>
+                                        </select>
+                                    </div>
+                                }
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="submit" value="Save" class="px-4 btn btn-primary disabled" />
+                                        <button type="button" class="px-4 btn btn-secondary">Back</button>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Gryphon-Lib/vendors/jquery/js/jquery.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/popper.js/js/popper.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/pace-progress/js/pace.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
+    <script src="~/Gryphon-Lib/vendors/coreui/coreui-pro/js/coreui.min.js"></script>
+    <script>
+        $('#ui-view').ajaxLoad();
+        $(document).ajaxComplete(function () {
+            Pace.restart()
+        });
+    </script>
+    <script>
+        $("#SiteID").change(function () {
+
+            var elt = $(this).val();
+            $.ajax({
+
+                url: "/Login/GetGates/" + $("#SiteID option:selected").val(),
+                success: function (result) {
+                    $("#gates").html(result);
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>

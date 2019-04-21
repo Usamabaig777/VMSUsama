@@ -1,0 +1,22 @@
+﻿@model VMS.Models.CheckInVM
+
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="position-relative form-group">
+            <label for="UnitNo" class="col-sm-4 col-form-label"> Unit Number<b style="color: red;"> *</b></label>
+            <input min="0" asp-for="UnitNo" placeholder="Unit Number" type="number" class="form-control">
+        </div>
+
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="position-relative form-group">
+            <label for="SectionSector" class="col-sm-4 col-form-label"> Sector<b style="color: red;"> *</b></label>
+            <input min="0" asp-for="SectionSector" placeholder="Sector" type="number" class="form-control">
+        </div>
+
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="position-relative form-group">
+            <label for="SectionSector" class="col-sm-4 col-form-label"> Vehicle Type<b style="color: red;"> *</b></label>
+            <input asp-for="EmergencyVehicleType" placeholder="Vehicle Type" type="text" class="form-control">
+        </div>
+    </div>

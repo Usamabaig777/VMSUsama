@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="715d7d696ebf4a7daa065494b25f40f0" Name="Diagram1">
+        <EntityTypeShape EntityType="VMSFarhanModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Color" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Company" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Destination" Width="1.5" PointX="2.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Gate" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.IncidentReport" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.IncidentReportAttachment" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.IncidentType" Width="1.5" PointX="7.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Notification" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Privilege" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.RolePrivilege" Width="1.5" PointX="7.5" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Role" Width="1.5" PointX="5.25" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Site" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.StateProvince" Width="1.5" PointX="10.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.sysdiagram" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Trailer" Width="1.5" PointX="16" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.TrailerAttachment" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.TrailerType" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.UserNotification" Width="1.5" PointX="7.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.UserRole" Width="1.5" PointX="7.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.User" Width="1.5" PointX="5.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Vehicle" Width="1.5" PointX="13" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VehicleMake" Width="1.5" PointX="12.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VehicleType" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VisitDetail" Width="1.5" PointX="18.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VisitMain" Width="1.5" PointX="16" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Visitor" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VisitorNotification" Width="1.5" PointX="7.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VisitorStatu" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VisitorType" Width="1.5" PointX="13.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VisitorVehicle" Width="1.5" PointX="10.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.VMSErrorLog" Width="1.5" PointX="12.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.Environment" Width="1.5" PointX="14.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VMSFarhanModel.IncidentReportType" Width="1.5" PointX="14.75" PointY="16.625" IsExpanded="true" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Vehicle_VehicleColor" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_VisitMain_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Site_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Gate_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_IncidentReport_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Notification_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_UserNotification_Notification" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_VisitorNotification_Notification" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_RolePrivilege_Privilege" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_RolePrivilege_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_UserRole_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_User_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Visitor_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Trailer_State" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Vehicle_State" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Trailer_TrailerAttachment" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_UserNotification_User" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_UserRole_User" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Vehicle_VehicleType" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_VisitDetail_VisitMain" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_VisitMain_VisitorType" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_Visitor_VisitorStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="VMSFarhanModel.FK_VisitorNotification_Visitor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

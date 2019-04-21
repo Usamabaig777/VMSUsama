@@ -1,0 +1,192 @@
+﻿@model VMS_ASP_NET.Models.Dashboard
+@using System.Data
+@{
+    /**/
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var stats = Model.Dashboard_Stats_Tables;
+    var activityFeeds = Model.Dashboard_VisitorActivity_Tables;
+    var GetById = Model.Dashboard_Tables;
+}
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active">
+                    <i class="icon-pie-chart"></i>
+                    <span class=""> Live Dashboard</span>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    @if (Model.Dashboard_Stats_Tables.Rows.Count != 0)
+                                    {
+                                        foreach (DataRow row in stats.Rows)
+                                        {
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="callout callout-info">
+                                                    <small class="text-muted">Checked-in Visitors </small>
+                                                    <br>
+
+                                                    <strong class="h4">@row["TotalCheckedIn"].ToString()</strong>
+                                                    @*<strong class="h4">0</strong>*@
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="callout callout-warning">
+                                                    <small class="text-muted">Checked-in Vehicles</small>
+                                                    <br>
+                                                    <strong class="h4">@row["IncidentReported"].ToString()</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="callout callout-success">
+                                                    <small class="text-muted">Incidents Reported  ( Last 24 hours )</small>
+                                                    <br>
+                                                    <strong class="h4">@row["AllVehicles"].ToString()</strong>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">Activity Feed</div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 pull-left" style="overflow-y:scroll; height:400px">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <form class="float-right form-inline">
+                                                    <div class="mb-2 mb-sm-0 position-relative form-group">
+                                                        <label class="mr-sm-2">Filter All: </label>
+                                                        <input placeholder="Search here ..." type="text" class="form-control" value="">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="ReactTable -striped -highlight hideFilterRow">
+                                                    <div class="rt-table" role="grid">
+                                                        <div class="rt-thead -header" style="min-width: 270px;">
+                                                            <div class="rt-tr" role="row">
+                                                                <div class="rt-th -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;">
+                                                                    <div class="">Visit Summary</div>
+                                                                </div>
+                                                                <div class="rt-th -cursor-pointer" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                    <div class=""></div>
+                                                                </div>
+                                                                <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 70 0 auto; width: 70px; max-width: 70px;">
+                                                                    <div class="">Actions</div>
+                                                                </div>
+                                                                <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">
+                                                                    <div class=""></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rt-thead -filters" style="min-width: 270px;">
+                                                            <div class="rt-tr" role="row">
+                                                                <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px;"></div>
+                                                                <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 100 0 auto; width: 100px; max-width: 100px;"></div>
+                                                                <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 70 0 auto; width: 70px; max-width: 70px;"></div>
+                                                                <div class="rt-th" role="columnheader" tabindex="-1" style="flex: 0 0 auto; width: 0px; max-width: 0px;">0</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rt-tbody" style="min-width: 270px;">
+                                                            @{
+                                                                if (activityFeeds.Rows.Count != 0)
+                                                                {
+                                                                    foreach (DataRow row in activityFeeds.Rows)
+                                                                    {
+                                                                        <div class="rt-tr-group" role="rowgroup">
+                                                                            <div class="rt-tr -odd" role="row">
+                                                                                <div class="rt-td" role="gridcell" style="flex: 100 0 auto; width: 100px;">
+                                                                                    <span>
+                                                                                        @row["VisitorActivity"].ToString()
+                                                                                        <br />
+                                                                                        @row["VisitSummary"].ToString()
+                                                                                    </span>
+                                                                                </div>
+                                                                                @*<div class="rt-td" role="gridcell" style="flex: 100 0 auto; width: 100px; max-width: 100px;">
+                                                                                    </div>*@
+                                                                                <div class="rt-td text-center" role="gridcell" style="flex: 70 0 auto; width: 70px; max-width: 70px;">
+                                                                                    @*@Ajax.ActionLink("Details", "GetDetails?VisitorID=" + row["VisitorID"].ToString(), new AjaxOptions { HttpMethod = "POST", Url = "~/Dashboard/GetDetails?VisitorID=" + row["VisitorID"].ToString() })*@
+                                                                                    <button onclick="GetDetail(@row["VisitDetailID"].ToString())" type="button" class="btn btn-primary btn-sm">Detail</button>
+                                                                                </div>
+                                                                                <div class="rt-td hideTableColumn" role="gridcell" style="flex: 0 0 auto; width: 0px; max-width: 0px;"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                    <div class="pagination-bottom">
+                                                        <div class="-pagination">
+                                                            <div class="-previous">
+                                                                <button type="button" disabled="" class="-btn">Previous</button>
+                                                            </div>
+                                                            <div class="-center"><span class="-pageInfo">Page <div class="-pageJump"><input aria-label="jump to page" type="number" value="1"></div> of <span class="-totalPages">6</span></span><span class="select-wrap -pageSizeOptions"><select aria-label="rows per page"><option value="5">5 rows</option><option value="10">10 rows</option><option value="20">20 rows</option><option value="25">25 rows</option><option value="50">50 rows</option><option value="100">100 rows</option></select></span></div>
+                                                            <div class="-next">
+                                                                <button type="button" class="-btn">Next</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="-loading">
+                                                    <div class="-loading-inner">Loading...</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 pull-right">
+                                        <div class="card">
+                                            <div class="card-header">Visit Detail</div>
+                                            @*<div class="card-body" style="height: 370px;width:100%; display: flex; text-align: center; align-items: center;">*@
+
+                                            <div id="DetailHere">
+                                                <div class="card-body" style="height: 370px;width:100%; display: flex; text-align: center; align-items: center;">
+
+                                                    <div class="col-sm-12">Detail will be shown here...</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            function GetDetail(id) {
+                $.ajax({
+
+                    url: "/Dashboard/GetVisitorDetail/",
+                    data: { 'id': id },
+                    success: function (result) {
+                        $("#DetailHere").html(result);
+                    }
+                });
+
+            };
+
+        </script>

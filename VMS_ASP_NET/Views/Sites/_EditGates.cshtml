@@ -1,0 +1,21 @@
+﻿@model VMS_ASP_NET.Models.Gate
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("UpdateGate", "Sites", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="modal-body">
+        <div class="position-relative form-group">
+            <label for="GateDescription" class="">Name<b style="color: red;"> * </b></label>
+            @Html.TextBoxFor(m=>m.GateDescription , new { @class = "form-control" , @required="required" })
+            @*<input value="@" required class="form-control" />*@
+            @Html.HiddenFor(m=>m.GateID ,new { @class="form-control" })
+            @*<input type="hidden" value="" required class="form-control" />
+            <input type="hidden" asp-for="SiteID" required class="form-control" />*@
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+}

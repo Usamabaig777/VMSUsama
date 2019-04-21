@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!-- Files Attachment Modal -->
+
+
+<input type="hidden" id="fileHidden" />
+
+
+<script>
+    var i = 0;
+    //$(document).ready(function () {
+    //    i++;
+    //    $('#AddInput').append('<input name="image" id="append" style="width:auto" type="file" onchange="document.getElementById(' + files_attachment[i] + ').src = window.URL.createObjectURL(this.files[' + i + '])" />')
+    //});
+
+
+    //var i = 0;
+    //$('#append').change(function () {
+    //    i++;
+    //    alert(i);
+    //    //$('#AddInput').append('<div><input type="file" hidden id="MyId[' + i + ']" name="mytext[' + i + ']"/></div>');
+
+    //    $('#AddInput').append('<div style="text-align:center"><img id="files_attachment' + '[' + i + ']' + ' " name ="files_attachment' + '[' + i + ']' + ' " src ="~/Gryphon-Lib/img/no_image.jpg" style = "width: 320px; height: 310px" /><br /><input name="image" style="width: auto" type="file" onchange="document.getElementById(' + files_attachment + '[' + i + ']' + ').src = window.URL.createObjectURL(this.files[' +  i + '])"/></div>');
+        
+    //    var elt = $('#MyId' + [i]);
+    //    var elt2 = $('#files_attachment');
+    //    alert(elt2);
+    //    elt = elt2;
+    //    alert(elt);
+
+    //    $('#MyId' + [i]).val($("#files_attachment").val())
+
+
+    //    // $('#MRegNo1').val(elt);
+
+    //})
+
+    //debugger;
+    //var files = [],
+    //    upload = document.getElementById("files_attachment");
+
+    //upload.onchange = function () {
+    //    debugger;
+    //    for (var i = 0; i < upload.files.length; i++) {
+    //        files.push(upload.files[i]);
+    //    }
+    //}
+
+    $('#Add').click(function () {
+        alert("click");
+        //$('').modal.hide();
+        //files_attachment[0]
+        //files_attachment[1]
+        for (var i = 0; i < files.length; i++) {
+            alert(files[i]);
+        }
+
+        //alert('add');
+        //var name = $('#files_attachment').val();
+        //$('#fileHidden').val(name);
+        //alert(name);
+    })
+</script>

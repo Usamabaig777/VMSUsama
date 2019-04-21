@@ -1,0 +1,36 @@
+﻿@model IEnumerable<VMS_ASP_NET.Models.Gate>
+@{ 
+    Layout = null;
+}
+<div class="table-responsive">
+    <table class="table table-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GateDescription)
+                    </td>
+                    <td>
+                        <button type="button" onclick="editGate(@item.GateID)" class="mr-1 btn btn-link" data-toggle="modal" data-target="#editgate">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                    </td>
+
+                    @*<td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

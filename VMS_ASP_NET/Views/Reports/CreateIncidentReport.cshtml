@@ -1,0 +1,572 @@
+﻿@using VMS_ASP_NET.Models
+@{
+    Layout = null;
+    List<SelectListItem> IncidentList = (List<SelectListItem>)Session["AllIncident"];
+    List<StateProvince> StateList = (List<StateProvince>)Session["AllStaesList"];
+    List<SelectListItem> VehicleMake = (List<SelectListItem>)Session["allMake"];
+    List<SelectListItem> TrailerAttachment = (List<SelectListItem>)Session["trailerList"];
+}
+
+@section CSS{
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">
+
+}
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">*@
+<!-- jQuery & Bootstrap -->
+@*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>*@
+
+@*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>*@
+
+<script src="~/TestFiles/dist/js/BsMultiSelect.min.js"></script>
+
+@using (Html.BeginForm("CreateIncidentReport", "Reports", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="hidden" id="fileHidden" />
+
+
+    <div class="modal-header">
+        <h5 class="modal-title">
+            <i class="fa fa-plus"></i>
+            Create Incident Report
+        </h5>
+        <button type="button" data-dismiss="modal" class="close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="pb-0 pt-0 modal-body">
+        <span class="text-muted"><b style="color: red;"> *</b> fields are required.</span>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-2 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Incident Type <b style="color: red;"> * </b><i class="icon-question" id="IncidentTypeTooltipElement"></i></label>
+                    <div class="col-sm-7">
+
+                        @*<select name="states" id="example" class="form-control" multiple>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option selected value="CA">California</option>
+                            </select>*@
+
+                        @Html.DropDownList("Incident", IncidentList, "Choose from list below", new { multiple = "multiple", required = "required" })
+
+                        <div tabindex="-1" class="rw-multiselect rw-widget">
+
+                            <span id="rw_5_notify_area" role="status" class="rw-sr" aria-live="assertive" aria-atomic="true" aria-relevant="additions removals text"></span>
+                            @*<div class="multiselectCustomClass form-control-sm rw-widget-input rw-widget-picker rw-widget-container">
+                                    <div>
+                                        <input tabindex="0" role="listbox" aria-expanded="false" aria-busy="false" aria-owns="rw_5_listbox rw_5_notify_area " aria-haspopup="true" placeholder="Choose from list below" size="23" class="rw-input-reset" autocomplete="off" aria-disabled="false" aria-readonly="false" >
+                                    </div>
+                                    <span class="rw-select"><button aria-hidden="true" role="presentational" tabindex="-1" type="button" aria-disabled="false" class="rw-btn rw-btn-select"></button></span>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-2 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Date &amp; Time of incident<b style="color: red;">*</b></label>
+                    <div class="col-sm-4">
+                        <div class="rdt DateTimePickerClass">
+                            <input type="date" name="IncidentDate" id="IncidentDate" class="form-control date" data-provide="datepicker" placeholder="Date" required="" data-date-format="MM-dd-yyyy" value="@DateTime.Now.Date.ToString("MM-dd-yyyy")">
+                        </div>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <div class="pl-0 col-sm-3">
+                        <div class="rdt DateTimePickerClass">
+                            <input type="time" name="IncidentTime" class="form-control" placeholder="Time" required="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Location <b style="color: red;"> * </b></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                        <div class="position-relative form-group"><input placeholder="IncidentLocation" name="IncidentLocation" required="" minlength="5" maxlength="50" id="IncidentLocation" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="pr-0 col-sm-5 col-form-label">Security Officer <b style="color: red;"> * </b></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                        <div class="position-relative form-group"><input name="SecurityOfficerName" placeholder="Security Officer" required="" minlength="5" maxlength="50" id="SecurityOfficerName" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Primary Person(s) <b style="color: red;"> * </b><i class="icon-question" id="TooltipElement"></i></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                        <div class="position-relative form-group"><input name="PrimaryInvolvedPerson" placeholder="Primary Person(s)" required="" minlength="3" maxlength="30" id="PrimaryInvolvedPerson" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Name</label>
+                    <div class="col-sm-4">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="name" placeholder="Name" minlength="3" maxlength="50" id="name" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                    <label for="shiftSelect" class="pl-0 col-sm-1 col-form-label">Shift</label>
+                    @*<div class="pr-0 pl-0 col-sm-2">
+                            <div class="bootstrap-switch  bootstrap-switch-on bootstrap-switch-mini" tabindex="0" style="width: 58px;">
+                                <div class="bootstrap-switch-container" style="width: 87px; margin-left: 0px;"><span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 29px;">AM</span><span class="bootstrap-switch-label" style="width: 29px;"> </span><span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 29px;">PM</span></div>
+                            </div>
+                        </div>*@
+                    <div class="pr-0 pl-0 col-sm-2">
+                        <select id="Shift" name="Shift" required class="form-control-sm form-control">
+                            @*<option value="">Choose One</option>*@
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Driver License Number<b style="color: red;"> * </b></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                        <div class="position-relative form-group"><input name="DriverLicenseNo" placeholder="Driver License Number" required="" minlength="5" maxlength="25" id="DriverLicenseNo" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Company Name<b style="color: red;"> * </b></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                        <div class="position-relative form-group"><input name="CompanyName" placeholder="Company Name" required="" minlength="5" maxlength="50" id="CompanyName" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Address<b style="color: red;"> * </b></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                        <div class="position-relative form-group"><input name="Address" placeholder="Address" minlength="5" maxlength="50" id="Address" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Telephone</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="Telephone" placeholder="1 234 567 8900" pattern="^[0-9]+$" minlength="5" maxlength="11" id="Telephone" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-2 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Date of Birth</label>
+                    <div class="col-sm-7">
+                        <div class="rdt DateTimePickerClass">
+                            <input type="date" name="BirthDate" class="form-control" placeholder="Date of Birth">
+                            <div class="rdtPicker">
+                                <div class="rdtDays">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-2 position-relative row form-group">
+                    <label for="SupervisorNameSelection" class="col-sm-5 col-form-label">Supervisor Name<b style="color: red;"> * </b></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                        <div class="position-relative form-group"><input required="" name="SupervisorName" placeholder="Supervisor Name" id="SupervisorName" type="text" class="form-control-sm is-untouched is-pristine av-invalid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Supervisor Telephone</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="SupervisorTelephone" placeholder="Supervisor Telephone" pattern="^[0-9]+$" minlength="5" maxlength="11" id="SupervisorTelephone" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Vehicle Make <i class="icon-question" id="vehicleMakeTooltipElement"></i></label>
+                    <div class="col-sm-7">
+                        @Html.DropDownList("VehicleMake", VehicleMake, "Choose One", new { @class = "form-control-sm form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Vehicle Model <i class="icon-question" id="VehicleModelTooltipElement"></i></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="VehicleModel" placeholder="Vehicle Model" minlength="5" maxlength="50" id="VehicleModel" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Vehicle License Plate</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="VehicleLicensePlateNo" placeholder="Vehicle License Plate" minlength="5" maxlength="50" id="VehicleLicensePlateNo" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-2 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Vehicle License State</label>
+                    <div class="col-sm-7">
+                        <select class="form-control-sm form-control">
+                            <option value="">Choose One</option>
+                            @foreach (var item in StateList)
+                            {
+                                if (item.StateName == "Texas" && item.StateCode == "TX")
+                                {
+                                    <option selected="selected">
+                                        @item.StateCode (@item.StateName)
+                                    </option>
+                                }
+                                else
+                                {
+                                    <option>
+                                        @item.StateCode (@item.StateName)
+                                    </option>
+                                }
+                            }
+
+                        </select>
+                        @*@Html.DropDownList("LicenseList", StateList, "Select License State", new { @class = "form-control-sm form-control" })*@
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-2 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Trailer Attachment</label>
+                    <div class="col-sm-7">
+                        @Html.DropDownList("TrailerAttachment", TrailerAttachment, "Choose One", new { @class = "form-control-sm form-control" })
+                        @*<select name="TrailerAttachmentID" class="form-control-sm form-control">
+                                <option value="0">Choose one</option>
+                                <option value="1">Sand</option>
+                                <option value="2">Water</option>
+                                <option value="3">Oil</option>
+                                <option value="4">Other</option>
+                            </select>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Trailer State</label>
+                    <div class="col-sm-7">
+                        <select class="form-control-sm form-control">
+                            <option value="">Choose One</option>
+                            @foreach (var item in StateList)
+                            {
+                                if (item.StateName == "Texas" && item.StateCode == "TX")
+                                {
+                                    <option selected="selected">
+                                        @item.StateCode (@item.StateName)
+                                    </option>
+                                }
+                                else
+                                {
+                                    <option>
+                                        @item.StateCode (@item.StateName)
+                                    </option>
+                                }
+                            }
+
+                        </select>
+                        @*@Html.DropDownList("TrailerState", StateList, "Select Trailer State", new { @class = "form-control-sm form-control" })*@
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Incident Description </label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="IncidentDescription" placeholder="Incident Description" id="IncidentDescription" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Trailer License Plate</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="TrailerLicensePlateNo" placeholder="Trailer License Plate" minlength="5" maxlength="50" id="TrailerLicensePlateNo" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Trailer VIN</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="TrailerVIN" placeholder="Trailer VIN" minlength="5" maxlength="50" id="TrailerVIN" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="pr-0 col-sm-5 col-form-label">Insurance Company<b style="color: red;"> * </b></label>
+                    <div class="col-sm-7">
+                        <select name="CurrentlyInsured" class="form-control-sm form-control">
+                            <option value="">Choose One</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Vendor</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="Vendor" placeholder="Vendor" minlength="5" maxlength="30" id="Vendor" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <span></span>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Work Site</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="WorkSite" placeholder="Work Site" minlength="5" maxlength="30" id="WorkSite" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Site Type</label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group"><input name="SiteType" placeholder="Site Type" minlength="5" maxlength="50" id="SiteType" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control"></div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Attachments <i class="icon-question" id="AttachmentsTooltipElement"></i></label>
+                    <div class="col-sm-7"><button type="button" id="AddAttachment" data-target="#file_attachment_modal" data-toggle="modal" class="AddAttachment btn btn-primary btn-sm btn-block">Add</button></div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Disposition <i class="icon-question" id="DispositionTooltipElement"></i></label>
+                    <div class="col-sm-7">
+                        @*<form novalidate="" action="#" method="get" class="av-valid">*@
+                        <div class="position-relative form-group">
+                            <input name="Disposition" placeholder="Disposition" minlength="5" maxlength="50" id="Disposition" type="text" class="form-control-sm is-untouched is-pristine av-valid form-control">
+                        </div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <label class="col-sm-5 col-form-label">Status<b style="color: red;"> *</b></label>
+                    <div class="col-sm-7">
+                        <select name="Status" class="form-control-sm form-control">
+                            <option value="Pending">Pending</option>
+                            <option value="Approved">Approved</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="mb-0 position-relative row form-group">
+                    <div class="ml-3">
+                        <div class="custom-checkbox custom-control"><input type="checkbox" name="signature" required id="signature" class="custom-control-input"><label class="custom-control-label" for="signature">Signature</label></div>
+                        <b style="color: red; float: right; margin-top: -25%; margin-right: -11%;">*</b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <p class="mb-0" style="font-size: smaller;"> I affirm that this statement is true and accurate to the best of my knowledge, recollection and understanding.  I understand that I may be asked to answer further questions in person.  I also understand that my statements may be shared with any state departments, agencies or any other law-enforcement agency having the authority to investigate the incident. </p>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="position-relative form-group">
+                    <label class=""><b>Notes</b></label>
+                    @*<form novalidate="" action="#" method="get" class="av-invalid">*@
+                    <div class="position-relative form-group"><textarea name="Notes" placeholder="Notes..." maxlength="7500" id="Notes" class="form-control-sm is-untouched is-pristine av-invalid form-control"></textarea></div>
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade show" id="file_attachment_modal" role="dialog">
+        <div class="modal-dialog modal-md modal-success AddAttachmentModelClose" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fa fa-plus"></i> Add Attachments</h5>
+                    <button type="button" id="AddAttachmentModelClose" class="close" @*aria-label="Close" data-dismiss="modal"*@>
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="file-loading">
+                    <div style="text-align:center">
+                        <input name="FileName" id="appendInputFiles" style="width:auto" type="file" @*onchange="document.getElementById('files_attachment[0]').src = window.URL.createObjectURL(this.files[0])"*@ multiple />
+                        @*<img id="files_attachment[0]" name="files_attachment" src="~/Gryphon-Lib/img/no_image.jpg" style="width:320px;height:310px" alt="your image"  />*@
+                        <br />
+                    </div>
+                    <div id="AddInput"></div>
+                </div>
+
+                @*<div id="IncidentReportSaveForm" class="IncidentReportSaveForm">
+
+
+
+                    </div>*@
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="AddAttachmentModelClose">Add</button>
+                    <button type="reset" id="AddAttachmentModelClose" class="btn btn-secondary AddAttachmentModelClose">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <input type="submit" id="createReport" name="Create Report" class="btn btn-success createReport" />
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
+
+}
+
+<div class="modal fade show" id="file_attachment_modal" role="dialog">
+    <div class="modal-dialog modal-md modal-success AddAttachmentModelClose" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-plus"></i> Add Attachments</h5>
+                <button type="button" id="AddAttachmentModelClose" class="close" @*aria-label="Close" data-dismiss="modal"*@>
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="file-loading">
+                <div style="text-align:center">
+                    <input name="FileName" id="appendInputFiles" style="width:auto" type="file" @*onchange="document.getElementById('files_attachment[0]').src = window.URL.createObjectURL(this.files[0])"*@ multiple />
+                    @*<img id="files_attachment[0]" name="files_attachment" src="~/Gryphon-Lib/img/no_image.jpg" style="width:320px;height:310px" alt="your image"  />*@
+                    <br />
+                </div>
+                <div id="AddInput"></div>
+            </div>
+
+            @*<div id="IncidentReportSaveForm" class="IncidentReportSaveForm">
+
+
+
+                </div>*@
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="AddAttachmentModelClose">Add</button>
+                <button type="reset" id="AddAttachmentModelClose" class="btn btn-secondary AddAttachmentModelClose">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*<input type="text" id="timepicker" name="timepicker" class="timepicker">*@
+<!--<label for="timepicker-two" style="color:#ffffff;">Time input 2:</label>-->
+<!--<input type="text" id="timepicker-two" name="timepicker-two" class="timepicker">-->
+@*<script type="text/javascript">
+        // $(function () {
+        //   $('.datePakar').timepicker();
+        // });
+        $('.datePakar').datepicker([options])
+        // Access instance of plugin
+        $('.datePakar').data('datepicker')
+
+    </script>*@
+<script src="~/UI/assets/js/datepicker.js"></script>
+<script src="~/UI/assets/js/wickedpicker.js"></script>
+<script>
+
+    $('.AddAttachmentModelClose').click(function () {
+
+        $('#file_attachment_modal').modal('toggle');
+
+    });
+
+</script>
+<script>
+
+            //$('#IncidentDate').change(function () {
+
+            //    alert('change');
+
+            //});
+
+            //$('#AddAttachment').click(function () {
+
+            //    $.ajax({
+
+            //        url: "/Reports/AddAttachment/",
+            //        success: function (result) {
+            //            $(".IncidentReportSaveForm").html(result);
+            //        }
+            //    });
+
+            //})
+</script>
